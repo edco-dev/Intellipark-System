@@ -15,8 +15,11 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// Function to handle form submission
 const form = document.getElementById('driverForm');
+const formSection = document.getElementById('formSection');
+const qrSection = document.getElementById('qrSection');
+const confirmationSection = document.getElementById('confirmationSection');
+
 form.addEventListener('submit', async (event) => {
     event.preventDefault(); // Prevent the default form submission
 
@@ -30,10 +33,48 @@ form.addEventListener('submit', async (event) => {
         console.log("Document written with ID: ", docRef.id);
         alert("Registration successful!");
 
+        // Generate the QR code
+        generateQRCode(docRef.id);
+
+        // Slide to QR section
+        formSection.classList.remove('show');
+        qrSection.classList.add('show');
+
         // Reset the form after successful submission
-        form.reset(); // Reset the form
+        form.reset();
     } catch (e) {
         console.error("Error adding document: ", e);
         alert("Registration failed!");
     }
+});
+
+// Function to generate QR code
+function generateQRCode(docId) {
+    const qrCanvas = document.getElementById('qrcode');
+    const qr = new QRious({
+        element: qrCanvas,
+        value: `Document ID: ${docId}`,
+        size: 128
+    });
+}
+
+// Download QR Code functionality
+document.getElementById('downloadBtn').addEventListener('click', () => {
+    const qrCanvas = document.getElementById('qrcode');
+    const link = document.createElement('a');
+    link.href = qrCanvas.toDataURL('image/png');
+    link.download = 'qrcode.png';
+    link.click();
+});
+
+// Next button to go to confirmation
+document.getElementById('nextBtn').addEventListener('click', () => {
+    qrSection.classList.remove('show');
+    confirmationSection.classList.add('show');
+});
+
+// Finish button to close the form and redirect
+document.getElementById('finishBtn').addEventListener('click', () => {
+    // Redirect to the home page
+    window.location.href = "index.html"; // Change this to your home page URL
 });

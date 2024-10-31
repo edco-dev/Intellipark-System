@@ -5,36 +5,99 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./src/style.css">
     <title>IntelliPark System</title>
+    <style>
+     body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    overflow: hidden;
+    height: 100vh; /* Ensure full viewport height */
+    margin: 0; /* Remove default margin */
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.form-section, .qr-section, .confirmation-section {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: transform 0.5s ease; /* Smooth sliding effect */
+    opacity: 0; /* Start as invisible */
+    z-index: 0; /* Layers the sections */
+}
+
+.qr-section, .confirmation-section {
+    transform: translateX(100%); /* Initially hide these sections */
+}
+
+.show {
+    transform: translateX(0); /* Show the section */
+    opacity: 1; /* Make it visible */
+    z-index: 1; /* Bring the section to the front */
+}
+
+    </style>
 </head>
 <body>
-    <h1>Driver Registration</h1>
-    <form id="driverForm">
-        <input type="text" name="firstName" required placeholder="First Name">
-        <input type="text" name="middleName" placeholder="Middle Name">
-        <input type="text" name="lastName" required placeholder="Last Name">
-        <select name="gender" required>
-            <option value="">Select Gender</option>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-        </select>
-        <input type="number" name="age" required placeholder="Age">
-        <select name="userType" required>
-            <option value="">Select User Type</option>
-            <option value="Driver">Driver</option>
-            <option value="Passenger">Passenger</option>
-        </select>
-        <input type="tel" name="contactNumber" required placeholder="Contact Number">
-        <input type="email" name="emailAddress" required placeholder="Email Address">
-        <input type="text" name="address" required placeholder="Address">
-        <input type="text" name="plateNumber" required placeholder="Plate Number">
-        <input type="text" name="vehicleType" required placeholder="Vehicle Type">
-        <input type="text" name="vehicleColor" required placeholder="Vehicle Color">
-        <button type="submit">Register</button>
-    </form>
-    
-  
-  <script type="module" src="polyfills.js"></script>
-  <script type="module" src="./src/app.js"></script>
-  <script type="module" src="./src/index.js"></script>
+    <div class="container">
+        <!-- Form Section -->
+        <div class="form-section show" id="formSection">
+            <h1>Driver Registration</h1>
+            <form id="driverForm">
+                <input type="text" name="firstName" required placeholder="First Name">
+                <input type="text" name="middleName" placeholder="Middle Name">
+                <input type="text" name="lastName" required placeholder="Last Name">
+                <select name="gender" required>
+                    <option value="">Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+                <input type="number" name="age" required placeholder="Age">
+                <select name="userType" required>
+                    <option value="">Select User Type</option>
+                    <option value="Driver">Driver</option>
+                    <option value="Passenger">Passenger</option>
+                </select>
+                <input type="tel" name="contactNumber" required placeholder="Contact Number">
+                <input type="email" name="emailAddress" required placeholder="Email Address">
+                <input type="text" name="address" required placeholder="Address">
+                <input type="text" name="plateNumber" required placeholder="Plate Number">
+                <input type="text" name="vehicleType" required placeholder="Vehicle Type">
+                <input type="text" name="vehicleColor" required placeholder="Vehicle Color">
+                <button type="submit">Register</button>
+            </form>
+        </div>
+
+        <!-- QR Code Section -->
+        <div class="qr-section" id="qrSection">
+            <h2>Your QR Code</h2>
+            <canvas id="qrcode" width="128" height="128"></canvas>
+            <p id="message"></p>
+            <button id="downloadBtn">Download QR Code</button>
+            <button id="nextBtn">Next</button>
+        </div>
+
+        <!-- Confirmation Section -->
+        <div class="confirmation-section" id="confirmationSection">
+            <h2>Registration Completed!</h2>
+            <p>Your registration was successful. Thank you!</p>
+            <button id="finishBtn">Finish</button> <!-- Finish button to close the form -->
+        </div>
+    </div>
+
+    <!-- Include QRious Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.0/qrious.min.js"></script>
+    <script type="module" src="polyfills.js"></script>
+    <script type="module" src="./src/app.js"></script>
+    <script type="module" src="./src/index.js"></script>
 </body>
 </html>
