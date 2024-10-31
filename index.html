@@ -1,1 +1,40 @@
-"<!DOCTYPE html><html><head><title>Parking System</title></head><body><h1>Welcome to the Parking System</h1></body></html>" 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/style.css">
+    <title>IntelliPark System</title>
+</head>
+<body>
+    <h1>Driver Registration</h1>
+    <form id="driverForm">
+        <input type="text" name="firstName" required placeholder="First Name">
+        <input type="text" name="middleName" placeholder="Middle Name">
+        <input type="text" name="lastName" required placeholder="Last Name">
+        <select name="gender" required>
+            <option value="">Select Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+        <input type="number" name="age" required placeholder="Age">
+        <select name="userType" required>
+            <option value="">Select User Type</option>
+            <option value="Driver">Driver</option>
+            <option value="Passenger">Passenger</option>
+        </select>
+        <input type="tel" name="contactNumber" required placeholder="Contact Number">
+        <input type="email" name="emailAddress" required placeholder="Email Address">
+        <input type="text" name="address" required placeholder="Address">
+        <input type="text" name="plateNumber" required placeholder="Plate Number">
+        <input type="text" name="vehicleType" required placeholder="Vehicle Type">
+        <input type="text" name="vehicleColor" required placeholder="Vehicle Color">
+        <button type="submit">Register</button>
+    </form>
+    
+  
+  <script type="module" src="polyfills.js"></script>
+  <script type="module" src="./src/app.js"></script>
+  <script type="module" src="./src/index.js"></script>
+</body>
+</html>
