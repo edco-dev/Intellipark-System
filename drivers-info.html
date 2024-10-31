@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/style.css">
+    <title>Drivers Info</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Registered Drivers Information</h1>
+        <table id="driversTable">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Middle Name</th>
+                    <th>Last Name</th>
+                    <th>Gender</th>
+                    <th>Age</th>
+                    <th>User Type</th>
+                    <th>Contact Number</th>
+                    <th>Email Address</th>
+                    <th>Address</th>
+                    <th>Plate Number</th>
+                    <th>Vehicle Type</th>
+                    <th>Vehicle Color</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Driver data will be populated here -->
+            </tbody>
+        </table>
+        
+        <!-- Pagination Controls -->
+        <div class="pagination">
+            <button id="prevPageBtn">Previous</button>
+            <span id="currentPage"></span>
+            <button id="nextPageBtn">Next</button>
+        </div>
+        
+        <button id="prevToRegistrationBtn">Back to Registration</button> <!-- Previous button -->
+    </div>
+    
+    <script type="module" src="./src/drivers-info.js"></script> <!-- Include the JS file for functionality -->
+</body>
+</html>

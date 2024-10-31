@@ -1,7 +1,9 @@
 // Import the functions you need from the Firebase SDK
+// Import the functions you need from the Firebase SDK
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, addDoc } from "firebase/firestore";
+import { getFirestore } from "firebase/firestore";
 
+// Your web app's Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyDbXiBef-fXk9igZ5mZv_F896kyPtnXxvk",
     authDomain: "intellipark-db283.firebaseapp.com",
@@ -14,6 +16,10 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+
+// Export the Firestore database instance
+export { db }; // Make sure to export the db
+
 
 const form = document.getElementById('driverForm');
 const formSection = document.getElementById('formSection');
@@ -48,12 +54,12 @@ form.addEventListener('submit', async (event) => {
     }
 });
 
-// Function to generate QR code
 function generateQRCode(docId) {
     const qrCanvas = document.getElementById('qrcode');
+    const qrData = JSON.stringify({ docId: docId }); // QR data as JSON
     const qr = new QRious({
         element: qrCanvas,
-        value: `Document ID: ${docId}`,
+        value: qrData, // Store JSON with docId
         size: 128
     });
 }
