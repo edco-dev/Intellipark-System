@@ -30,7 +30,26 @@
                 <!-- Driver data will be populated here -->
             </tbody>
         </table>
-        
+        <div id="editDriverModal" style="display:none;">
+            <h2>Edit Driver Information</h2>
+            <form id="editDriverForm">
+                <input type="hidden" id="editDocId" />
+                <input type="text" name="firstName" required placeholder="First Name" id="editFirstName">
+                <input type="text" name="middleName" placeholder="Middle Name" id="editMiddleName">
+                <input type="text" name="lastName" required placeholder="Last Name" id="editLastName">
+                <input type="text" name="gender" required placeholder="Gender" id="editGender">
+                <input type="number" name="age" required placeholder="Age" id="editAge">
+                <input type="text" name="userType" required placeholder="User Type" id="editUserType">
+                <input type="text" name="contactNumber" required placeholder="Contact Number" id="editContactNumber">
+                <input type="email" name="emailAddress" required placeholder="Email Address" id="editEmailAddress">
+                <input type="text" name="address" required placeholder="Address" id="editAddress">
+                <input type="text" name="plateNumber" required placeholder="Plate Number" id="editPlateNumber">
+                <input type="text" name="vehicleType" required placeholder="Vehicle Type" id="editVehicleType">
+                <input type="text" name="vehicleColor" required placeholder="Vehicle Color" id="editVehicleColor">
+                <button type="submit">Save Changes</button>
+                <button type="button" id="closeEditModal">Cancel</button>
+            </form>
+        </div>
         <!-- Pagination Controls -->
         <div class="pagination">
             <button id="prevPageBtn">Previous</button>

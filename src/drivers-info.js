@@ -1,5 +1,5 @@
-import { getFirestore, collection, getDocs } from "firebase/firestore"; // Import Firestore functions
-import { db } from "./app"; // Assuming your Firebase app is initialized in app.js
+import { getFirestore, collection, getDocs, doc, updateDoc } from "firebase/firestore"; // Import Firestore functions
+import { db } from "./app"; // Ensure this is correct
 
 const driversPerPage = 5; // Number of drivers to display per page
 let currentPage = 1; // Current page number
@@ -36,6 +36,21 @@ function displayDrivers() {
         row.insertCell(9).innerText = driver.plateNumber;
         row.insertCell(10).innerText = driver.vehicleType;
         row.insertCell(11).innerText = driver.vehicleColor;
+
+        // Add an Edit button
+        const editCell = row.insertCell(12);
+        const editButton = document.createElement('button');
+        editButton.innerText = 'Edit';
+        editButton.onclick = () => editDriver(row, driver); // Call edit function with the row and driver object
+        editCell.appendChild(editButton);
+
+        // Add a Save button
+        const saveCell = row.insertCell(13);
+        const saveButton = document.createElement('button');
+        saveButton.innerText = 'Save';
+        saveButton.onclick = () => saveDriver(row, driver.id); // Call save function with the row and driver ID
+        saveButton.style.display = 'none'; // Initially hidden
+        saveCell.appendChild(saveButton);
     });
 
     // Update the page indicator
@@ -44,6 +59,53 @@ function displayDrivers() {
     // Enable or disable buttons based on the current page
     document.getElementById('prevPageBtn').disabled = currentPage === 1;
     document.getElementById('nextPageBtn').disabled = currentPage === Math.ceil(driversData.length / driversPerPage);
+}
+
+// Function to edit a driver
+function editDriver(row, driver) {
+    // Replace row cells with input fields
+    row.cells[0].innerHTML = `<input type="text" value="${driver.firstName}" />`;
+    row.cells[1].innerHTML = `<input type="text" value="${driver.middleName || ''}" />`;
+    row.cells[2].innerHTML = `<input type="text" value="${driver.lastName}" />`;
+    row.cells[3].innerHTML = `<input type="text" value="${driver.gender}" />`;
+    row.cells[4].innerHTML = `<input type="number" value="${driver.age}" />`;
+    row.cells[5].innerHTML = `<input type="text" value="${driver.userType}" />`;
+    row.cells[6].innerHTML = `<input type="text" value="${driver.contactNumber}" />`;
+    row.cells[7].innerHTML = `<input type="email" value="${driver.emailAddress}" />`;
+    row.cells[8].innerHTML = `<input type="text" value="${driver.address}" />`;
+    row.cells[9].innerHTML = `<input type="text" value="${driver.plateNumber}" />`;
+    row.cells[10].innerHTML = `<input type="text" value="${driver.vehicleType}" />`;
+    row.cells[11].innerHTML = `<input type="text" value="${driver.vehicleColor}" />`;
+
+    // Show the Save button and hide the Edit button
+    row.cells[12].querySelector('button').style.display = 'none'; // Hide edit button
+    row.cells[13].querySelector('button').style.display = 'inline'; // Show save button
+}
+
+// Function to save the updated driver data
+async function saveDriver(row, docId) {
+    // Get the updated data from input fields
+    const updatedData = {
+        firstName: row.cells[0].querySelector('input').value,
+        middleName: row.cells[1].querySelector('input').value,
+        lastName: row.cells[2].querySelector('input').value,
+        gender: row.cells[3].querySelector('input').value,
+        age: parseInt(row.cells[4].querySelector('input').value), // Ensure age is a number
+        userType: row.cells[5].querySelector('input').value,
+        contactNumber: row.cells[6].querySelector('input').value,
+        emailAddress: row.cells[7].querySelector('input').value,
+        address: row.cells[8].querySelector('input').value,
+        plateNumber: row.cells[9].querySelector('input').value,
+        vehicleType: row.cells[10].querySelector('input').value,
+        vehicleColor: row.cells[11].querySelector('input').value,
+    };
+
+    // Update the document in Firestore
+    const driverRef = doc(db, "drivers", docId);
+    await updateDoc(driverRef, updatedData);
+
+    // Refresh the displayed data
+    fetchDriversData(); // Refresh the data displayed in the table
 }
 
 // Event listeners for pagination buttons

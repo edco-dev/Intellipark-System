@@ -1,7 +1,6 @@
 // Import the functions you need from the Firebase SDK
-// Import the functions you need from the Firebase SDK
 import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
+import { getFirestore, collection, addDoc } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -18,9 +17,9 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 // Export the Firestore database instance
-export { db }; // Make sure to export the db
+export { db };
 
-
+// Main logic for handling form submission
 const form = document.getElementById('driverForm');
 const formSection = document.getElementById('formSection');
 const qrSection = document.getElementById('qrSection');
@@ -33,6 +32,9 @@ form.addEventListener('submit', async (event) => {
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData.entries());
 
+    // Add the status field with a default value of false
+    data.status = false; // Set status to false on registration
+    
     try {
         // Add a new document with a generated ID to Firestore
         const docRef = await addDoc(collection(db, "drivers"), data);

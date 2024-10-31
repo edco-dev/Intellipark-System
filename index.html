@@ -7,44 +7,43 @@
     <title>IntelliPark System</title>
     <style>
      body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    overflow: hidden;
-    height: 100vh; /* Ensure full viewport height */
-    margin: 0; /* Remove default margin */
-}
+        font-family: Arial, sans-serif;
+        text-align: center;
+        overflow: hidden;
+        height: 100vh; /* Ensure full viewport height */
+        margin: 0; /* Remove default margin */
+    }
 
-.container {
-    position: relative;
-    width: 100%;
-    height: 100%;
-}
+    .container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
 
-.form-section, .qr-section, .confirmation-section {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 0;
-    left: 0;
-    transition: transform 0.5s ease; /* Smooth sliding effect */
-    opacity: 0; /* Start as invisible */
-    z-index: 0; /* Layers the sections */
-}
+    .form-section, .qr-section, .confirmation-section {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: transform 0.5s ease; /* Smooth sliding effect */
+        opacity: 0; /* Start as invisible */
+        z-index: 0; /* Layers the sections */
+    }
 
-.qr-section, .confirmation-section {
-    transform: translateX(100%); /* Initially hide these sections */
-}
+    .qr-section, .confirmation-section {
+        transform: translateX(100%); /* Initially hide these sections */
+    }
 
-.show {
-    transform: translateX(0); /* Show the section */
-    opacity: 1; /* Make it visible */
-    z-index: 1; /* Bring the section to the front */
-}
-
+    .show {
+        transform: translateX(0); /* Show the section */
+        opacity: 1; /* Make it visible */
+        z-index: 1; /* Bring the section to the front */
+    }
     </style>
 </head>
 <body>
@@ -75,6 +74,10 @@
                 <input type="text" name="plateNumber" required placeholder="Plate Number">
                 <input type="text" name="vehicleType" required placeholder="Vehicle Type">
                 <input type="text" name="vehicleColor" required placeholder="Vehicle Color">
+                
+                <!-- Hidden status input -->
+                <input type="hidden" name="status" value="0"> <!-- Status is initialized to 0 -->
+
                 <button type="submit">Register</button>
             </form>
         </div>
