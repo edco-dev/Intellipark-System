@@ -50,7 +50,14 @@ body, html {
 }
 
 .sidebar ul li a:hover {
-    color: #3498db; /* Change hover color for better visibility */
+    background-color: #3498db; /* Change hover color for better visibility */
+    color: #ffffff;
+    border-radius: 2px;
+    padding: 10px;
+}
+
+.sidebar ul li a:hover img.sbar-logo {
+    filter: invert(100%) sepia(0%) saturate(100%) hue-rotate(0deg) brightness(1);
 }
 
 /* Main content styling */
