@@ -3,8 +3,7 @@ const bodyParser = require('body-parser');
 const admin = require('firebase-admin');
 
 const app = express();
-app.use(bodyParser.json()); // Middleware to parse JSON bodies
-
+app.use(bodyParser.json());
 // Initialize Firebase Admin SDK
 const serviceAccount = require('./config/serviceAccountKey.json');
 admin.initializeApp({
