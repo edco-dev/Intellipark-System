@@ -28,7 +28,7 @@ coverage/
 .idea/
 .vscode/
 # Parcel cache
-parcel-cache/
+.parcel-cache/
 # Package lock files
 package-lock.json  # Uncomment if you want to keep it, needed for npm install
 yarn.lock          # Uncomment if you are using Yarn instead of npm

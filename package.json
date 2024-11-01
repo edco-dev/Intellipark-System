@@ -2,8 +2,8 @@
   "name": "intellipark-system",
   "version": "1.0.0",
   "scripts": {
-    "start": "parcel index.html",
-    "build": "parcel build index.html"
+    "start": "parcel dashboard.html",
+    "build": "parcel build dashboard.html"
   },
   "author": "",
   "license": "ISC",

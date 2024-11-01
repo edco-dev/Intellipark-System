@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IntelliPark Dashboard</title>
+    <link rel="stylesheet" href="./src/dashboard.css">
+    <style>
+        body {
+            margin: 0; /* Remove default margin */
+            font-family: Arial, sans-serif; /* Set a default font */
+        }
+
+        .dashboard-container {
+            display: flex; /* Use flexbox for sidebar and main content */
+            height: 100vh; /* Full height of the viewport */
+            background-color: #f0f0f0; /* Background color for the entire page */
+        }
+
+        .sidebar {
+            width: 20%; /* Set the width of the sidebar */
+            background-color: white; /* Sidebar background color */
+            color: black; /* Text color */
+            padding: 20px; /* Add padding */
+            height: 100%; /* Full height of the sidebar */
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+            display: flex;
+            flex-direction: column; /* Arrange children in a column */
+            justify-content: space-between; /* Push logout to the bottom */
+        }
+
+        .sidebar h2 {
+            margin-bottom: 20px; /* Space below the title */
+            color: black; /* Make sure the title is black */
+        }
+
+        .sidebar ul {
+            list-style-type: none; /* Remove bullet points */
+            padding: 0; /* Remove padding */
+        }
+
+        .sidebar li {
+            margin: 10px 0; /* Add margin between items */
+        }
+
+        .sidebar a {
+            text-decoration: none; /* Remove underline */
+            color: black; /* Link color */
+            padding: 10px; /* Padding around links */
+            display: block; /* Make the entire area clickable */
+            transition: background-color 0.3s; /* Smooth background change */
+        }
+
+        .sidebar a:hover {
+            background-color: #e0e0e0; /* Change background on hover */
+        }
+
+        .logout-text {
+            color: red; /* Logout text color */
+            cursor: pointer; /* Change cursor to pointer on hover */
+            text-align: center; /* Center the text */
+            margin-top: auto; /* Push to the bottom */
+            font-weight: bold; /* Bold text */
+            display: inline; /* Display inline without padding */
+        }
+
+        .main-content {
+            flex-grow: 1; /* Allow main content to fill the remaining space */
+            padding: 20px; /* Add padding to the main content */
+            overflow-y: auto; /* Allow scrolling if content overflows */
+        }
+
+        .dashboard-statistics {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+
+        .statistic-block {
+            background-color: #ffffff; /* Background color for statistics */
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            width: 20%;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow for blocks */
+        }
+
+        .statistic-block h3 {
+            margin: 0 0 10px;
+        }
+
+        .statistic-block p {
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="dashboard-container">
+    <!-- Sidebar -->
+    <nav class="sidebar">
+        <h2>IntelliPark</h2>
+        <ul>
+            <li><a href="#" data-section="dashboard">Dashboard</a></li>
+            <li><a href="#" data-section="drivers-info">Drivers Info</a></li>
+            <li><a href="#" data-section="vehicles-in">Vehicles In</a></li>
+            <li><a href="#" data-section="register">Register</a></li>
+            <li><a href="#" data-section="history">History</a></li>
+        </ul>
+        <!-- Logout Text at the bottom of the sidebar -->
+        <p class="logout-text" id="logoutText">Logout</p>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="content-section active">
+            <h2>Dashboard</h2>
+            <div class="dashboard-statistics">
+                <div class="statistic-block" id="totalVehiclesBlock">
+                    <h3>Total Vehicles</h3>
+                    <p id="totalVehicles">0</p>
+                </div>
+                <div class="statistic-block" id="slotsAvailableBlock">
+                    <h3>Slots Available</h3>
+                    <p id="slotsAvailable">50</p>
+                </div>
+                <div class="statistic-block" id="vehiclesInBlock">
+                    <h3>Vehicles In</h3>
+                    <p id="vehiclesIn">0</p>
+                </div>
+                <div class="statistic-block" id="vehiclesOutBlock">
+                    <h3>Vehicles Out</h3>
+                    <p id="vehiclesOut">0</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Drivers Info Section -->
+        <section id="drivers-info" class="content-section">
+            <h2>Drivers Info</h2>
+            <iframe src="drivers-info.html" width="100%" height="500px"></iframe>
+        </section>
+
+        <!-- Vehicles In Section -->
+        <section id="vehicles-in" class="content-section">
+            <h2>Vehicles In</h2>
+            <p>Display vehicles that are currently in (status: true).</p>
+        </section>
+
+        <!-- Register Section -->
+        <section id="register" class="content-section">
+            <h2>Register</h2>
+            <iframe src="index.html" width="100%" height="500px"></iframe>
+        </section>
+
+        <!-- History Section -->
+        <section id="history" class="content-section">
+            <h2>History</h2>
+            <p>Vehicle in/out history will be displayed here.</p>
+        </section>
+    </div>
+</div>
+
+<script src="./src/dashboard.js"></script>
+<script>
+    document.getElementById('logoutText').addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent default behavior
+        // Here you should add your logout logic, for example:
+        // auth.signOut().then(() => {
+        //     console.log('User signed out.');
+        //     window.location.href = 'login.html'; // Redirect to login page
+        // }).catch((error) => {
+        //     console.error('Sign out error:', error);
+        // });
+        alert('Logout functionality not implemented yet.'); // Placeholder for actual logout logic
+    });
+</script>
+</body>
+</html>
