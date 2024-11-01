@@ -64,6 +64,21 @@
             display: inline; /* Display inline without padding */
         }
 
+        .navbar {
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+            padding: 25px;
+            border-radius: 10px;
+            background-color: #ffffff;
+        }
+
+        .card-body {
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+            background-color: #ffffff;
+            margin: 10px 0px 10px 0px;
+            padding: 30px 30px 150px 30px;
+            border-radius: 10px;
+        }
+
         .main-content {
             flex-grow: 1; /* Allow main content to fill the remaining space */
             padding: 20px; /* Add padding to the main content */
@@ -71,28 +86,34 @@
         }
 
         .dashboard-statistics {
-            display: flex;
-            justify-content: space-around;
-            margin: 20px 0;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px; /* Adjust the gap as needed */
         }
 
         .statistic-block {
-            background-color: #ffffff; /* Background color for statistics */
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            padding: 20px;
-            text-align: center;
-            width: 20%;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow for blocks */
+            border: 1px solid #ccc; /* Add a border for visibility */
+            padding: 20px; /* Add some padding */
+            /* Center the text */
+            border-radius: 8px; /* Optional: Rounded corners */
+            background-color: #086464; /* Optional: Background color */
+            color: white;
         }
 
         .statistic-block h3 {
             margin: 0 0 10px;
+            font-size: 40px;
         }
 
         .statistic-block p {
-            font-size: 24px;
+            font-size: 30px;
             font-weight: bold;
+        }
+
+        .dashboard-text{
+            text-align: center;
+            padding: 25px;
+            font-size: 32px;
         }
     </style>
 </head>
@@ -101,13 +122,16 @@
 <div class="dashboard-container">
     <!-- Sidebar -->
     <nav class="sidebar">
-        <h2>IntelliPark</h2>
+        <h2 style="display: flex; align-items: center;">
+            <img src="assets/img/logo.png" width="40" style="margin-top: 10px; margin-right: 10px;" alt="logo">
+            INTELLIPARK<br>SYSTEM
+        </h2>        
         <ul>
-            <li><a href="#" data-section="dashboard">Dashboard</a></li>
-            <li><a href="#" data-section="drivers-info">Drivers Info</a></li>
-            <li><a href="#" data-section="vehicles-in">Vehicles In</a></li>
-            <li><a href="#" data-section="register">Register</a></li>
-            <li><a href="#" data-section="history">History</a></li>
+            <li class="side-list"><a href="#"  style="display: flex; align-items: center;" data-section="dashboard"><img class="sbar-logo" src="assets/img/ds-logo.svg" style="margin-right: 2px;" width="30" alt="">Dashboard</a></li>
+            <li class="side-list"><a href="#"  style="display: flex; align-items: center;" data-section="drivers-info"><img class="sbar-logo" src="assets/img/user.svg" style="margin-right: 2px;" width="30" alt="">Drivers Info</a></li>
+            <li class="side-list"><a href="#"  style="display: flex; align-items: center;" data-section="vehicles-in"><img class="sbar-logo" src="assets/img/toll.svg" style="margin-right: 2px;" width="30" alt="">Vehicles In</a></li>
+            <li class="side-list"><a href="#"  style="display: flex; align-items: center;" data-section="register"><img class="sbar-logo" src="assets/img/user-add.svg" style="margin-right: 2px;" width="30" alt=""> Register</a></li>
+            <li class="side-list"><a href="#"  style="display: flex; align-items: center;" data-section="history"><img class="sbar-logo" src="assets/img/clock.svg" style="margin-right: 2px;" width="30" alt="">History</a></li>
         </ul>
         <!-- Logout Text at the bottom of the sidebar -->
         <p class="logout-text" id="logoutText">Logout</p>
@@ -117,26 +141,43 @@
     <div class="main-content">
         <!-- Dashboard Section -->
         <section id="dashboard" class="content-section active">
-            <h2>Dashboard</h2>
+            <nav class="navbar">
+                <h1 style="display: flex; align-items: center;"><img style="margin-right: 5px;" src="assets/img/ds-logo.svg" width="40px" alt="">Dashboard</h1>
+             </nav>
+            <div class="card-body">
+                <h2 class="dashboard-text">DASHBOARD</h2>
             <div class="dashboard-statistics">
-                <div class="statistic-block" id="totalVehiclesBlock">
-                    <h3>Total Vehicles</h3>
-                    <p id="totalVehicles">0</p>
+                <div class="statistic-block" id="totalVehiclesBlock" >
+                    <h3 id="totalVehicles"><i>5</i></h3>
+                    <div style="display: flex; align-items: center;">
+                        <p>Total Vehicles </br> Parked</p>
+                        <img style="margin-left: 180px;" src="assets/img/car.png" width="120" alt="car">
+                    </div>
                 </div>
-                <div class="statistic-block" id="slotsAvailableBlock">
-                    <h3>Slots Available</h3>
-                    <p id="slotsAvailable">50</p>
+                <div class="statistic-block" id="totalVehiclesBlock" >
+                    <h3 id="totalVehicles"><i>2/50</i></h3>
+                    <div style="display: flex; align-items: center;">
+                        <p>Slots Available</p>
+                        <img style="margin-left: 200px;" src="assets/img/car.png" width="120" alt="car">
+                    </div>
                 </div>
-                <div class="statistic-block" id="vehiclesInBlock">
-                    <h3>Vehicles In</h3>
-                    <p id="vehiclesIn">0</p>
+                <div class="statistic-block" id="totalVehiclesBlock" >
+                    <h3 id="totalVehicles"><i>2</i></h3>
+                    <div style="display: flex; align-items: center;">
+                        <p>Vehicle IN</p>
+                        <img style="margin-left: 200px;" src="assets/img/car.png" width="120" alt="car">
+                    </div>
                 </div>
-                <div class="statistic-block" id="vehiclesOutBlock">
-                    <h3>Vehicles Out</h3>
-                    <p id="vehiclesOut">0</p>
+                <div class="statistic-block" id="totalVehiclesBlock" >
+                    <h3 id="totalVehicles"><i>3</i></h3>
+                    <div style="display: flex; align-items: center;">
+                        <p>Vehicle OUT</p>
+                        <img style="margin-left: 200px;" src="assets/img/car.png" width="120" alt="car">
+                    </div>
                 </div>
             </div>
-        </section>
+            </div>
+        </section>        
 
         <!-- Drivers Info Section -->
         <section id="drivers-info" class="content-section">
