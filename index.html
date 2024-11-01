@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./src/style.css">
+    <!-- <link rel="stylesheet" href="./src/style.css"> -->
     <title>IntelliPark System</title>
     <style>
      body {
@@ -52,7 +52,6 @@
         <!-- Form Section -->
         <div class="form-section show" id="formSection">
             <h1>Driver Registration</h1>
-            <a href="drivers-info.html">View Drivers Info</a>
             <form id="driverForm">
                 <input type="text" name="firstName" required placeholder="First Name">
                 <input type="text" name="middleName" placeholder="Middle Name">
@@ -101,8 +100,8 @@
 
     <!-- Include QRious Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.0/qrious.min.js"></script>
-    <script type="module" src="polyfills.js"></script>
-    <script type="module" src="./src/app.js"></script>
-    <script type="module" src="./src/index.js"></script>
+    <script type="module" src="/polyfill.js"></script>
+    <script type="module" src="/app.js"></script>
+    <script type="module" src="/index.js"></script>
 </body>
 </html>
