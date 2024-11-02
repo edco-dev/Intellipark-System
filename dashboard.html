@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IntelliPark Dashboard</title>
     <link rel="stylesheet" href="dashboard.css">
+    <!-- Firebase CDN -->
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
+
     <style>
         body {
             margin: 0; /* Remove default margin */
@@ -110,7 +114,7 @@
             font-weight: bold;
         }
 
-        .dashboard-text{
+        .dashboard-text {
             text-align: center;
             padding: 25px;
             font-size: 32px;
@@ -123,7 +127,7 @@
     <!-- Sidebar -->
     <nav class="sidebar">
         <h2 style="display: flex; align-items: center;">
-            <img src="assets/img/logo.png" width="40" style="margin-top: 10px; margin-right: 10px;" alt="logo">
+            <img src="./assets/img/logo.png" width="40" style="margin-top: 10px; margin-right: 10px;" alt="logo">
             INTELLIPARK<br>SYSTEM
         </h2>        
         <ul>
@@ -146,58 +150,55 @@
              </nav>
             <div class="card-body">
                 <h2 class="dashboard-text">DASHBOARD</h2>
-            <div class="dashboard-statistics">
-                <div class="statistic-block" id="totalVehiclesBlock" >
-                    <h3 id="totalVehicles"><i>5</i></h3>
-                    <div style="display: flex; align-items: center;">
-                        <p>Total Vehicles </br> Parked</p>
-                        <img style="margin-left: 180px;" src="assets/img/car.png" width="120" alt="car">
+                <div class="dashboard-statistics">
+                    <div class="statistic-block">
+                        <h3 class="totalVehicles"><i>0</i></h3>
+                        <div style="display: flex; align-items: center;">
+                            <p>Total Vehicles <br> Parked</p>
+                            <img style="margin-left: 180px;" src="assets/img/car.png" width="120" alt="car">
+                        </div>
+                    </div>
+                    <div class="statistic-block">
+                        <h3 class="slotsAvailable"><i>0/50</i></h3>
+                        <div style="display: flex; align-items: center;">
+                            <p>Slots Available</p>
+                            <img style="margin-left: 200px;" src="assets/img/car.png" width="120" alt="car">
+                        </div>
+                    </div>
+                    <div class="statistic-block">
+                        <h3 class="vehiclesIn"><i>0</i></h3>
+                        <div style="display: flex; align-items: center;">
+                            <p>Vehicles IN</p>
+                            <img style="margin-left: 200px;" src="assets/img/car.png" width="120" alt="car">
+                        </div>
+                    </div>
+                    <div class="statistic-block">
+                        <h3 class="vehiclesOut"><i>0</i></h3>
+                        <div style="display: flex; align-items: center;">
+                            <p>Vehicles OUT</p>
+                            <img style="margin-left: 200px;" src="assets/img/car.png" width="120" alt="car">
+                        </div>
                     </div>
                 </div>
-                <div class="statistic-block" id="totalVehiclesBlock" >
-                    <h3 id="totalVehicles"><i>2/50</i></h3>
-                    <div style="display: flex; align-items: center;">
-                        <p>Slots Available</p>
-                        <img style="margin-left: 200px;" src="assets/img/car.png" width="120" alt="car">
-                    </div>
-                </div>
-                <div class="statistic-block" id="totalVehiclesBlock" >
-                    <h3 id="totalVehicles"><i>2</i></h3>
-                    <div style="display: flex; align-items: center;">
-                        <p>Vehicle IN</p>
-                        <img style="margin-left: 200px;" src="assets/img/car.png" width="120" alt="car">
-                    </div>
-                </div>
-                <div class="statistic-block" id="totalVehiclesBlock" >
-                    <h3 id="totalVehicles"><i>3</i></h3>
-                    <div style="display: flex; align-items: center;">
-                        <p>Vehicle OUT</p>
-                        <img style="margin-left: 200px;" src="assets/img/car.png" width="120" alt="car">
-                    </div>
-                </div>
-            </div>
             </div>
         </section>        
 
-        <!-- Drivers Info Section -->
+        <!-- Other Sections -->
         <section id="drivers-info" class="content-section">
             <h2>Drivers Info</h2>
             <iframe src="drivers-info.html" width="100%" height="500px"></iframe>
         </section>
 
-        <!-- Vehicles In Section -->
         <section id="vehicles-in" class="content-section">
             <h2>Vehicles In</h2>
             <iframe src="vehicles-in.html" width="100%" height="500px"></iframe>
         </section>
 
-        <!-- Register Section -->
         <section id="register" class="content-section">
             <h2>Register</h2>
             <iframe src="index.html" width="100%" height="500px"></iframe>
         </section>
 
-        <!-- History Section -->
         <section id="history" class="content-section">
             <h2>History</h2>
             <p>Vehicle in/out history will be displayed here.</p>
@@ -205,19 +206,13 @@
     </div>
 </div>
 
-<script src="dashboard.js"></script>
-<script>
+<script type="module" src="dashboard.js"></script>
+
+<!-- <script>
     document.getElementById('logoutText').addEventListener('click', function(event) {
         event.preventDefault(); // Prevent default behavior
-        // Here you should add your logout logic, for example:
-        // auth.signOut().then(() => {
-        //     console.log('User signed out.');
-        //     window.location.href = 'login.html'; // Redirect to login page
-        // }).catch((error) => {
-        //     console.error('Sign out error:', error);
-        // });
         alert('Logout functionality not implemented yet.'); // Placeholder for actual logout logic
     });
-</script>
+</script> -->
 </body>
 </html>
