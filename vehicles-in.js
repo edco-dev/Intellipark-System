@@ -1,5 +1,5 @@
-import { getFirestore, collection, getDocs, addDoc, deleteDoc, doc, getDoc } from "firebase/firestore"; 
-import { db } from "./app"; // Ensure this points to your Firebase configuration
+import { collection, getDocs, doc, updateDoc } from "firebase/firestore"; 
+import { db } from "./app"; // Import db from app.js
 
 document.addEventListener('DOMContentLoaded', () => {
     fetchVehiclesData(); // Fetch vehicles once the DOM is ready
