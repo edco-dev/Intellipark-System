@@ -4,38 +4,127 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Drivers Info</title>
+
+    <style>
+
+        .navbar {
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: #ffffff;
+        }
+
+        #searchInput {
+            padding: 15px;
+            border-radius: 15px;
+            border: 1px solid #808080; /* Replace #3498db with your preferred color */
+        }
+
+        table {
+            border-collapse: collapse; /* Merges cell borders */
+            width: 100%;
+        }
+
+        table, th, td {
+            border: none; /* Removes any existing borders */
+        }
+
+        table thead th {
+            background-color: #4AA5FF; /* Set the background color for the header */
+            padding: 10px; 
+            margin-bottom: 10px !important;
+            color: white;
+            font-size: 12px;
+            text-align: left;
+            /* border-radius: ; */
+        }
+
+        td {
+            padding: 10px;
+        }
+
+        .pagination {
+            display: flex;
+            align-items: left; /* Vertically centers items */
+            justify-content: left; /* Horizontally centers items */
+            padding: 10px;
+
+        }
+
+        .pagination p,
+        .pagination button,
+        .pagination span {
+            margin: 0; /* Removes default margin to keep items aligned */
+        }
+
+        .pageButton {
+            background-color: transparent;
+            padding: 10px;
+            border:1px solid #4AA5FF ;
+            border-radius: 5px;
+            color: #4AA5FF;
+        }
+
+        .pageButton.active {
+            background-color: #4AA5FF;
+            color: #ffffff;
+        }
+    </style>
+    
 </head>
 <body>
     <div class="container">
-        <h1>Registered Drivers Information</h1>
-        <input type="text" id="searchInput" placeholder="Search by name..." />
-        <table id="driversTable">
-            <thead>
-                <tr>
-                    <th>First Name</th>
-                    <th>Middle Name</th>
-                    <th>Last Name</th>
-                    <th>Gender</th>
-                    <th>Age</th>
-                    <th>User Type</th>
-                    <th>Contact Number</th>
-                    <th>Email Address</th>
-                    <th>Address</th>
-                    <th>Plate Number</th>
-                    <th>Vehicle Type</th>
-                    <th>Vehicle Color</th>
-                    <th>Actions</th> <!-- Added for Edit/Save buttons -->
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Driver data will be populated here -->
-            </tbody>
-        </table>
+        <nav class="navbar" style="display: flex; align-items: center;">
+            <h1  style="display: flex; align-items: center;"><img src="assets/img/user.svg" width="30" style="margin-right: 3px;" alt=""> Drivers Information</h1>
+            <input style="margin-left: 1000px;" type="text" id="searchInput" placeholder="Search" />
+        </nav>
+        <div class="card-body">
+            <h1>Drivers Information List</h1>
+            <table id="driversTable">
+                <thead>
+                    <tr>
+                        <th>FIRST NAME</th>
+                        <th>MIDDLE NAME</th>
+                        <th>LAST NAME</th>
+                        <th>GENDER</th>
+                        <th>AGE</th>
+                        <th>USER TYPE</th>
+                        <th>CONTACT NUMBER</th>
+                        <th>EMAIL ADDRESS</th>
+                        <th>ADDRESS</th>
+                        <th>PLATE NUMBER</th>
+                        <th>VEHICLE TYPE</th>
+                        <th>VEHICLE COLOR</th>
+                        <th>ACTIONS</th> <!-- Added for Edit/Save buttons -->
+                    </tr>
+                    <tr>
+                        <td>001</td>
+                        <td>BLC-0715</td>
+                        <td>Gojo Satorou</td>
+                        <td>Male</td>
+                        <td>30</td>
+                        <td>VIP</td>
+                        <td>0909090909</td>
+                        <td>user@email.com</td>
+                        <td>address</td>
+                        <td>AAA-000</td>
+                        <td>honda</td>
+                        <td>red</td>
+                        <td>Actions</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Driver data will be populated here -->
+                </tbody>
+            </table>
+        </div>
+        
         <!-- Pagination Controls -->
-        <div class="pagination">
-            <button id="prevPageBtn">Previous</button>
-            <span id="currentPage"></span>
-            <button id="nextPageBtn">Next</button>
+        <div class="pagination" style="margin-top: 30px;">
+            <p>Page 1 of 1</p>
+            <button style="margin-left: 1300px;" class="pageButton" id="prevPageBtn">Previous</button>
+            <span id="currentPage" class="pageButton active">1</span>
+            <button id="nextPageBtn" class="pageButton">Next</button>
         </div>
     </div>
     
