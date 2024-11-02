@@ -86,3 +86,11 @@ body, html {
     font-weight: bold; /* Bold text */
     display: inline; /* Display inline without padding */
 }
+
+.content-section {
+    display: none; /* Hide sections by default */
+}
+
+.content-section.active {
+    display: block; /* Only the active section will display */
+}

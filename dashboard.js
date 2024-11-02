@@ -50,3 +50,33 @@ onSnapshot(vehiclesOutRef, (snapshot) => {
     const availableSlots = TOTAL_SLOTS - totalVehicles; // Recalculate available slots
     updateDashboard(totalVehicles, availableSlots, totalVehicles, vehiclesOut);
 });
+document.addEventListener('DOMContentLoaded', () => {
+    const sidebarLinks = document.querySelectorAll('.sidebar a[data-section]');
+    const sections = document.querySelectorAll('.content-section');
+
+    // Function to show the selected section and hide others
+    function showSection(sectionId) {
+        sections.forEach(section => {
+            // Toggle visibility based on matching ID
+            if (section.id === sectionId) {
+                section.classList.add('active');
+                section.style.display = 'block'; // Show active section
+            } else {
+                section.classList.remove('active');
+                section.style.display = 'none'; // Hide other sections
+            }
+        });
+    }
+
+    // Add click event listeners to each sidebar link
+    sidebarLinks.forEach(link => {
+        link.addEventListener('click', (event) => {
+            event.preventDefault(); // Prevent page reload on link click
+            const sectionId = link.getAttribute('data-section'); // Get section ID from data-section attribute
+            showSection(sectionId); // Show the selected section
+        });
+    });
+
+    // Display the default section on page load (e.g., Dashboard)
+    showSection('dashboard'); // Show 'dashboard' as the initial section
+});

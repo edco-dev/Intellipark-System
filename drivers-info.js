@@ -1,15 +1,22 @@
-import { getFirestore, collection, getDocs, doc, updateDoc } from "firebase/firestore"; 
-import { db } from "./app"; 
+import { collection, getDocs, doc, updateDoc } from "firebase/firestore"; 
+import { db } from "./app"; // Import db from app.js
 
 const driversPerPage = 5; 
 let currentPage = 1; 
 let driversData = []; 
 
 async function fetchDriversData() {
-    const querySnapshot = await getDocs(collection(db, "drivers"));
-    driversData = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-    displayDrivers(); 
+    console.log("Firestore DB:", db);  // This should print a valid Firestore object if db is correctly initialized
+
+    try {
+        const querySnapshot = await getDocs(collection(db, "drivers"));
+        driversData = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+        displayDrivers(); 
+    } catch (error) {
+        console.error("Error fetching drivers data:", error);
+    }
 }
+
 
 function displayDrivers(filteredDrivers = driversData) {
     const driversTableBody = document.querySelector('#driversTable tbody');
