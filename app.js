@@ -1,6 +1,6 @@
 // Import the functions you need from the Firebase SDK
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, addDoc } from "firebase/firestore";
+import { getFirestore, collection, addDoc, doc, updateDoc } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -55,8 +55,8 @@ form.addEventListener('submit', async (event) => {
         alert("Registration failed!");
     }
 });
-
-function generateQRCode(docId) {
+// Function to generate the QR code and store it in Firestore
+async function generateQRCode(docId) {
     const qrCanvas = document.getElementById('qrcode');
     const qrData = JSON.stringify({ docId: docId }); // QR data as JSON
     const qr = new QRious({
@@ -64,6 +64,18 @@ function generateQRCode(docId) {
         value: qrData, // Store JSON with docId
         size: 128
     });
+
+    // Convert QR code canvas to a Data URL (base64 format)
+    const qrDataUrl = qrCanvas.toDataURL('image/png');
+
+    try {
+        // Update the Firestore document with the QR code data URL
+        const driverDocRef = doc(db, "drivers", docId);
+        await updateDoc(driverDocRef, { qrCode: qrDataUrl });
+        console.log("QR Code stored successfully!");
+    } catch (error) {
+        console.error("Error storing QR Code:", error);
+    }
 }
 
 // Download QR Code functionality

@@ -128,6 +128,38 @@
                 margin-bottom: 10px; /* Space below the page indicator */
             }
         }
+               /* Popup styles */
+               #qrPopup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        #popupContent {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            width: 300px;
+            text-align: center;
+            position: relative;
+        }
+        #closePopup {
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        #qrCodeCanvas {
+            margin: 15px 0;
+        }
     </style>
     
 </head>
@@ -154,7 +186,7 @@
                         <th>PLATE NUMBER</th>
                         <th>VEHICLE TYPE</th>
                         <th>VEHICLE COLOR</th>
-                        <th>ACTIONS</th> <!-- Added for Edit/Save buttons -->
+                        <th>QR</th> <!-- Added for Edit/Save buttons -->
                     </tr>
                 </thead>
                 <tbody>
@@ -168,6 +200,17 @@
             <button class="pageButton" id="prevPageBtn">Previous</button>
             <span id="currentPage">Page 1 of 1</span>
             <button class="pageButton" id="nextPageBtn">Next</button>
+        </div>
+
+        <div id="qrPopup">
+            <div id="popupContent">
+                <h2 id="userType">User Type: </h2>
+                <p id="driverName">Driver Name: </p>
+                <p id="plateNumber">Plate Number: </p>
+                <canvas id="qrCodeCanvas" width="128" height="128"></canvas>
+                <button id="downloadQRBtn">Download QR Code</button>
+                <button id="closePopupBtn">Close</button>
+            </div>
         </div>
     </div>
     
