@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,59 +16,6 @@
         margin: 0; /* Remove default margin */
     }
 
-    .reg-container {
-            display: flex; /* Use flexbox for sidebar and main content */
-            height: 100vh; /* Full height of the viewport */
-            background-color: #f0f0f0; /* Background color for the entire page */
-        }
-
-        .sidebar {
-            width: 20%; /* Set the width of the sidebar */
-            background-color: white; /* Sidebar background color */
-            color: black; /* Text color */
-            padding: 20px; /* Add padding */
-            height: 100%; /* Full height of the sidebar */
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2); /* Shadow for depth */
-            display: flex;
-            flex-direction: column; /* Arrange children in a column */
-            justify-content: space-between; /* Push logout to the bottom */
-        }
-
-        .sidebar h2 {
-            margin-bottom: 20px; /* Space below the title */
-            color: black; /* Make sure the title is black */
-        }
-
-        .sidebar ul {
-            list-style-type: none; /* Remove bullet points */
-            padding: 0; /* Remove padding */
-        }
-
-        .sidebar li {
-            margin: 10px 0; /* Add margin between items */
-        }
-
-        .sidebar a {
-            text-decoration: none; /* Remove underline */
-            color: black; /* Link color */
-            padding: 10px; /* Padding around links */
-            display: block; /* Make the entire area clickable */
-            transition: background-color 0.3s; /* Smooth background change */
-        }
-
-        .sidebar a:hover {
-            background-color: #e0e0e0; /* Change background on hover */
-        }
-
-        .logout-text {
-            color: red; /* Logout text color */
-            cursor: pointer; /* Change cursor to pointer on hover */
-            text-align: center; /* Center the text */
-            margin-top: auto; /* Push to the bottom */
-            font-weight: bold; /* Bold text */
-            display: inline; /* Display inline without padding */
-        }
-
     .container {
         position: relative;
         width: 100%;
@@ -78,6 +27,8 @@
         height: 100%;
         display: flex;
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
         position: absolute;
         top: 0;
         left: 0;
@@ -95,250 +46,121 @@
         opacity: 1; /* Make it visible */
         z-index: 1; /* Bring the section to the front */
     }
-
-    .navbar {
-            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-            padding: 20px; /* Increased padding for a more spacious feel */
-            border-radius: 10px;
-            background-color: #ffffff;
-            display: flex;
-            justify-content: space-between; /* Space between title and search */
-            align-items: center; /* Center items vertically */
-        }
-
-        .navbar h1 {
-            margin: 0;
-            font-size: 24px;
-            color: #333; /* Darker text for better visibility */
-        }
-
-        
-        .card-body {
-            background-color: white; /* White background for the card */
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px; /* Subtle shadow for depth */
-            margin-top: 20px;
-            overflow-x: auto; /* Allows horizontal scrolling if needed */
-        }
-
-        .active-page {
-            color: #4AA5FF;
-            font-weight: bold;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-        }
-
-        .form-container {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .form-row {
-            display: flex;
-            flex-wrap: wrap;
-            margin-bottom: 16px;
-        }
-
-        .form-group {
-            flex: 1;
-            min-width: 150px;
-            margin-right: 16px;
-        }
-
-        .form-group:last-child {
-            margin-right: 0;
-        }
-
-        label {
-            display: block;
-            font-size: 14px;
-            margin-bottom: 4px;
-            color: #333;
-        }
-
-        input[type="text"],
-        input[type="number"],
-        input[type="email"],
-        select {
-            width: 100%;
-            padding: 8px;
-            font-size: 14px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-
-        input[type="text"]:focus,
-        input[type="number"]:focus,
-        input[type="email"]:focus,
-        select:focus {
-            outline: none;
-            border-color: #888;
-        }
-
-        select {
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-            background: #fff url("data:image/svg+xml;charset=US-ASCII,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><path fill='gray' d='M7 10l5 5 5-5z'/></svg>") no-repeat right 8px center;
-            background-size: 16px;
-        }
-
-        input[type="text"],
-        input[type="number"],
-        input[type="email"],
-        select {
-            height: 36px;
-        }
-
-        .genBtn {
-            border: none;
-            padding: 15px 25px;
-            border-radius: 20px;
-            background-color: #4AA5FF;
-            color: #ffffff;
-        }
     </style>
 </head>
 <body>
-    <div class="reg-container">
-        <nav class="sidebar">
-            <h2 style="display: flex; align-items: center;">
-                <img src="./assets/img/logo.png" width="40" style="margin-top: 10px; margin-right: 10px;" alt="logo">
-                INTELLIPARK<br>SYSTEM
-            </h2>        
-            <ul>
-                <li class="side-list"><a href="dashboard.html" style="display: flex; align-items: center;"><img class="sbar-logo" src="assets/img/ds-logo.svg" style="margin-right: 2px;" width="30" alt="">Dashboard</a></li>
-                <li class="side-list"><a href="drivers-info.html" style="display: flex; align-items: center;"><img class="sbar-logo" src="assets/img/user.svg" style="margin-right: 2px;" width="30" alt="">Drivers Info</a></li>
-                <li class="side-list"><a href="vehicles-in.html" style="display: flex; align-items: center;"><img class="sbar-logo" src="assets/img/toll.svg" style="margin-right: 2px;" width="30" alt="">Vehicles In</a></li>
-                <li class="side-list"><a href="index.html" style="display: flex; align-items: center;"><img class="sbar-logo" src="assets/img/user-add.svg" style="margin-right: 2px;" width="30" alt="">Register</a></li>
-                <li class="side-list"><a href="history.html" style="display: flex; align-items: center;"><img class="sbar-logo" src="assets/img/clock.svg" style="margin-right: 2px;" width="30" alt="">History</a></li>
-            </ul>
-            <p class="logout-text" id="logoutText">Logout</p>
-        </nav>
 
-        <div class="container">
-            <!-- Form Section -->
-            <div class="form-section show" id="formSection">
-                <div class="navbar" style="margin: 20px;">
-                    <h1 style="text-align: initial; display: flex; align-items: center;"><img src="assets/img/user-add.svg" width="30" alt="" style="margin-right:5px ;">Register</h1>
-                    <a href="#" style="text-decoration: none;">Add Visitor</a>
+    <div class="container">
+        <!-- Form Section -->
+        <div class="form-section show" id="formSection">
+            <h1>Register</h1>
+            <a href="visitor.html" class="add-visitor-link">Add Visitor</a> <!-- Link to visitor form -->
+            <form id="driverForm">
+                <!-- First Name Field -->
+                <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <input type="text" id="firstName" name="firstName" required>
                 </div>
-                <div class="card-body" style="margin: 0 20px 0 20px;">
-                    <form id="driverForm">
-                        <h1 style="margin: 30px 0;">Register</h1>
-                        <div style="text-align: center;">
-                            <div style="display: flex; align-items: center; justify-content: center;">
-                                <p class="active-page" style="margin: 20px 15px;">1 General Details</p>
-                                <p class="" style="margin: 20px 15px; border-left: 1px solid black; border-right: 1px solid black; padding: 0 10px;">2 QR Code</p>
-                                <p class=""style="margin: 20px 15px;">3 Finish Registration</p>
-                            </div>
-                        </div>                        
-                        <div class="form-container">
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label style="text-align: initial;" for="firstName">First Name</label>
-                                    <input type="text" id="firstName">
-                                </div>
-                                <div class="form-group">
-                                    <label style="text-align: initial;" for="middleName">Middle Initials</label>
-                                    <input type="text" id="middleName">
-                                </div>
-                                <div class="form-group">
-                                    <label style="text-align: initial;" for="lastName">Last Name</label>
-                                    <input type="text" id="lastName">
-                                </div>
-                            </div>
-                        
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label style="text-align: initial;" for="gender">Gender</label>
-                                    <select id="gender">
-                                        <option value="">Select</option>
-                                        <option value="Male">Male</option>
-                                        <option value="Female">Female</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label style="text-align: initial;" for="age">Age</label>
-                                    <input type="number" id="age">
-                                </div>
-                                <div class="form-group">
-                                    <label style="text-align: initial;" for="userType">User Type</label>
-                                    <select id="userType">
-                                        <option value="">Selec User Type</option>
-                                        <option value="Driver">Driver</option>
-                                        <option value="Passenger">Passenger</option>
-                                    </select>
-                                </div>
-                            </div>
-                        
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label style="text-align: initial;" for="contactNumber">Contact Number</label>
-                                    <input type="text" id="contactNumber">
-                                </div>
-                                <div class="form-group">
-                                    <label style="text-align: initial;" for="emailAddress">Email Address</label>
-                                    <input type="email" id="emailAddress">
-                                </div>
-                            </div>
-                        
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label style="text-align: initial;" for="address">Address</label>
-                                    <input type="text" id="address">
-                                </div>
-                            </div>
-                        
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label style="text-align: initial;" for="plateNumber">Plate Number</label>
-                                    <input type="text" id="plateNumber">
-                                </div>
-                                <div class="form-group">
-                                    <label style="text-align: initial;" for="vehicleType">Vehicle Type</label>
-                                    <input type="text" id="vehicleType">
-                                </div>
-                                <div class="form-group">
-                                    <label style="text-align: initial;" for="vehicleColor">Vehicle Color</label>
-                                    <input type="text" id="vehicleColor">
-                                </div>
-                            </div>
-                        </div>
-                        
-                        
-                        <!-- Hidden status input -->
-                        <input type="hidden" name="status" value="0"> <!-- Status is initialized to 0 -->
+            
+                <!-- Middle Initials Field -->
+                <div class="form-group">
+                    <label for="middleInitials">Middle Initials</label>
+                    <input type="text" id="middleInitials" name="middleInitials" maxlength="1">
+                </div>
+            
+                <!-- Last Name Field -->
+                <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" id="lastName" name="lastName" required>
+                </div>
+            
+                <!-- Gender Field -->
+                <div class="form-group">
+                    <label for="gender">Gender</label>
+                    <select id="gender" name="gender" required>
+                        <option value="">Select</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+            
+                <!-- Age Field -->
+                <div class="form-group">
+                    <label for="age">Age</label>
+                    <input type="number" id="age" name="age" required>
+                </div>
+            
+                <!-- User Type Field -->
+                <div class="form-group">
+                    <label for="userType">User Type</label>
+                    <select id="userType" name="userType" required>
+                        <option value="">Select</option>
+                        <option value="driver">Driver</option>
+                        <option value="passenger">Passenger</option>
+                    </select>
+                </div>
+            
+                <!-- Contact Number Field -->
+                <div class="form-group">
+                    <label for="contactNumber">Contact Number</label>
+                    <input type="tel" id="contactNumber" name="contactNumber" required>
+                </div>
+            
+                <!-- Email Address Field -->
+                <div class="form-group">
+                    <label for="emailAddress">Email Address</label>
+                    <input type="email" id="emailAddress" name="emailAddress" required>
+                </div>
+            
+                <!-- Address Field -->
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <input type="text" id="address" name="address" required>
+                </div>
+            
+                <!-- Plate Number Field -->
+                <div class="form-group">
+                    <label for="plateNumber">Plate Number</label>
+                    <input type="text" id="plateNumber" name="plateNumber" required>
+                </div>
+            
+                <!-- Vehicle Type Field -->
+                <div class="form-group">
+                    <label for="vehicleType">Vehicle Type</label>
+                    <input type="text" id="vehicleType" name="vehicleType" required>
+                </div>
+            
+                <!-- Vehicle Color Field -->
+                <div class="form-group">
+                    <label for="vehicleColor">Vehicle Color</label>
+                    <input type="text" id="vehicleColor" name="vehicleColor" required>
+                </div>
+                <input type="hidden" name="status" value="0"> <!-- Status is initialized to 0 -->
+                <!-- Submit Button -->
+                <button type="submit">Submit</button>
+            </form>
+            
+        </div>
         
-                        <button class="genBtn" type="submit">Generate</button>
-                    </form>
-                </div>
-                
-            </div>
-    
-            <!-- QR Code Section -->
-            <div class="qr-section" id="qrSection">
-                <h2>Your QR Code</h2>
-                <canvas id="qrcode" width="128" height="128"></canvas>
-                <p id="message"></p>
-                <button id="downloadBtn">Download QR Code</button>
-                <button id="nextBtn">Next</button>
-            </div>
-    
-            <!-- Confirmation Section -->
-            <div class="confirmation-section" id="confirmationSection">
-                <h2>Registration Completed!</h2>
-                <p>Your registration was successful. Thank you!</p>
-                <button id="finishBtn">Finish</button> <!-- Finish button to close the form -->
-            </div>
+
+        <!-- QR Code Section -->
+        <div class="qr-section" id="qrSection">
+            <h1>Register</h1>
+            <h2>Generated QR Code</h2>
+            <canvas id="qrcode" width="128" height="128"></canvas>
+            <p id="message"></p>
+            <button id="downloadBtn">Download</button>
+            <button id="nextBtn">Next</button>
+        </div>
+
+        <!-- Confirmation Section -->
+        <div class="confirmation-section" id="confirmationSection">
+            <h1>Register</h1>
+            <h2>Finished Registration!</h2>
+            <button id="finishBtn">Finish</button> <!-- Finish button to close the form -->
         </div>
     </div>
-
-   
 
     <!-- Include QRious Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.0/qrious.min.js"></script>
@@ -347,3 +169,4 @@
     <script type="module" src="/index.js"></script>
 </body>
 </html>
+
