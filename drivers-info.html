@@ -10,7 +10,61 @@
             font-family: 'Arial', sans-serif; /* Modern font for better readability */
             background-color: #f5f5f5; /* Light background for contrast */
             margin: 0;
-            padding: 20px;
+        }
+
+        
+        .drivers-info-container {
+            display: flex; /* Use flexbox for sidebar and main content */
+            height: 100vh; /* Full height of the viewport */
+            background-color: #f0f0f0; /* Background color for the entire page */
+        }
+
+        /* sidebar */
+        .sidebar {
+            width: 20%; /* Set the width of the sidebar */
+            background-color: white; /* Sidebar background color */
+            color: black; /* Text color */
+            padding: 20px; /* Add padding */
+            height: 100%; /* Full height of the sidebar */
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+            display: flex;
+            flex-direction: column; /* Arrange children in a column */
+            justify-content: space-between; /* Push logout to the bottom */
+        }
+
+        .sidebar h2 {
+            margin-bottom: 20px; /* Space below the title */
+            color: black; /* Make sure the title is black */
+        }
+
+        .sidebar ul {
+            list-style-type: none; /* Remove bullet points */
+            padding: 0; /* Remove padding */
+        }
+
+        .sidebar li {
+            margin: 10px 0; /* Add margin between items */
+        }
+
+        .sidebar a {
+            text-decoration: none; /* Remove underline */
+            color: black; /* Link color */
+            padding: 10px; /* Padding around links */
+            display: block; /* Make the entire area clickable */
+            transition: background-color 0.3s; /* Smooth background change */
+        }
+
+        .sidebar a:hover {
+            background-color: #e0e0e0; /* Change background on hover */
+        }
+
+        .logout-text {
+            color: red; /* Logout text color */
+            cursor: pointer; /* Change cursor to pointer on hover */
+            text-align: center; /* Center the text */
+            margin-top: auto; /* Push to the bottom */
+            font-weight: bold; /* Bold text */
+            display: inline; /* Display inline without padding */
         }
 
         .navbar {
@@ -68,7 +122,7 @@
             background-color: #4AA5FF; /* Set the background color for the header */
             padding: 10px; 
             color: white;
-            font-size: 14px; /* Slightly larger font for better readability */
+            font-size: 10px; /* Slightly larger font for better readability */
             text-align: left;
             border-bottom: 2px solid #e1e1e1; /* Underline for headers */
         }
@@ -129,7 +183,7 @@
             }
         }
                /* Popup styles */
-               #qrPopup {
+            #qrPopup {
             display: none;
             position: fixed;
             top: 0;
@@ -164,7 +218,24 @@
     
 </head>
 <body>
-    <div class="container">
+
+<div class="drivers-info-container">
+    <nav class="sidebar">
+        <h2 style="display: flex; align-items: center;">
+            <img src="./assets/img/logo.png" width="40" style="margin-top: 10px; margin-right: 10px;" alt="logo">
+            INTELLIPARK<br>SYSTEM
+        </h2>        
+        <ul>
+            <li class="side-list"><a href="dashboard.html" style="display: flex; align-items: center;"><img class="sbar-logo" src="assets/img/ds-logo.svg" style="margin-right: 2px;" width="30" alt="">Dashboard</a></li>
+            <li class="side-list"><a href="drivers-info.html" style="display: flex; align-items: center;"><img class="sbar-logo" src="assets/img/user.svg" style="margin-right: 2px;" width="30" alt="">Drivers Info</a></li>
+            <li class="side-list"><a href="vehicles-in.html" style="display: flex; align-items: center;"><img class="sbar-logo" src="assets/img/toll.svg" style="margin-right: 2px;" width="30" alt="">Vehicles In</a></li>
+            <li class="side-list"><a href="index.html" style="display: flex; align-items: center;"><img class="sbar-logo" src="assets/img/user-add.svg" style="margin-right: 2px;" width="30" alt="">Register</a></li>
+            <li class="side-list"><a href="history.html" style="display: flex; align-items: center;"><img class="sbar-logo" src="assets/img/clock.svg" style="margin-right: 2px;" width="30" alt="">History</a></li>
+        </ul>
+        <p class="logout-text" id="logoutText">Logout</p>
+    </nav>
+
+    <div class="container" style="margin: 20px;">
         <nav class="navbar">
             <h1><img src="assets/img/user.svg" width="30" style="margin-right: 3px;" alt=""> Drivers Information</h1>
             <input type="text" id="searchInput" placeholder="Search" />
@@ -213,6 +284,8 @@
             </div>
         </div>
     </div>
+</div>
+   
     
     <script type="module" src="app.js"></script>
     <script type="module" src="drivers-info.js"></script>
