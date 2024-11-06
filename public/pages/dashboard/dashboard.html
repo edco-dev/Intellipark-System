@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IntelliPark Dashboard</title>
+    <link rel="stylesheet" href="/src/css/dashboard.css">
+    <link rel="stylesheet" href="/src/css/sidebar.css">
+</head>
+<body>
+
+<div class="dashboard-container">
+    <app-sidebar></app-sidebar>
+
+    <div class="main-content">
+        <section id="dashboard" class="content-section active">
+            <nav class="navbar">
+                <h1 class="navbar-title">
+                    <img src="/src/assets/img/ds-logo.svg" width="40" alt="Dashboard Logo"> Dashboard
+                </h1>
+            </nav>
+
+            <div class="card-body">
+                <h2 class="dashboard-text">DASHBOARD</h2>
+                <div class="dashboard-statistics">
+                    <div class="statistic-block">
+                        <h3 class="totalVehicles"><i>0</i></h3>
+                        <div class="statistic-info">
+                            <p>Total Vehicles <br> Parked</p>
+                            <img src="/src/assets/img/car.png" width="120" alt="Car Icon">
+                        </div>
+                    </div>
+
+                    <div class="statistic-block">
+                        <h3 class="slotsAvailable"><i>0/50</i></h3>
+                        <div class="statistic-info">
+                            <p>Slots Available</p>
+                            <img src="/src/assets/img/slotsAvail.png" width="120" alt="Slots Icon">
+                        </div>
+                    </div>
+
+                    <div class="statistic-block">
+                        <h3 class="vehiclesIn"><i>0</i></h3>
+                        <div class="statistic-info">
+                            <p>Vehicles IN</p>
+                            <img src="/src/assets/img/vehicleIN.png" width="120" alt="Vehicles In Icon">
+                        </div>
+                    </div>
+
+                    <div class="statistic-block">
+                        <h3 class="vehiclesOut"><i>0</i></h3>
+                        <div class="statistic-info">
+                            <p>Vehicles OUT</p>
+                            <img src="/src/assets/img/vehicleOUT.png" width="120" alt="Vehicles Out Icon">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>        
+
+        <section id="drivers-info" class="content-section">
+            <h2>Drivers Info</h2>
+            <p><a href="/public/pages/drivers-info.html">Go to Drivers Info page</a></p>
+        </section>
+
+        <section id="vehicles-in" class="content-section">
+            <h2>Vehicles In</h2>
+            <p><a href="/public/pages/vehicles-in.html">Go to Vehicles In page</a></p>
+        </section>
+
+        <section id="register" class="content-section">
+            <h2>Register</h2>
+            <p><a href="/public/pages/registration/register.html">Go to Register page</a></p>
+        </section>
+
+        <section id="history" class="content-section">
+            <h2>History</h2>
+            <p><a href="/public/pages/history.html">Go to History page</a></p>
+        </section>
+    </div>
+</div>
+
+<script type="module" src="/app.js"></script>
+<script type="module" src="/src/scripts/auth/auth.js"></script>
+<script type="module" src="/src/js/dashboard.js"></script>
+<script type="module" src="/src/js/loadSidebar.js"></script>
+</body>
+</html>

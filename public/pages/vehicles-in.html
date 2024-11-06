@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/src/css/vehicles-in.css">
+    <link rel="stylesheet" href="/src/css/sidebar.css">
+    <title>Vehicles In</title>
+</head>
+<body>
+    <div class="vehicleIn-container">
+        <app-sidebar></app-sidebar>
+        <div class="container" style="padding: 20px;">
+            <nav class="navbar" style="min-width: 1200px;">
+                <h1 style="display: flex; align-items: center;">
+                    <img src="/src/assets/img/toll.svg" width="40" style="margin-right: 5px;" alt="">Vehicles Currently In
+                </h1>
+                <input type="text" id="searchInput" placeholder="Search" />
+            </nav>
+            <div class="card-body">
+                <h2>Parked Vehicles</h2>
+                <table id="vehiclesTable">
+                    <thead>
+                        <tr>
+                            <th>Transaction ID</th>
+                            <th>Plate Number</th>
+                            <th>Vehicle Owner</th>
+                            <th>Contact Number</th>
+                            <th>User Type</th>
+                            <th>Vehicle Type</th>
+                            <th>Vehicle Color</th>
+                            <th>Date</th>
+                            <th>Time In</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="/app.js"></script>
+    <script type="module" src="/src/js/vehicles-in.js"></script>
+    <script type="module" src="/src/scripts/auth/auth.js"></script>
+    <script type="module" src="/src/js/loadSidebar.js"></script>
+</body>
+</html>
