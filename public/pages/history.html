@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History</title>
+</head>
+<body>
+
+    <div class="vehicleIn-container">
+        <nav class="sidebar">
+            <h2 style="display: flex; align-items: center;">
+                <img src="./assets/img/logo.png" width="40" style="margin-top: 10px; margin-right: 10px;" alt="logo">
+                INTELLIPARK<br>SYSTEM
+            </h2>        
+            <ul>
+                <li class="side-list"><a href="dashboard.html" style="display: flex; align-items: center;"><img class="sbar-logo" src="assets/img/ds-logo.svg" style="margin-right: 2px;" width="30" alt="">Dashboard</a></li>
+                <li class="side-list"><a href="drivers-info.html" style="display: flex; align-items: center;"><img class="sbar-logo" src="assets/img/user.svg" style="margin-right: 2px;" width="30" alt="">Drivers Info</a></li>
+                <li class="side-list"><a href="vehicles-in.html" style="display: flex; align-items: center;"><img class="sbar-logo" src="assets/img/toll.svg" style="margin-right: 2px;" width="30" alt="">Vehicles In</a></li>
+                <li class="side-list"><a href="index.html" style="display: flex; align-items: center;"><img class="sbar-logo" src="assets/img/user-add.svg" style="margin-right: 2px;" width="30" alt="">Register</a></li>
+                <li class="side-list"><a href="history.html" style="display: flex; align-items: center;"><img class="sbar-logo" src="assets/img/clock.svg" style="margin-right: 2px;" width="30" alt="">History</a></li>
+            </ul>
+            <p class="logout-text" id="logoutText">Logout</p>
+        </nav>
+
+        <div class="container" style="padding: 20px;">
+            <nav class="navbar" style="min-width: 1200px;">
+                <h1 style="display: flex; align-items: center;"><img src="assets/img/clock.svg" width="40" style="margin-right: 5px;" alt="">History</h1>
+                <input type="text" id="searchInput" placeholder="Search" />
+            </nav>
+            
+           <div class="card-body">
+            <div style="display: flex; align-items: center;">
+                <h2 style="margin-right:1000px;">History</h2>
+                <button class="calendarBtn" id="showCalendarBtn" style="text-align: initial;">
+                    All
+                    <span class="arrow"></span>
+                </button>
+                <input type="date" id="calendar">
+            </div>
+            <p id="date" style="color: #f89fa1;"><b></b></p>
+            <table id="vehiclesTable">
+                <thead>
+                    <tr>
+                        <th>Transaction ID</th>
+                        <th>Plate Number</th>
+                        <th>Vehicle Owner</th>
+                        <th>User Type</th>
+                        <th>Vehicle Type</th>
+                        <th>Time In</th>
+                        <th>Time Out</th>
+                    </tr>
+                </thead>
+            </table>
+           </div>
+           
+           
+        </div>
+
+        
+    </div>
+    <script type="module" src="vehicles-in.js"></script>
+    <script>
+        const date = new Date();
+        const formattedDate = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
+        document.getElementById('date').innerText = formattedDate;
+
+        const showCalendarBtn = document.getElementById("showCalendarBtn");
+        const calendar = document.getElementById("calendar");
+
+       
+        showCalendarBtn.onclick = function() {
+        const buttonRect = showCalendarBtn.getBoundingClientRect();
+            
+        calendar.style.left = `${buttonRect.left}px`;
+        calendar.style.top = `${buttonRect.bottom + window.scrollY}px`;
+
+        calendar.style.display = "block";
+        calendar.focus();
+        };
+
+        calendar.onblur = function() {
+        calendar.style.display = "none";
+        };
+    </script>
+</body>
+</html>

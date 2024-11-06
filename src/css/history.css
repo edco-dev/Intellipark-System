@@ -1,0 +1,188 @@
+body {
+    font-family: 'Arial', sans-serif; /* Modern font for better readability */
+    background-color: #f5f5f5; /* Light background for contrast */
+    margin: 0;
+}
+
+ .vehicleIn-container {
+    display: flex; /* Use flexbox for sidebar and main content */
+    height: 100vh; /* Full height of the viewport */
+    background-color: #f0f0f0; /* Background color for the entire page */
+}
+
+.sidebar {
+    width: 20%; /* Set the width of the sidebar */
+    background-color: white; /* Sidebar background color */
+    color: black; /* Text color */
+    padding: 20px; /* Add padding */
+    height: 100%; /* Full height of the sidebar */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    display: flex;
+    flex-direction: column; /* Arrange children in a column */
+    justify-content: space-between; /* Push logout to the bottom */
+}
+
+.sidebar h2 {
+    margin-bottom: 20px; /* Space below the title */
+    color: black; /* Make sure the title is black */
+}
+
+.sidebar ul {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove padding */
+}
+
+.sidebar li {
+    margin: 10px 0; /* Add margin between items */
+}
+
+.sidebar a {
+    text-decoration: none; /* Remove underline */
+    color: black; /* Link color */
+    padding: 10px; /* Padding around links */
+    display: block; /* Make the entire area clickable */
+    transition: background-color 0.3s; /* Smooth background change */
+}
+
+.sidebar a:hover {
+    background-color: #e0e0e0; /* Change background on hover */
+}
+
+.logout-text {
+    color: red; /* Logout text color */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    text-align: center; /* Center the text */
+    margin-top: auto; /* Push to the bottom */
+    font-weight: bold; /* Bold text */
+    display: inline; /* Display inline without padding */
+}
+
+.navbar {
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding: 20px; /* Increased padding for a more spacious feel */
+    border-radius: 10px;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-between; /* Space between title and search */
+    align-items: center; /* Center items vertically */
+}
+
+.navbar h1 {
+    margin: 0;
+    font-size: 24px;
+    color: #333; /* Darker text for better visibility */
+}
+
+#searchInput {
+    padding: 10px;
+    border-radius: 15px;
+    border: 1px solid #808080;
+    width: 300px; /* Fixed width for better layout */
+    transition: border-color 0.3s;
+}
+
+#searchInput:focus {
+    border-color: #4AA5FF; /* Highlighted border on focus */
+    outline: none; /* Remove default outline */
+}
+
+.card-body {
+    background-color: white; /* White background for the card */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px; /* Subtle shadow for depth */
+    margin-top: 20px;
+    overflow-x: auto; /* Allows horizontal scrolling if needed */
+}
+
+h2 {
+    margin: 0 0 20px; /* Space below the title */
+    font-size: 20px; /* Title font size */
+    color: #333; /* Consistent color */
+}
+
+table {
+    border-collapse: collapse; /* Merges cell borders */
+    width: 100%; /* Full width of container */
+    min-width: 700px; /* Ensures table doesn't shrink too small */
+    margin-top: 20px; /* Space between header and table */
+}
+
+thead th {
+    background-color: #4AA5FF; /* Set the background color for the header */
+    padding: 10px; 
+    color: white;
+    font-size: 10px; /* Slightly larger font for better readability */
+    text-align: left;
+    border-bottom: 2px solid #e1e1e1; /* Underline for headers */
+}
+
+tbody td {
+    padding: 12px;
+    border-bottom: 1px solid #e1e1e1; /* Underline for rows */
+    transition: background-color 0.3s; /* Transition effect for hover */
+}
+
+tbody tr:hover {
+    background-color: #f0f8ff; /* Light blue background on hover */
+}
+
+.pagination {
+    display: flex;
+    align-items: center; /* Vertically centers items */
+    justify-content: flex-end; /* Align to the right */
+    margin-top: 20px;
+    padding: 10px 0;
+}
+
+.pageButton {
+    background-color: transparent;
+    padding: 10px 15px; /* Added horizontal padding */
+    border: 1px solid #4AA5FF;
+    border-radius: 5px;
+    color: #4AA5FF;
+    cursor: pointer; /* Change cursor to pointer */
+    transition: background-color 0.3s, color 0.3s; /* Transition effects */
+    margin-left: 10px; /* Space between buttons */
+}
+
+.pageButton:hover {
+    background-color: #4AA5FF; /* Highlight button on hover */
+    color: #ffffff; /* Change text color on hover */
+}
+
+.pageButton.active {
+    background-color: #4AA5FF;
+    color: #ffffff;
+}
+
+#calendar {
+    display: none;
+    position: absolute;
+    top: 40px;
+    left: 0;
+}
+
+.calendarBtn {
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    cursor: pointer;
+    width: 120px; /* Adjust width as needed */
+    text-align: initial; /* Left-aligns text inside the button */
+}
+
+/* Arrow icon inside the button */
+.calendarBtn .arrow {
+    border: solid #333;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 4px;
+    transform: rotate(45deg);
+    margin-left: auto; /* Pushes the arrow to the right */
+}

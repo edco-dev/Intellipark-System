@@ -1,172 +1,23 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="./src/style.css"> -->
-    <title>IntelliPark System</title>
-    <style>
-     body {
-        font-family: Arial, sans-serif;
-        text-align: center;
-        overflow: hidden;
-        height: 100vh; /* Ensure full viewport height */
-        margin: 0; /* Remove default margin */
-    }
-
-    .container {
-        position: relative;
-        width: 100%;
-        height: 100%;
-    }
-
-    .form-section, .qr-section, .confirmation-section {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        position: absolute;
-        top: 0;
-        left: 0;
-        transition: transform 0.5s ease; /* Smooth sliding effect */
-        opacity: 0; /* Start as invisible */
-        z-index: 0; /* Layers the sections */
-    }
-
-    .qr-section, .confirmation-section {
-        transform: translateX(100%); /* Initially hide these sections */
-    }
-
-    .show {
-        transform: translateX(0); /* Show the section */
-        opacity: 1; /* Make it visible */
-        z-index: 1; /* Bring the section to the front */
-    }
-    </style>
+    <title>Intellipark System - Login</title>
+    <link rel="stylesheet" href="/src/css/login.css">
 </head>
 <body>
-
-    <div class="container">
-        <!-- Form Section -->
-        <div class="form-section show" id="formSection">
-            <h1>Register</h1>
-            <a href="visitor.html" class="add-visitor-link">Add Visitor</a> <!-- Link to visitor form -->
-            <form id="driverForm">
-                <!-- First Name Field -->
-                <div class="form-group">
-                    <label for="firstName">First Name</label>
-                    <input type="text" id="firstName" name="firstName" required>
-                </div>
-            
-                <!-- Middle Initials Field -->
-                <div class="form-group">
-                    <label for="middleInitials">Middle Initials</label>
-                    <input type="text" id="middleInitials" name="middleInitials" maxlength="1">
-                </div>
-            
-                <!-- Last Name Field -->
-                <div class="form-group">
-                    <label for="lastName">Last Name</label>
-                    <input type="text" id="lastName" name="lastName" required>
-                </div>
-            
-                <!-- Gender Field -->
-                <div class="form-group">
-                    <label for="gender">Gender</label>
-                    <select id="gender" name="gender" required>
-                        <option value="">Select</option>
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                        <option value="other">Other</option>
-                    </select>
-                </div>
-            
-                <!-- Age Field -->
-                <div class="form-group">
-                    <label for="age">Age</label>
-                    <input type="number" id="age" name="age" required>
-                </div>
-            
-                <!-- User Type Field -->
-                <div class="form-group">
-                    <label for="userType">User Type</label>
-                    <select id="userType" name="userType" required>
-                        <option value="">Select</option>
-                        <option value="driver">Driver</option>
-                        <option value="passenger">Passenger</option>
-                    </select>
-                </div>
-            
-                <!-- Contact Number Field -->
-                <div class="form-group">
-                    <label for="contactNumber">Contact Number</label>
-                    <input type="tel" id="contactNumber" name="contactNumber" required>
-                </div>
-            
-                <!-- Email Address Field -->
-                <div class="form-group">
-                    <label for="emailAddress">Email Address</label>
-                    <input type="email" id="emailAddress" name="emailAddress" required>
-                </div>
-            
-                <!-- Address Field -->
-                <div class="form-group">
-                    <label for="address">Address</label>
-                    <input type="text" id="address" name="address" required>
-                </div>
-            
-                <!-- Plate Number Field -->
-                <div class="form-group">
-                    <label for="plateNumber">Plate Number</label>
-                    <input type="text" id="plateNumber" name="plateNumber" required>
-                </div>
-            
-                <!-- Vehicle Type Field -->
-                <div class="form-group">
-                    <label for="vehicleType">Vehicle Type</label>
-                    <input type="text" id="vehicleType" name="vehicleType" required>
-                </div>
-            
-                <!-- Vehicle Color Field -->
-                <div class="form-group">
-                    <label for="vehicleColor">Vehicle Color</label>
-                    <input type="text" id="vehicleColor" name="vehicleColor" required>
-                </div>
-                <input type="hidden" name="status" value="0"> <!-- Status is initialized to 0 -->
-                <!-- Submit Button -->
-                <button type="submit">Submit</button>
-            </form>
-            
-        </div>
-        
-
-        <!-- QR Code Section -->
-        <div class="qr-section" id="qrSection">
-            <h1>Register</h1>
-            <h2>Generated QR Code</h2>
-            <canvas id="qrcode" width="128" height="128"></canvas>
-            <p id="message"></p>
-            <button id="downloadBtn">Download</button>
-            <button id="nextBtn">Next</button>
-        </div>
-
-        <!-- Confirmation Section -->
-        <div class="confirmation-section" id="confirmationSection">
-            <h1>Register</h1>
-            <h2>Finished Registration!</h2>
-            <button id="finishBtn">Finish</button> <!-- Finish button to close the form -->
-        </div>
+    <div class="banner">Intellipark System</div>
+    <div class="login-container">
+        <h2>Officer Login</h2>
+        <form id="loginForm">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" required>
+            <label for="password">Password</label>
+            <input type="password" id="password" required>
+            <button id="loginBtn" type="submit">Login</button>
+        </form>
     </div>
-
-    <!-- Include QRious Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.0/qrious.min.js"></script>
-    <script type="module" src="/polyfill.js"></script>
     <script type="module" src="/app.js"></script>
-    <script type="module" src="/index.js"></script>
+    <script type="module" src="/src/scripts/auth/login.js"></script>
 </body>
 </html>
-

@@ -1,0 +1,44 @@
+.sidebar {
+    width: 250px; /* Example width */
+    background-color: #f8f9fa; /* Sidebar background color */
+    padding: 20px; /* Padding for the sidebar */
+}
+
+.sidebar h2 {
+    display: flex;
+    align-items: center;
+    margin: 0; /* Remove default margin */
+}
+
+.logo {
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.side-list {
+    list-style-type: none; /* Remove bullet points from the list */
+    margin: 10px 0; /* Space between list items */
+}
+
+.side-list a {
+    display: flex;
+    align-items: center;
+    text-decoration: none; /* Remove underline */
+    color: #333; /* Text color */
+    padding: 10px; /* Padding for links */
+    border-radius: 4px; /* Rounded corners */
+    transition: background-color 0.3s; /* Smooth background change on hover */
+}
+
+.side-list a:hover {
+    background-color: #e2e6ea; /* Highlight on hover */
+}
+
+.logout-text {
+    cursor: pointer; /* Pointer cursor for logout */
+    color: #d9534f; /* Red color for logout */
+    margin-top: 20px; /* Space above logout text */
+    text-align: center; /* Center the logout text */
+}
+
+
