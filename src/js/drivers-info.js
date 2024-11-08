@@ -3,7 +3,10 @@ import { db } from '/app.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
     await loadDriversData();
+    document.getElementById('searchInput').addEventListener('input', filterDriversData);
 });
+
+let allDriversData = [];
 
 async function loadDriversData() {
     const driversTableBody = document.querySelector('#driversTable tbody');
@@ -11,30 +14,59 @@ async function loadDriversData() {
 
     try {
         const querySnapshot = await getDocs(collection(db, "drivers"));
-        querySnapshot.forEach((doc) => {
-            const driverData = doc.data();
-            const row = driversTableBody.insertRow();
-            row.insertCell(0).innerText = driverData.firstName;
-            row.insertCell(1).innerText = driverData.middleInitials || "N/A";
-            row.insertCell(2).innerText = driverData.lastName;
-            row.insertCell(3).innerText = driverData.gender;
-            row.insertCell(4).innerText = driverData.age;
-            row.insertCell(5).innerText = driverData.userType;
-            row.insertCell(6).innerText = driverData.contactNumber;
-            row.insertCell(7).innerText = driverData.emailAddress;
-            row.insertCell(8).innerText = driverData.address;
-            row.insertCell(9).innerText = driverData.plateNumber;
-            row.insertCell(10).innerText = driverData.vehicleType;
-            row.insertCell(11).innerText = driverData.vehicleColor;
+        allDriversData = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 
-            const showQRBtn = document.createElement('button');
-            showQRBtn.innerText = "Show QR";
-            showQRBtn.onclick = () => showQrPopup(doc.id);
-            row.insertCell(12).appendChild(showQRBtn);
-        });
+        // Render all drivers initially
+        displayDrivers(allDriversData);
     } catch (error) {
         console.error("Error loading driver data:", error);
     }
+}
+
+function displayDrivers(driversData) {
+    const driversTableBody = document.querySelector('#driversTable tbody');
+    driversTableBody.innerHTML = "";  // Clear existing data
+
+    driversData.forEach(driverData => {
+        const row = driversTableBody.insertRow();
+        row.insertCell(0).innerText = driverData.firstName;
+        row.insertCell(1).innerText = driverData.middleInitials || "N/A";
+        row.insertCell(2).innerText = driverData.lastName;
+        row.insertCell(3).innerText = driverData.gender;
+        row.insertCell(4).innerText = driverData.age;
+        row.insertCell(5).innerText = driverData.userType;
+        row.insertCell(6).innerText = driverData.contactNumber;
+        row.insertCell(7).innerText = driverData.emailAddress;
+        row.insertCell(8).innerText = driverData.address;
+        row.insertCell(9).innerText = driverData.plateNumber;
+        row.insertCell(10).innerText = driverData.vehicleType;
+        row.insertCell(11).innerText = driverData.vehicleColor;
+
+        const showQRBtn = document.createElement('button');
+        showQRBtn.innerText = "Show QR";
+        showQRBtn.onclick = () => showQrPopup(driverData.id);
+        row.insertCell(12).appendChild(showQRBtn);
+    });
+}
+
+function filterDriversData() {
+    const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+    const filteredData = allDriversData.filter(driver => {
+        return (
+            driver.firstName.toLowerCase().includes(searchTerm) ||
+            driver.middleInitials?.toLowerCase().includes(searchTerm) ||
+            driver.lastName.toLowerCase().includes(searchTerm) ||
+            driver.contactNumber.includes(searchTerm) ||
+            driver.emailAddress.toLowerCase().includes(searchTerm) ||
+            driver.address.toLowerCase().includes(searchTerm) ||
+            driver.plateNumber.toLowerCase().includes(searchTerm) ||
+            driver.vehicleType.toLowerCase().includes(searchTerm) ||
+            driver.vehicleColor.toLowerCase().includes(searchTerm)
+        );
+    });
+
+    // Display filtered data
+    displayDrivers(filteredData);
 }
 
 async function showQrPopup(docId) {
