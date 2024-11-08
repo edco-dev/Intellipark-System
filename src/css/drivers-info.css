@@ -206,3 +206,7 @@ tbody tr:hover {
 #qrCodeCanvas {
     margin: 15px 0;
 }
+
+#qrPopup {
+    display: none;
+}
