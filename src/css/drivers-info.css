@@ -88,6 +88,48 @@ body {
     outline: none; /* Remove default outline */
 }
 
+/* Id style configurations modal*/
+#userType{
+    color: #4AA5FF;
+    font-size: 35px;
+}
+
+#driverName {
+    font-size: 25px;
+    font-weight: 600;
+}
+
+#plateNumber {
+    margin-top: -20px;
+    font-size: 15px ;
+}
+
+#qrCodeCanvas {
+    width: 128px;
+    height: 128px;
+}
+
+.qrStyle {
+    margin-top: -20px;
+    
+}
+
+#downloadQRBtn {
+    background-color: #353535;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 20px;
+    color: #ffffff;
+}
+
+#closePopupBtn {
+    background-color: #4AA5FF;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 20px;
+    color: #ffffff;
+}
+
 .card-body {
     background-color: white; /* White background for the card */
     padding: 20px;
@@ -145,7 +187,6 @@ tbody tr:hover {
     color: #4AA5FF;
     cursor: pointer; /* Change cursor to pointer */
     transition: background-color 0.3s, color 0.3s; /* Transition effects */
-    margin-left: 10px; /* Space between buttons */
 }
 
 .pageButton:hover {
@@ -156,6 +197,10 @@ tbody tr:hover {
 .pageButton.active {
     background-color: #4AA5FF;
     color: #ffffff;
+}
+
+.paginationText{
+    margin-right: 950px;
 }
 
 /* Responsive Design */
@@ -209,4 +254,9 @@ tbody tr:hover {
 
 #qrPopup {
     display: none;
+}
+
+#currentPage {
+    border: 1px solid #4AA5FF;
+    padding: 9px 15px;
 }

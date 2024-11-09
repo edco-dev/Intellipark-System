@@ -43,8 +43,17 @@ function displayDrivers(driversData) {
         row.insertCell(11).innerText = driverData.vehicleColor;
 
         const showQRBtn = document.createElement('button');
-        showQRBtn.innerText = "Show QR";
+        showQRBtn.innerText = "Show";
         showQRBtn.onclick = () => showQrPopup(driverData.id);
+        showQRBtn.style.backgroundColor = '#4aa5ff';
+        showQRBtn.style.border = 'none';
+        showQRBtn.style.padding = '10px';
+        showQRBtn.style.borderRadius = '20px';
+        showQRBtn.style.color = '#ffffff';
+
+        showQRBtn.addEventListener('mouseover', () => {
+            showQRBtn.style.cursor = 'pointer'; 
+        });
         row.insertCell(12).appendChild(showQRBtn);
     });
 }
@@ -76,9 +85,9 @@ async function showQrPopup(docId) {
 
         if (driverSnap.exists()) {
             const driverData = driverSnap.data();
-            document.getElementById("userType").innerText = `User Type: ${driverData.userType}`;
-            document.getElementById("driverName").innerText = `Driver Name: ${driverData.firstName} ${driverData.lastName}`;
-            document.getElementById("plateNumber").innerText = `Plate Number: ${driverData.plateNumber}`;
+            document.getElementById("userType").innerText = ` ${driverData.userType}`;
+            document.getElementById("driverName").innerText = ` ${driverData.firstName} ${driverData.lastName}`;
+            document.getElementById("plateNumber").innerText = ` ${driverData.plateNumber}`;
 
             const qrCanvas = document.getElementById("qrCodeCanvas");
             const context = qrCanvas.getContext("2d");
