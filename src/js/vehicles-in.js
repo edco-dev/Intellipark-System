@@ -41,6 +41,12 @@ function displayVehicles(vehiclesData) {
         const exitButton = document.createElement('button');
         exitButton.innerText = 'End';
         exitButton.onclick = () => checkoutVehicle(vehicle.id);
+        exitButton.style.backgroundColor = '#ED7676';
+        exitButton.style.border = 'none';
+        exitButton.style.padding = '10px 20px';
+        exitButton.style.color = '#ffffff';
+        exitButton.style.borderRadius = '20px';
+        exitButton.style.fontSize = '10px';
         actionsCell.appendChild(exitButton);
     });
 }
