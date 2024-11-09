@@ -109,8 +109,6 @@ function updatePaginationControls() {
     document.getElementById('nextPage').disabled = currentPage === totalPages;
 }
 
-// Dropdown functionality with "All" and "Calendar" options
-// Dropdown functionality with "All" and "Calendar" options
 function setupDropdownFilter() {
     const dropdownBtn = document.getElementById('dropdownBtn');
     const dropdownContent = document.getElementById('dropdownContent');
@@ -149,9 +147,6 @@ function setupDropdownFilter() {
         }
     });
 }
-
-
-
 
 function setupSearchFilter() {
     document.getElementById('searchInput').addEventListener('input', filterParkingLogs);
