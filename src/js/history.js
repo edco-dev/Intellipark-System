@@ -9,16 +9,14 @@ let allParkingLogs = [];
 document.addEventListener('DOMContentLoaded', async () => {
     await loadParkingLogs();
     setupPagination();
-    setupDateFilter();
+    setupDropdownFilter();
     setupSearchFilter();
 });
 
 async function loadParkingLogs(filterDate = null) {
     parkingLogsByDate = {};
     allParkingLogs = [];
-
-    const dateToFilter = filterDate ? new Date(filterDate) : new Date();
-    const formattedDate = dateToFilter.toISOString().split('T')[0];
+    const dateToFilter = filterDate ? new Date(filterDate) : null;
 
     let logsQuery = query(
         collection(db, "parkingLog"),
@@ -37,11 +35,7 @@ async function loadParkingLogs(filterDate = null) {
         allParkingLogs.push(logData);
     });
 
-    if (filterDate) {
-        displayLogsByDate(filterDate);
-    } else {
-        displayLogsByDate();
-    }
+    displayLogsByDate(filterDate);
 }
 
 function displayLogsByDate(filterDate = null, filteredLogs = null) {
@@ -53,7 +47,6 @@ function displayLogsByDate(filterDate = null, filteredLogs = null) {
 
     datesToDisplay.forEach(date => {
         const logs = logsToDisplay.filter(log => log.date === date);
-
         if (logs.length === 0) return;
 
         const table = document.createElement('table');
@@ -116,19 +109,49 @@ function updatePaginationControls() {
     document.getElementById('nextPage').disabled = currentPage === totalPages;
 }
 
-function setupDateFilter() {
-    document.getElementById('datePicker').addEventListener('change', async (e) => {
-        const selectedDate = e.target.value;
+// Dropdown functionality with "All" and "Calendar" options
+// Dropdown functionality with "All" and "Calendar" options
+function setupDropdownFilter() {
+    const dropdownBtn = document.getElementById('dropdownBtn');
+    const dropdownContent = document.getElementById('dropdownContent');
+    const allOption = document.getElementById('allOption');
+    const calendarOption = document.getElementById('calendarOption');
 
-        if (selectedDate) {
+    // Flatpickr instance with centered calendar styling
+    const datePicker = flatpickr("#datePicker", {
+        onChange: async (selectedDates, dateStr) => {
+            dropdownBtn.innerText = dateStr || "Select Date";
+            dropdownContent.style.display = 'none';
             currentPage = 1;
-            await loadParkingLogs(selectedDate);
-        } else {
-            currentPage = 1;
-            await loadParkingLogs();
+            await loadParkingLogs(dateStr);
+        }
+    });
+
+    dropdownBtn.addEventListener('click', () => {
+        dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
+    });
+
+    allOption.addEventListener('click', async () => {
+        dropdownBtn.innerText = "All";
+        dropdownContent.style.display = 'none';
+        currentPage = 1;
+        await loadParkingLogs(); // Load all logs
+    });
+
+    calendarOption.addEventListener('click', () => {
+        dropdownContent.style.display = 'none';
+        datePicker.open(); // Open the calendar directly
+    });
+
+    window.addEventListener('click', (event) => {
+        if (!event.target.closest('.dropdown')) {
+            dropdownContent.style.display = 'none';
         }
     });
 }
+
+
+
 
 function setupSearchFilter() {
     document.getElementById('searchInput').addEventListener('input', filterParkingLogs);
@@ -136,24 +159,15 @@ function setupSearchFilter() {
 
 function filterParkingLogs() {
     const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-    let logsToFilter = [];
-
     const selectedDate = document.getElementById('datePicker').value;
+    const logsToFilter = selectedDate ? parkingLogsByDate[selectedDate] || [] : Object.values(parkingLogsByDate).flat();
 
-    if (selectedDate) {
-        logsToFilter = parkingLogsByDate[selectedDate] || [];
-    } else {
-        logsToFilter = Object.values(parkingLogsByDate).flat();
-    }
-
-    const filteredLogs = logsToFilter.filter(log => {
-        return (
-            log.plateNumber.toLowerCase().includes(searchTerm) ||
-            log.vehicleOwner.toLowerCase().includes(searchTerm) ||
-            log.userType.toLowerCase().includes(searchTerm) ||
-            log.vehicleType.toLowerCase().includes(searchTerm)
-        );
-    });
+    const filteredLogs = logsToFilter.filter(log =>
+        log.plateNumber.toLowerCase().includes(searchTerm) ||
+        log.vehicleOwner.toLowerCase().includes(searchTerm) ||
+        log.userType.toLowerCase().includes(searchTerm) ||
+        log.vehicleType.toLowerCase().includes(searchTerm)
+    );
 
     displayLogsByDate(selectedDate, filteredLogs);
 }
