@@ -1,5 +1,6 @@
-import { collection, getDocs, doc, getDoc, addDoc, deleteDoc } from "firebase/firestore";
 import { db } from '/app.js';
+import { collection, getDocs, doc, getDoc, addDoc, deleteDoc } from "firebase/firestore";
+
 
 let allVehiclesData = [];
 
@@ -8,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
     setupSearch();
 });
 
-// Fetch data from Firestore
 async function fetchVehiclesData() {
     try {
         const querySnapshot = await getDocs(collection(db, "vehiclesIn"));
@@ -20,10 +20,9 @@ async function fetchVehiclesData() {
     }
 }
 
-// Display vehicle data in the table
 function displayVehicles(vehiclesData) {
     const vehiclesTableBody = document.querySelector('#vehiclesTable tbody');
-    vehiclesTableBody.innerHTML = "";  // Clear existing table rows
+    vehiclesTableBody.innerHTML = "";
 
     vehiclesData.forEach(vehicle => {
         const row = vehiclesTableBody.insertRow();
@@ -46,7 +45,6 @@ function displayVehicles(vehiclesData) {
     });
 }
 
-// Checkout vehicle (move it to vehiclesOut collection and delete from vehiclesIn)
 async function checkoutVehicle(vehicleId) {
     const confirmed = confirm("Are you sure you want to checkout this vehicle?");
     if (!confirmed) return;
@@ -60,24 +58,23 @@ async function checkoutVehicle(vehicleId) {
             return;
         }
 
-        const timeOut = formatTime(new Date()); // Format current time for checkout
+        const timeOut = formatTime(new Date());
         const vehicleData = vehicleDoc.data();
         await addDoc(collection(db, "vehiclesOut"), { 
             ...vehicleData, 
             timeOut 
         });
 
-        await deleteDoc(vehicleRef);  // Remove from vehiclesIn collection
+        await deleteDoc(vehicleRef);
 
         alert("Vehicle checked out successfully!");
-        fetchVehiclesData();  // Refresh the data
+        fetchVehiclesData();
     } catch (error) {
         console.error("Error during checkout:", error);
         alert("Failed to checkout vehicle. Please try again.");
     }
 }
 
-// Setup search functionality
 function setupSearch() {
     const searchInput = document.getElementById('searchInput');
     searchInput.addEventListener('input', () => {
@@ -95,11 +92,10 @@ function setupSearch() {
             (vehicle.timeIn && vehicle.timeIn.toLowerCase().includes(query))
         );
 
-        displayVehicles(filteredVehicles);  // Display filtered vehicles
+        displayVehicles(filteredVehicles);  
     });
 }
 
-// Format time to 12-hour format (e.g., 11:07:15 PM)
 function formatTime(date) {
     const options = { hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true };
     return date.toLocaleTimeString('en-US', options);
