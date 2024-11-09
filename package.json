@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "start": "parcel index.html",
+    "start": "parcel serve index.html",
     "build": "parcel build index.html"
   },
   "keywords": [],
@@ -13,11 +13,15 @@
   "dependencies": {
     "firebase": "^11.0.1",
     "jquery": "^3.7.1",
-    "parcel": "^2.12.0",
     "punycode": "^2.3.1"
   },
   "devDependencies": {
     "buffer": "^6.0.3",
+    "parcel": "^2.12.0",
     "process": "^0.11.10"
+  },
+  "extends": "@parcel/config-default",
+  "optimization": {
+    "scopeHoisting": false
   }
 }

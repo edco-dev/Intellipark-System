@@ -6,7 +6,7 @@ class Sidebar extends HTMLElement {
         this.innerHTML = `
             <nav class="sidebar">
                 <h2>
-                    <img src="./assets/img/logo.png" width="40" alt="logo" class="logo">INTELLIPARK<br>SYSTEM
+                    <img src="../src/assets/img/logo.png" width="40" alt="logo" class="logo">INTELLIPARK<br>SYSTEM
                 </h2>        
                 <ul>
                     <li class="side-list"><a href="dashboard.html" class="side-link"><img class="sbar-logo" src="assets/img/ds-logo.svg" width="30" alt="">Dashboard</a></li>
