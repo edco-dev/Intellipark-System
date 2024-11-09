@@ -41,17 +41,20 @@
                 </table>
             </div>
             <div class="pagination">
+                <div class="paginationText">Page 1 of 1</div>
                 <button class="pageButton" id="prevPageBtn">Previous</button>
-                <span id="currentPage">Page 1 of 1</span>
+                <button id="currentPage" class="pageButton active">1</button>
                 <button class="pageButton" id="nextPageBtn">Next</button>
             </div>
             <div id="qrPopup">
                 <div id="popupContent">
-                    <h2 id="userType">User Type: </h2>
+                    <h2 id="userType"> </h2>
                     <p id="driverName">Driver Name: </p>
                     <p id="plateNumber">Plate Number: </p>
-                    <canvas id="qrCodeCanvas" width="128" height="128"></canvas>
-                    <button id="downloadQRBtn">Download QR Code</button>
+                    <div class="qrStyle">
+                        <canvas id="qrCodeCanvas"></canvas>
+                    </div>                   
+                    <button id="downloadQRBtn">Download</button>
                     <button id="closePopupBtn">Close</button>
                 </div>
             </div>
