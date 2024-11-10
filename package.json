@@ -12,16 +12,18 @@
   "description": "",
   "dependencies": {
     "firebase": "^11.0.1",
-    "jquery": "^3.7.1",
-    "punycode": "^2.3.1"
+    "jquery": "^3.7.1"
   },
   "devDependencies": {
     "buffer": "^6.0.3",
     "parcel": "^2.12.0",
     "process": "^0.11.10"
   },
-  "extends": "@parcel/config-default",
-  "optimization": {
-    "scopeHoisting": false
+  "targets": {
+  "default": {
+    "source": "index.html",
+    "distDir": "dist",
+    "isLibrary": false
   }
+}
 }
