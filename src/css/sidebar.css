@@ -7,7 +7,7 @@
 .sidebar h2 {
     display: flex;
     align-items: center;
-    margin: 0; /* Remove default margin */
+    margin:0;/* Remove default margin */
 }
 
 .logo {
