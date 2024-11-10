@@ -12,6 +12,10 @@ body {
     gap: 20px; /* Space between sidebar and form */
 }
 
+.registration-form {
+    margin-top: 40px;
+}
+
 .main-content {
     flex: 1; /* The main content (form) takes the remaining space */
     display: flex;
@@ -52,6 +56,14 @@ body {
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     padding: 20px;
     border-radius: 9px;
+}
+
+.stage-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 0 auto;
 }
 
 .card-body {
