@@ -18,6 +18,8 @@
 // export { db, auth };
 
 //Production
+import 'dotenv/config'; // Ensure this line is at the top
+
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
