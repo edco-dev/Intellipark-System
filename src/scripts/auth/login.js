@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const loginForm = document.getElementById('loginForm');
 
     onAuthStateChanged(auth, (user) => {
-        if (user) window.location.href = './pages/dashboard/dashboard.html';
+        if (user) window.location.href = 'dashboard.html';
     });
 
     loginForm.addEventListener('submit', (event) => {
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 alert(`Logged in successfully as ${userCredential.user.email}`);
-                window.location.href = './pages/dashboard/dashboard.html';
+                window.location.href = 'dashboard.html';
             })
             .catch((error) => {
                 console.error('Login error:', error.code, error.message);
