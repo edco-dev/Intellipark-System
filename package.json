@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "start": "parcel serve index.html",
-    "build": "parcel build index.html --no-autoinstall --no-cache --no-scope-hoist"
+    "build": "parcel build index.html --no-autoinstall --no-cache --no-scope-hoist --no-content-hash"
   },
   "keywords": [],
   "author": "",
