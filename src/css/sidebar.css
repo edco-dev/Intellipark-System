@@ -2,12 +2,14 @@
     width: 250px; /* Example width */
     background-color: #f8f9fa; /* Sidebar background color */
     padding: 20px; /* Padding for the sidebar */
+    height: 100vh;
 }
 
 .sidebar h2 {
     display: flex;
-    align-items: center;
+    align-items: left;
     margin: 0; /* Remove default margin */
+    font-size: 30px;
 }
 
 .logo {
@@ -15,14 +17,23 @@
     margin-right: 10px;
 }
 
+.sbar-logo {
+    margin-right: 5px;
+}
+
+.sideText {
+    margin-top: 10px;
+}
+
 .side-list {
     list-style-type: none; /* Remove bullet points from the list */
     margin: 10px 0; /* Space between list items */
+    margin-left: -40px;
 }
 
 .side-list a {
     display: flex;
-    align-items: center;
+    align-items: left;
     text-decoration: none; /* Remove underline */
     color: #333; /* Text color */
     padding: 10px; /* Padding for links */
@@ -37,8 +48,9 @@
 .logout-text {
     cursor: pointer; /* Pointer cursor for logout */
     color: #d9534f; /* Red color for logout */
-    margin-top: 20px; /* Space above logout text */
+    margin-top: 350px; /* Space above logout text */
     text-align: center; /* Center the logout text */
+    font-weight: bold;
 }
 
 
