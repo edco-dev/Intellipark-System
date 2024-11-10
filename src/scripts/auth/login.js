@@ -1,5 +1,5 @@
 // login.js
-import { auth } from './app.js';
+import { auth } from '/app.js';
 import { signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
 
 document.addEventListener('DOMContentLoaded', () => {
