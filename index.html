@@ -3,34 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <title>Intellipark System - Login</title>
-    <link rel="stylesheet" href="/src/css/login.css">
-    <link rel="prefetch" href="./public/pages/dashboard/dashboard.html">
-    <link rel="prefetch" href="./public/pages/registration/register.html">
-    <link rel="prefetch" href="./public/pages/registration/visitor.html">
-    <link rel="prefetch" href="./public/pages/drivers-info.html">
-    <link rel="prefetch" href="./public/pages/vehicles-in.html">
-    <link rel="prefetch" href="./public/pages/history.html">
+    <script src="https://cdn.tailwindcss.com"></script> <!-- Tailwind CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome for icons -->
 </head>
-<body>
-    <div class="login-container">
-        <div class="header">
-            <img src="/src/assets/img/carLogo.svg" class="logo" alt="">
-            <h1>INTELLIPARK </br> SYSTEM</h1>
+<body class="bg-[#eaf3fc] flex justify-center items-center min-h-screen">
+    <div class="w-full max-w-[400px] bg-white rounded-xl shadow-lg text-center overflow-hidden pb-6">
+        <div class="bg-[#4a90e2] text-white py-8 px-14 flex items-center justify-start">
+            <!-- Logo -->
+            <img src="/src/assets/img/carLogo.svg" class="w-12 mb-2 ml-8 filter invert brightness-200" alt="">
+            <!-- Title -->
+            <h1 class="ml-4 text-3xl font-bold text-left">INTELLIPARK <br> SYSTEM</h1>
         </div>
-        <h2>Security Officer</h2>
-        <p class="subLogin-text">Log in with your Parking Officer credentials</p>
-        <form id="loginForm">
-            <div class="input-group">
-                <input type="text" id="email" placeholder=" Username" required>
+        <h2 class="text-2xl text-[#333] mt-5 font-bold">Security Officer</h2>
+        <p class="text-[#666] my-2 mb-10">Log in with your Parking Officer credentials</p>
+        <form id="loginForm" class="flex flex-col items-center">
+            <div class="my-4 w-4/5 relative">
+                <!-- Person icon inside the username input -->
+                <i class="fas fa-user absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                <input type="text" id="email" class="w-full py-2 pl-10 border-b-2 border-[#ccc] focus:border-[#4a90e2] text-base outline-none transition duration-300" placeholder="Username" required>
             </div>
-            <div class="input-group">
-                <input type="password" id="password" placeholder="Password" required>
+            <div class="my-4 w-4/5 relative">
+                <!-- Key icon inside the password input -->
+                <i class="fas fa-key absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                <input type="password" id="password" class="w-full py-2 pl-10 border-b-2 border-[#ccc] focus:border-[#4a90e2] text-base outline-none transition duration-300" placeholder="Password" required>
             </div>
-            <button id="loginBtn" type="submit">Log in</button>
+            <!-- Login button -->
+            <button id="loginBtn" type="submit" class="w-3/5 py-3 bg-[#4a90e2] text-white rounded-lg text-base cursor-pointer mt-6 mb-6 transition duration-300 hover:bg-[#357ab8]">
+                Log in
+            </button>
         </form>
     </div>
     <script type="module" src="/app.js"></script>
     <script type="module" src="/src/scripts/auth/login.js"></script>
 </body>
-
 </html>

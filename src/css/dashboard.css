@@ -1,6 +1,6 @@
-body{
-    font-family: 'Arial', sans-serif; /* Modern font for better readability */
-    background-color: #f5f5f5; /* Light background for contrast */
+/* body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
     margin: 0;
 }
 
@@ -10,44 +10,21 @@ body{
     width: 100%;
 }
 
-
-/* Main content styling */
 .main-content {
-    margin-left: 17%; /* Matches the sidebar width to prevent overlap */
+    margin-left: 17%;
     padding: 20px;
-    width: 83%; /* Occupy remaining space */
+    width: 83%;
     overflow-y: auto;
     height: 100vh;
 }
 
 .content-section {
-    display: none; /* Hide all sections initially */
+    display: none;
 }
 
 .content-section.active {
-    display: block; /* Show active section */
+    display: block;
 }
-
-/* Logout styling */
-
-.content-section {
-    display: none; /* Hide sections by default */
-}
-
-.content-section.active {
-    display: block; /* Only the active section will display */
-}
-body {
-    margin: 0; /* Remove default margin */
-    font-family: Arial, sans-serif; /* Set a default font */
-}
-
-.dashboard-container {
-    display: flex; /* Use flexbox for sidebar and main content */
-    height: 100vh; /* Full height of the viewport */
-    background-color: #f0f0f0; /* Background color for the entire page */
-}
-
 
 .navbar {
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -58,36 +35,28 @@ body {
 
 .navbar-title {
     display: flex;
-    align-items: center; 
+    align-items: center;
 }
 
 .card-body {
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     background-color: #ffffff;
-    margin: 10px 0px 10px 0px;
-    padding: 30px 30px 150px 30px;
+    margin: 10px 0px;
+    padding: 30px;
     border-radius: 10px;
-}
-
-.main-content {
-    flex-grow: 1; /* Allow main content to fill the remaining space */
-    padding: 20px; /* Add padding to the main content */
-    overflow-y: auto; /* Allow scrolling if content overflows */
-    margin-left: 0px;
 }
 
 .dashboard-statistics {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px; /* Adjust the gap as needed */
+    gap: 20px;
 }
 
 .statistic-block {
-    border: 1px solid #ccc; /* Add a border for visibility */
-    padding: 20px; /* Add some padding */
-    /* Center the text */
-    border-radius: 8px; /* Optional: Rounded corners */
-    background-color: #086464; /* Optional: Background color */
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #086464;
     color: white;
 }
 
@@ -105,4 +74,4 @@ body {
     text-align: center;
     padding: 1px;
     font-size: 32px;
-}
+} */

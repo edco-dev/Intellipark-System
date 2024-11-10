@@ -16,11 +16,21 @@ document.addEventListener('DOMContentLoaded', () => {
 const TOTAL_SLOTS = 50;
 
 function updateDashboard(totalVehicles, availableSlots, vehiclesIn, vehiclesOut) {
-    document.querySelector('.totalVehicles i').textContent = totalVehicles;
-    document.querySelector('.slotsAvailable i').textContent = `${totalVehicles}/${TOTAL_SLOTS}`;
-    document.querySelector('.vehiclesIn i').textContent = vehiclesIn;
-    document.querySelector('.vehiclesOut i').textContent = vehiclesOut;
+    const totalVehiclesElement = document.querySelector('#totalVehicles i');
+    const slotsAvailableElement = document.querySelector('#slotsAvailable i');
+    const vehiclesInElement = document.querySelector('#vehiclesIn i');
+    const vehiclesOutElement = document.querySelector('#vehiclesOut i');
+
+    if (totalVehiclesElement && slotsAvailableElement && vehiclesInElement && vehiclesOutElement) {
+        totalVehiclesElement.textContent = totalVehicles;
+        slotsAvailableElement.textContent = `${totalVehicles}/${TOTAL_SLOTS}`;
+        vehiclesInElement.textContent = vehiclesIn;
+        vehiclesOutElement.textContent = vehiclesOut;
+    } else {
+        console.error('One or more elements were not found in the DOM. Check if #vehiclesOut and others are correctly defined.');
+    }
 }
+
 
 const vehiclesInRef = collection(db, 'vehiclesIn');
 onSnapshot(vehiclesInRef, (snapshot) => {
@@ -33,10 +43,17 @@ onSnapshot(vehiclesInRef, (snapshot) => {
 const vehiclesOutRef = collection(db, 'vehiclesOut');
 onSnapshot(vehiclesOutRef, (snapshot) => {
     const vehiclesOut = snapshot.size;
-    const totalVehicles = document.querySelector('.vehiclesIn i').textContent;
+    const totalVehicles = document.querySelector('#vehiclesIn i')?.textContent || 0;
     const availableSlots = TOTAL_SLOTS - totalVehicles;
+
+    console.log('Vehicles Out Snapshot:', snapshot);
+    console.log('Vehicles Out:', vehiclesOut);
+    console.log('Total Vehicles:', totalVehicles);
+    console.log('Available Slots:', availableSlots);
+
     updateDashboard(totalVehicles, availableSlots, totalVehicles, vehiclesOut);
 });
+
 
 document.addEventListener('DOMContentLoaded', () => {
     const sidebarLinks = document.querySelectorAll('.sidebar a[data-section]');

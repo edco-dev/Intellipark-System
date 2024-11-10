@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "start": "parcel serve index.html",
-    "build": "parcel build index.html --no-autoinstall --no-cache --no-scope-hoist --no-content-hash"
+    "build": "parcel build index.html  src/styles.css --no-autoinstall --no-cache --no-scope-hoist --no-content-hash"
   },
   "keywords": [],
   "author": "",
@@ -17,8 +17,11 @@
     "punycode": "^2.3.1"
   },
   "devDependencies": {
+    "autoprefixer": "^10.4.20",
     "buffer": "^6.0.3",
     "parcel": "^2.12.0",
-    "process": "^0.11.10"
+    "postcss": "^8.4.47",
+    "process": "^0.11.10",
+    "tailwindcss": "^3.4.14"
   }
 }

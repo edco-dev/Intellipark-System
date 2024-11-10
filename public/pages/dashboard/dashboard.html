@@ -4,79 +4,121 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IntelliPark Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="/src/css/dashboard.css">
     <link rel="stylesheet" href="/src/css/sidebar.css">
 </head>
-<body>
+<body class="bg-gray-100">
 
-<div class="dashboard-container">
-    <app-sidebar></app-sidebar>
-    <div class="main-content">
-        <section id="dashboard" class="content-section active">
-            <nav class="navbar">
-                <h1 class="navbar-title">
-                    <img src="/src/assets/img/ds-logo.svg" width="40" alt="Dashboard Logo"> Dashboard
+<div class="dashboard-container flex h-screen">
+    <div class="w-[350px] bg-white text-black p-6 flex flex-col shadow-lg mr-0 mt-6 ml-6 mb-10 rounded-2xl">
+    <div class="flex items-center mb-5">
+        <img src="/src/assets/img/carLogo.svg" width="40" alt="Logo" class="mr-4">
+        <h2 class="text-2xl font-semibold text-black">IntelliPark System</h2>
+    </div>
+
+    <ul class="flex flex-col space-y-4 text-black mt-20 ml-10">
+        <li>
+            <a href="/public/pages/dashboard/dashboard.html" class="flex items-center p-3 hover:bg-[#49a5ff] hover:text-white">
+                <img src="https://img.icons8.com/?size=100&id=sUJRwjfnGwbJ&format=png&color=000000" width="30" alt="Dashboard" class="mr-4">
+                <span class="text-lg font-medium">Dashboard</span>
+            </a>
+        </li>
+        <li>
+            <a href="/public/pages/drivers-info.html" class="flex items-center p-3 hover:bg-[#49a5ff] hover:text-white">
+                <img src="https://img.icons8.com/?size=100&id=84020&format=png&color=000000" width="30" alt="Drivers Info" class="mr-4">
+                <span class="text-lg font-medium">Drivers Info</span>
+            </a>
+        </li>
+        <li>
+            <a href="/public/pages/vehicles-in.html" class="flex items-center p-3 hover:bg-[#49a5ff] hover:text-white">
+                <img src="https://raw.githubusercontent.com/edco-dev/Intellipark-Images/2e161a45b745a345a020913181cacf47501e3b88/toll.svg" width="30" alt="Vehicles In" class="mr-4">
+                <span class="text-lg font-medium">Vehicles In</span>
+            </a>
+        </li>
+        <li>
+            <a href="/public/pages/registration/register.html" class="flex items-center p-3 hover:bg-[#49a5ff] hover:text-white">
+                <img src="https://img.icons8.com/?size=100&id=85484&format=png&color=000000" width="30" alt="Register" class="mr-4">
+                <span class="text-lg font-medium">Register</span>
+            </a>
+        </li>
+        <li>
+            <a href="/public/pages/history.html" class="flex items-center p-3 hover:bg-[#49a5ff] hover:text-white">
+                <img src="https://img.icons8.com/?size=100&id=6904&format=png&color=000000" width="30" alt="History" class="mr-4">
+                <span class="text-lg font-medium">History</span>
+            </a>
+        </li>
+    </ul>
+
+    <p class="text-red-600 font-bold text-center cursor-pointer mt-auto py-3">Logout</p>
+</div>
+
+    <!-- Main Content -->
+    <div class="main-content flex-grow p-12">
+        <section id="dashboard" class="content-section active flex flex-col">
+            <nav class="navbar bg-white drop-shadow-xl p-5 rounded-b-none rounded-t-2xl">
+                <h1 class="navbar-title text-2xl font-semibold flex items-center">
+                    <img src="/src/assets/img/ds-logo.svg" width="40" alt="Dashboard Logo" class="mr-4">
+                    Dashboard
                 </h1>
             </nav>
-
-            <div class="card-body">
-                <h2 class="dashboard-text">DASHBOARD</h2>
-                <div class="dashboard-statistics">
-                    <div class="statistic-block">
-                        <h3 class="totalVehicles"><i>0</i></h3>
-                        <div class="statistic-info">
-                            <p>Total Vehicles <br> Parked</p>
-                            <img src="/src/assets/img/car.png" width="120" alt="Car Icon">
-                        </div>
+    
+            <div class="card-body shadow-md bg-white rounded-xl p-24">
+                <h2 class="text-center text-3xl font-semibold mb-14"></h2>
+                <div class="dashboard-statistics grid grid-cols-1 md:grid-cols-2 gap-10 justify-center">
+                    <!-- Total Vehicles Card -->
+                    <div id="totalVehicles" class="statistic-block bg-teal-700 p-6 rounded-lg text-white flex flex-col h-72 relative">
+                        <h3 class="text-6xl font-bold absolute top-3 left-3"><i>0</i></h3> <!-- Larger number -->
+                        <p class="font-semibold text-2xl absolute bottom-3 left-3">Total Vehicles Parked</p> <!-- Larger text -->
+                        <img src="/src/assets/img/car.png" width="100" alt="Car Icon" class="icon absolute bottom-3 right-3"> <!-- Larger logo -->
                     </div>
-
-                    <div class="statistic-block">
-                        <h3 class="slotsAvailable"><i>0/50</i></h3>
-                        <div class="statistic-info">
-                            <p>Slots Available</p>
-                            <img src="/src/assets/img/slotsAvail.png" width="120" alt="Slots Icon">
-                        </div>
+                    
+                    <!-- Slots Available Card -->
+                    <div id="slotsAvailable" class="statistic-block bg-teal-700 p-6 rounded-lg text-white flex flex-col h-72 relative">
+                        <h3 class="text-6xl font-bold absolute top-3 left-3"><i>0/50</i></h3> <!-- Larger number -->
+                        <p class="font-semibold text-2xl absolute bottom-3 left-3">Slots Available</p> <!-- Larger text -->
+                        <img src="/src/assets/img/slotsAvail.png" width="100" alt="Slots Icon" class="icon absolute bottom-3 right-3"> <!-- Larger logo -->
                     </div>
-
-                    <div class="statistic-block">
-                        <h3 class="vehiclesIn"><i>0</i></h3>
-                        <div class="statistic-info">
-                            <p>Vehicles IN</p>
-                            <img src="/src/assets/img/vehicleIN.png" width="120" alt="Vehicles In Icon">
-                        </div>
+                    
+                    <!-- Vehicles In Card -->
+                    <div id="vehiclesIn" class="statistic-block bg-teal-700 p-6 rounded-lg text-white flex flex-col h-72 relative">
+                        <h3 class="text-6xl font-bold absolute top-3 left-3"><i>0</i></h3> <!-- Larger number -->
+                        <p class="font-semibold text-2xl absolute bottom-3 left-3">Vehicles IN</p> <!-- Larger text -->
+                        <img src="/src/assets/img/vehicleIN.png" width="100" alt="Vehicles In Icon" class="icon absolute bottom-3 right-3"> <!-- Larger logo -->
                     </div>
-
-                    <div class="statistic-block">
-                        <h3 class="vehiclesOut"><i>0</i></h3>
-                        <div class="statistic-info">
-                            <p>Vehicles OUT</p>
-                            <img src="/src/assets/img/vehicleOUT.png" width="120" alt="Vehicles Out Icon">
-                        </div>
+                    
+                    <!-- Vehicles Out Card -->
+                    <div id="vehiclesOut" class="statistic-block bg-teal-700 p-6 rounded-lg text-white flex flex-col h-72 relative">
+                        <h3 class="text-6xl font-bold absolute top-3 left-3"><i>0</i></h3> <!-- Larger number -->
+                        <p class="font-semibold text-2xl absolute bottom-3 left-3">Vehicles OUT</p> <!-- Larger text -->
+                        <img src="/src/assets/img/vehicleOUT.png" width="100" alt="Vehicles Out Icon" class="icon absolute bottom-3 right-3"> <!-- Larger logo -->
                     </div>
                 </div>
             </div>
-        </section>        
-
+            
+            
+        </section>
+    
         <section id="drivers-info" class="content-section">
             <h2>Drivers Info</h2>
-            <p><a href="/public/pages/drivers-info.html">Go to Drivers Info page</a></p>
+            <p><a href="/public/pages/drivers-info.html" class="text-blue-500">Go to Drivers Info page</a></p>
         </section>
-
+    
         <section id="vehicles-in" class="content-section">
             <h2>Vehicles In</h2>
-            <p><a href="/public/pages/vehicles-in.html">Go to Vehicles In page</a></p>
+            <p><a href="/public/pages/vehicles-in.html" class="text-blue-500">Go to Vehicles In page</a></p>
         </section>
-
+    
         <section id="register" class="content-section">
             <h2>Register</h2>
-            <p><a href="/public/pages/registration/register.html">Go to Register page</a></p>
+            <p><a href="/public/pages/registration/register.html" class="text-blue-500">Go to Register page</a></p>
         </section>
-
+    
         <section id="history" class="content-section">
             <h2>History</h2>
-            <p><a href="/public/pages/history.html">Go to History page</a></p>
+            <p><a href="/public/pages/history.html" class="text-blue-500">Go to History page</a></p>
         </section>
-    </div>
+    </div>    
 </div>
 
 <script type="module" src="/app.js"></script>
