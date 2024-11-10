@@ -1,13 +1,7 @@
-* {
-    box-sizing: border-box;
+body{
+    font-family: 'Arial', sans-serif; /* Modern font for better readability */
+    background-color: #f5f5f5; /* Light background for contrast */
     margin: 0;
-    padding: 0;
-}
-
-body, html {
-    font-family: Arial, sans-serif;
-    height: 100%;
-    overflow: hidden; /* Prevent extra scrolling */
 }
 
 .dashboard-container {
@@ -16,49 +10,6 @@ body, html {
     width: 100%;
 }
 
-/* Sidebar styling */
-.sidebar {
-    background-color: #2c3e50; /* Dark background */
-    color: black; /* Change text color to black */
-    width: 20%; /* Set sidebar width */
-    min-width: 200px; /* Optional minimum width */
-    padding: 20px;
-    height: 100vh;
-    position: fixed; /* Keep sidebar fixed on the left */
-    overflow-y: auto;
-}
-
-.sidebar h2 {
-    margin-bottom: 20px;
-    font-size: 24px;
-}
-
-.sidebar ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.sidebar ul li {
-    margin-bottom: 15px;
-}
-
-.sidebar ul li a {
-    color: black; /* Change link color to black for visibility */
-    text-decoration: none;
-    font-weight: bold;
-    display: block;
-}
-
-.sidebar ul li a:hover {
-    background-color: #3498db; /* Change hover color for better visibility */
-    color: #ffffff;
-    border-radius: 2px;
-    padding: 10px;
-}
-
-.sidebar ul li a:hover img.sbar-logo {
-    filter: invert(100%) sepia(0%) saturate(100%) hue-rotate(0deg) brightness(1);
-}
 
 /* Main content styling */
 .main-content {
@@ -78,14 +29,6 @@ body, html {
 }
 
 /* Logout styling */
-.logout-text {
-    color: red; /* Logout text color */
-    cursor: pointer; /* Change cursor to pointer on hover */
-    text-align: center; /* Center the text */
-    margin-top: auto; /* Push to the bottom */
-    font-weight: bold; /* Bold text */
-    display: inline; /* Display inline without padding */
-}
 
 .content-section {
     display: none; /* Hide sections by default */
@@ -105,56 +48,10 @@ body {
     background-color: #f0f0f0; /* Background color for the entire page */
 }
 
-.sidebar {
-    width: 20%; /* Set the width of the sidebar */
-    background-color: white; /* Sidebar background color */
-    color: black; /* Text color */
-    padding: 20px; /* Add padding */
-    height: 100%; /* Full height of the sidebar */
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2); /* Shadow for depth */
-    display: flex;
-    flex-direction: column; /* Arrange children in a column */
-    justify-content: space-between; /* Push logout to the bottom */
-}
-
-.sidebar h2 {
-    margin-bottom: 20px; /* Space below the title */
-    color: black; /* Make sure the title is black */
-}
-
-.sidebar ul {
-    list-style-type: none; /* Remove bullet points */
-    padding: 0; /* Remove padding */
-}
-
-.sidebar li {
-    margin: 10px 0; /* Add margin between items */
-}
-
-.sidebar a {
-    text-decoration: none; /* Remove underline */
-    color: black; /* Link color */
-    padding: 10px; /* Padding around links */
-    display: block; /* Make the entire area clickable */
-    transition: background-color 0.3s; /* Smooth background change */
-}
-
-.sidebar a:hover {
-    background-color: #e0e0e0; /* Change background on hover */
-}
-
-.logout-text {
-    color: red; /* Logout text color */
-    cursor: pointer; /* Change cursor to pointer on hover */
-    text-align: center; /* Center the text */
-    margin-top: auto; /* Push to the bottom */
-    font-weight: bold; /* Bold text */
-    display: inline; /* Display inline without padding */
-}
 
 .navbar {
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    padding: 25px;
+    padding: 15px;
     border-radius: 10px;
     background-color: #ffffff;
 }
@@ -176,6 +73,7 @@ body {
     flex-grow: 1; /* Allow main content to fill the remaining space */
     padding: 20px; /* Add padding to the main content */
     overflow-y: auto; /* Allow scrolling if content overflows */
+    margin-left: 0px;
 }
 
 .dashboard-statistics {
@@ -205,6 +103,6 @@ body {
 
 .dashboard-text {
     text-align: center;
-    padding: 25px;
+    padding: 1px;
     font-size: 32px;
 }
