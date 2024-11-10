@@ -20,5 +20,3 @@ const db = getFirestore(app);
 const auth = getAuth(app);
 
 export { db, auth };
-    
-console.log(process.env.PARCEL_APP_FIREBASE_API_KEY);
