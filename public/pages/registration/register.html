@@ -3,182 +3,222 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/src/css/register.css">
+    <title>Visitor Registration</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.0/qrious.min.js"></script>
     <link rel="stylesheet" href="/src/css/dashboard.css">
-    <title>IntelliPark System</title>
+    <link rel="stylesheet" href="/src/css/register.css">
+    <link rel="stylesheet" href="/src/css/animation.css">
 </head>
-<body class="animate-fade-in">
-    <div class="register-page-container">
-        <app-sidebar class="app-sidebar"></app-sidebar>
-        <div class="main-content">
-            <div class="navbar">
-                <h2 class="reg-title">Register</h2>
-                <a href="/public/pages/registration/visitor.html" class="add-visitor-link">Add Visitor</a>
+<body class="h-screen text-gray-900 bg-gray-100 animate-fade-in">
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <div class="w-[300px] bg-white shadow-xl p-6 m-6 flex flex-col rounded-2xl">
+            <div class="flex items-center mb-5">
+                <img src="/src/assets/img/carLogo.svg" width="40" alt="Logo" class="mr-4">
+                <h2 class="text-2xl font-semibold">IntelliPark System</h2>
             </div>
-            
-            <!-- Registration Form -->
-             <div class="card-body">
-                <h1>Register</h1>
-                <div class="stage-text">
-                    <p class="active-page">1 General Details </p>|
-                    <p>2 QR Code </p>|
-                    <p>3 Finish Registration</p>
-                </div>
+            <ul class="mt-20 ml-10 space-y-4">
+                <!-- Sidebar Links -->
+                <li>
+                    <a href="/public/pages/dashboard/dashboard.html" class="flex items-center p-3 hover:bg-[#49a5ff] hover:text-white rounded-lg">
+                        <img src="https://img.icons8.com/?size=100&id=sUJRwjfnGwbJ&format=png&color=000000" width="30" alt="Dashboard" class="mr-4">
+                        <span class="text-lg font-medium">Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/public/pages/drivers-info.html" class="flex items-center p-3 hover:bg-[#49a5ff] hover:text-white">
+                        <img src="https://img.icons8.com/?size=100&id=84020&format=png&color=000000" width="30" alt="Drivers Info" class="mr-4">
+                        <span class="text-lg font-medium">Drivers Info</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/public/pages/vehicles-in.html" class="flex items-center p-3 hover:bg-[#49a5ff] hover:text-white">
+                        <img src="https://raw.githubusercontent.com/edco-dev/Intellipark-Images/2e161a45b745a345a020913181cacf47501e3b88/toll.svg" width="30" alt="Vehicles In" class="mr-4">
+                        <span class="text-lg font-medium">Vehicles In</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/public/pages/registration/register.html" class="flex items-center p-3 hover:bg-[#49a5ff] hover:text-white">
+                        <img src="https://img.icons8.com/?size=100&id=85484&format=png&color=000000" width="30" alt="Register" class="mr-4">
+                        <span class="text-lg font-medium">Register</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/public/pages/history.html" class="flex items-center p-3 hover:bg-[#49a5ff] hover:text-white">
+                        <img src="https://img.icons8.com/?size=100&id=6904&format=png&color=000000" width="30" alt="History" class="mr-4">
+                        <span class="text-lg font-medium">History</span>
+                    </a>
+                </li>
+            </ul>
+            <p class="text-[#ed7576] font-bold text-center cursor-pointer mt-auto py-3 hover:text-red-700" id="logoutButton">Logout</p>
+        </div>
+
+        <!-- Main Content for Form and Navbar -->
+        <div class="flex flex-col items-center flex-1 p-6 bg-gray-100">
+            <div class="flex flex-col w-full h-full bg-white shadow-xl rounded-2xl">
+                <!-- Navbar -->
+                <nav class="flex items-center justify-between w-full p-5 bg-white drop-shadow rounded-t-2xl">
+                    <!-- Title Section -->
+                    <h1 class="flex items-center text-2xl font-semibold">
+                        <img src="/src/assets/img/user-add.svg" width="40" alt="Dashboard Logo" class="mr-4">
+                        Register
+                    </h1>
                 
-                    
-                <form id="driverForm" class="registration-form">
+                    <!-- Add Visitor Link aligned to the right -->
+                    <a href="/public/pages/registration/visitor.html" class="m-2 ml-auto text-xl font-thin text-[#49a5ff] add-visitor-link hover:text-blue-600">
+                        Add Visitor
+                    </a>
+                </nav>
 
-                    <div class="form-container">
-                        <div class="form-group">
-                            <div class="labelText">
-                                <label for="firstName">First Name</label>
-                            </div>
-                            <div class="inputLabel">
-                                <input type="text" id="firstName" name="firstName" required>
-                            </div>
-                        </div>
-                    
-                        <div class="form-group">
-                            <div class="labelText">
-                                <label for="middleInitials">Middle Initials</label>
-                            </div>
-                           <div class="inputLabel">
-                            <input type="text" id="middleInitials" name="middleInitials" maxlength="1">
-                           </div>
-                        </div>
-        
-                        <div class="form-group">
-                            <div class="labelText">
-                                <label for="lastName">Last Name</label>
-                            </div>
-                            <div class="inputLabel">
-                                <input type="text" id="lastName" name="lastName" required>
+                <!-- Form container with floating effect -->
+                <div class="flex justify-center mt-10 min-h-[500px]">
+                    <!-- Form Container -->
+                    <div class="w-full max-w-4xl p-8 bg-white rounded-xl" id="formSection">
+                        <h2 class="text-4xl font-semibold text-center text-slate-900">Register</h2>
+                        <div class="flex justify-center p-4 mb-20">
+                            <div class="relative flex items-center justify-between w-full max-w-4xl">
+                                <div id="step1" class="relative text-center step-circle active">
+                                    <span class="step-number">1</span>
+                                    <div class="step-label">General Details</div>
+                                    <!-- Line After Step 1 -->
+                                    <div class="step-line absolute top-1/2 mr-10 right-[-90%] w-[50%] border-t-2 border-gray-300"></div>
+                                </div>
+                                <div id="step2" class="relative text-center step-circle">
+                                    <span class="ml-5 step-number">2</span>
+                                    <div class="step-label">QR Code</div>
+                                    <!-- Line After Step 2 -->
+                                </div>
+                                <div id="step3" class="relative text-center step-circle">
+                                    <span class="step-number">3</span>
+                                    <div class="step-label">Finish Registration</div>
+                                    <div class="step-line absolute top-1/2 left-[-54%] w-[42%] border-t-2 border-gray-300"></div>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                        
+                        <form id="driverForm" class="space-y-9">
+                            <!-- Name Fields -->
+                            <div class="grid grid-cols-3 gap-4">
+                                <div>
+                                    <label for="firstName" class="block font-medium text-gray-700 text-md">First Name</label>
+                                    <input type="text" id="firstName" name="firstName" class="block w-full h-10 mt-1 border-2 border-gray-200 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
+                                </div>
+                                <div>
+                                    <label for="middleName" class="block font-medium text-gray-700 text-md">Middle Name</label>
+                                    <input type="text" id="middleName" name="middleName" class="block w-full h-10 mt-1 border-2 border-gray-200 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                                </div>
+                                <div>
+                                    <label for="lastName" class="block font-medium text-gray-700 text-md">Last Name</label>
+                                    <input type="text" id="lastName" name="lastName" class="block w-full h-10 mt-1 border-2 border-gray-200 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
+                                </div>
+                            </div>
 
-                    <div class="form-container">
-                        <div class="form-group">
-                            <div class="labelText">
-                                <label for="gender">Gender</label>
-                            </div>
-                            <div class="inputLabel">
-                                <select id="gender" name="gender" required>
-                                    <option value="">Select</option>
-                                    <option value="male">Male</option>
-                                    <option value="female">Female</option>
-                                    <option value="other">Other</option>
-                                </select>
-                            </div>
-                        </div>
-                    
-                        <div class="form-group">
-                            <div class="labelText">
-                                <label for="age">Age</label>
-                            </div>
-                           <div class="inputLabel">
-                            <input type="number" id="age" name="age" required>
-                           </div>
-                        </div>
-        
-                        <div class="form-group">
-                            <div class="labelText">
-                                <label for="userType">User Type</label>
-                            </div>
-                            <div class="inputLabel">
-                                <select id="userType" name="userType" required>
-                                    <option value="">Select</option>
+                            <div class="grid grid-cols-[1fr_1fr_2fr] gap-4">
+                                <div>
+                                    <label for="Gender" class="block font-medium text-gray-700 text-md">Gender</label>
+                                    <select id="gender" name="gender" class="block w-full h-10 mt-1 border-2 border-gray-200 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
+                                        <option value="">Select</option>
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                              
+                                <div>
+                                    <label for="Age" class="block font-medium text-gray-700 text-md">Age</label>
+                                    <input type="text" id="age" name="age" class="block w-full h-10 mt-1 border-2 border-gray-200 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
+                                </div>
+                                <div>
+                                <label for="userType" class="block font-medium text-gray-700 text-md">User Type</label>
+                                <select id="userType" name="userType" class="block w-full h-10 mt-1 border-2 border-gray-200 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
+                                    <option value="" disabled selected>Select</option>
                                     <option value="driver">Driver</option>
                                     <option value="passenger">Passenger</option>
                                 </select>
+                                </div>
                             </div>
-                        </div>
-                    </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label for="contactNumber" class="block font-medium text-gray-700 text-md">Contact Number</label>
+                                    <input type="text" id="contactNumber" name="contactNumber" class="block w-full h-10 mt-1 border-2 border-gray-200 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
+                                </div>
+                                <div>
+                                    <label for="Email Address" class="block font-medium text-gray-700 text-md">Email Address</label>
+                                    <input type="text" id="emailAddress" name="emailAddress" class="block w-full h-10 mt-1 border-2 border-gray-200 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
+                                </div>
+                            </div>
 
-                    <div class="form-container">
-                        <div class="form-group">
-                            <div class="labelText">
-                                <label for="contactNumber">Contact Number</label>
+                            <div class="grid grid-cols-1 gap-4">
+                                <div>
+                                    <label for="address" class="block font-medium text-gray-700 text-md">Address</label>
+                                    <input type="text" id="address" name="address" class="block w-full h-10 mt-1 border-2 border-gray-200 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
+                                </div>
                             </div>
-                            <div class="inputLabel">
-                                <input type="tel" id="contactNumber" name="contactNumber" required>
-                            </div>
-                        </div>
-                    
-                        <div class="form-group">
-                            <div class="labelText">
-                                <label for="emailAddress">Email Address</label>
-                            </div>
-                           <div class="inputLabel">
-                                <input type="email" id="emailAddress" name="emailAddress" required>
-                           </div>
-                        </div>
-        
-                        <div class="form-group">
-                            <div class="labelText">
-                                <label for="address">Address</label>
-                            </div>
-                            <div class="inputLabel">
-                                <input type="text" id="address" name="address" required>
-                            </div>
-                        </div>
-                    </div>
-    
-                    <div class="form-container">
-                        <div class="form-group">
-                            <div class="labelText">
-                                <label for="plateNumber">Plate Number</label>
-                            </div>
-                            <div class="inputLabel">
-                                <input type="text" id="plateNumber" name="plateNumber" required>
-                            </div>
-                        </div>
-                    
-                        <div class="form-group">
-                            <div class="labelText">
-                                <label for="vehicleType">Vehicle Type</label>
-                            </div>
-                           <div class="inputLabel">
-                                <input type="text" id="vehicleType" name="vehicleType" required>
-                           </div>
-                        </div>
-        
-                        <div class="form-group">
-                            <div class="labelText">
-                                <label for="vehicleColor">Vehicle Color</label>
-                            </div>
-                            <div class="inputLabel">
-                                <input type="text" id="vehicleColor" name="vehicleColor" required>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="button-case">
-                        <input type="hidden" name="status" value="0">
-                        <button type="submit" class="submit-btn">Submit</button>
-                    </div>
-                    
-                </form>
-             </div>
 
-             <div class="qr-section" id="qrSection">
-                <h1>Register</h1>
-                <h2>Generated QR Code</h2>
-                <canvas id="qrcode" width="128" height="128"></canvas>
-                <p id="message"></p>
-                <button id="downloadBtn">Download</button>
-                <button id="nextBtn">Next</button>
+                            <!-- Vehicle Type and User Type Fields -->
+                            <div class="grid grid-cols-3 gap-4">
+                                <div>
+                                    <label for="plateNumber" class="block font-medium text-gray-700 text-md">Plate Number</label>
+                                    <input type="text" id="plateNumber" name="plateNumber" class="block w-full h-10 mt-1 border-2 border-gray-200 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
+                                </div>
+                                <div>
+                                    <label for="vehicleType" class="block font-medium text-gray-700 text-md">Vehicle Type</label>
+                                    <input type="text" id="vehicleType" name="vehicleType" class="block w-full h-10 mt-1 border-2 border-gray-200 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
+                                </div>
+                                <div>
+                                    <label for="vehicleColor" class="block font-medium text-gray-700 text-md">Vehicle Color</label>
+                                    <input type="text" id="vehicleColor" name="vehicleColor" class="block w-full h-10 mt-1 border-2 border-gray-200 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
+                                </div>
+                            </div>
+                            
+                            <!-- Submit Button -->
+                            <div class="text-center">
+                                <button type="submit" class="w-[150px] px-4 py-2 bg-[#49a5ff] text-white rounded-3xl shadow-md text-lg hover:bg-[#4995ff] focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50">
+                                    Generate
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                      <!-- QR Code Section (hidden initially) -->
+                <div class="flex justify-center items-center mt-10 min-h-[500px] hidden" id="qrSection">
+                    <div class="w-full max-w-lg p-8 text-center bg-white rounded-xl">
+                        <h2 class="text-4xl font-semibold text-center text-slate-900">Register</h2>
+                        <div class="flex justify-center p-4 mb-20">
+                            <div class="relative flex items-center justify-between w-full max-w-4xl">
+                                <div id="step1" class="relative text-center step-circle active">
+                                    <span class="step-number">1</span>
+                                    <div class="step-label">General Details</div>
+                                    <!-- Line After Step 1 -->
+                                    <div class="step-line absolute top-1/2 mr-10 right-[-90%] w-[50%] border-t-2 border-gray-300"></div>
+                                </div>
+                                <div id="step2" class="relative text-center step-circle">
+                                    <span class="ml-5 step-number">2</span>
+                                    <div class="step-label">QR Code</div>
+                                    <!-- Line After Step 2 -->
+                                </div>
+                                <div id="step3" class="relative text-center step-circle">
+                                    <span class="step-number">3</span>
+                                    <div class="step-label">Finish Registration</div>
+                                    <div class="step-line absolute top-1/2 left-[-54%] w-[42%] border-t-2 border-gray-300"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <h2 class="text-4xl font-semibold text-gray-700">Generated QR Code</h2>
+                        <canvas id="qrcode" width="128" height="128" class="mx-auto mt-6"></canvas>
+                        <button id="nextBtn" class="mt-8 w-[150px] px-4 py-2 bg-[#49a5ff] text-white rounded-3xl shadow-md text-lg hover:bg-[#4995ff]">Next</button>
+                    </div>
+                </div>
+
+                <!-- Finish Section (hidden initially) -->
+                <div class="flex justify-center items-center mt-10 min-h-[500px] hidden" id="finishSection">
+                    <div class="w-full max-w-lg p-8 text-center bg-white rounded-xl">
+                        <h2 class="text-4xl font-semibold text-gray-700">Finished Registration!</h2>
+                        <button id="finishBtn" class="mt-8 w-[150px] px-4 py-2 bg-green-500 text-white rounded-3xl shadow-md text-lg hover:bg-green-600">Finish</button>
+                    </div>
+                </div>
+                </div>
             </div>
-        
-            <!-- Confirmation Section -->
-            <div class="confirmation-section" id="confirmationSection">
-                <h1>Register</h1>
-                <h2>Finished Registration!</h2>
-                <button id="finishBtn">Finish</button>
-            </div>
-        
-            
         </div>
     </div>
 
@@ -186,5 +226,61 @@
     <script type="module" src="/src/js/register.js"></script>
     <script type="module" src="/src/scripts/auth/auth.js"></script>
     <script type="module" src="/src/js/animations.js"></script>
+    <script>
+          document.getElementById("driverForm").addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        // Show the loader (Page Loader)
+        const loader = document.createElement("div");
+        loader.className = "page-loader";
+        const spinner = document.createElement("div");
+        spinner.className = "loading-spinner";
+        loader.appendChild(spinner);
+        document.body.appendChild(loader);
+        loader.style.display = "block";
+
+        setTimeout(() => {
+            loader.style.display = "none"; // Hide the loader
+
+            // Slide out the form section and slide in the QR code section
+            document.getElementById("formSection").classList.add("slide-out");
+            setTimeout(() => {
+                document.getElementById("formSection").classList.add("hidden");
+
+                // Mark Step 1 as completed and Step 2 as active
+                document.getElementById("step1").classList.add("completed");
+                document.getElementById("step2").classList.add("active");
+
+                document.getElementById("qrSection").classList.remove("hidden");
+                document.getElementById("qrSection").classList.add("slide-in");
+
+                const qr = new QRious({
+                    element: document.getElementById("qrcode"),
+                    value: "Registered User Details",
+                    size: 128,
+                });
+            }, 500); // Wait for slide-out to complete (500ms)
+        }, 1000); // Loader is shown for 1 second
+    });
+
+    document.getElementById("nextBtn").addEventListener("click", function () {
+        document.getElementById("qrSection").classList.add("slide-out");
+
+        setTimeout(() => {
+            document.getElementById("qrSection").classList.add("hidden");
+            document.getElementById("finishSection").classList.remove("hidden");
+            document.getElementById("finishSection").classList.add("slide-in");
+
+            // Mark Step 2 as completed and Step 3 as active
+            document.getElementById("step2").classList.add("completed");
+            document.getElementById("step3").classList.add("active");
+        }, 500); // Wait for slide-out to complete
+    });
+
+    document.getElementById("finishBtn").addEventListener("click", function () {
+        window.location.href = "/public/pages/dashboard/dashboard.html";
+    });
+
+</script>
 </body>
 </html>
