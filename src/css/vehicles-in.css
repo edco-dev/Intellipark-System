@@ -82,7 +82,7 @@ thead th {
     font-weight: bold;
     text-align: center;
     padding-top: 15px;
-    padding-bottom: 15px;
+    padding-bottom: 20px;
 }
 
 thead th:first-child {
@@ -131,6 +131,8 @@ tbody tr:hover {
 }
 
 /* Popup Styles */
+
+/* Overlay styling */
 .popup {
     display: none;
     position: fixed;
@@ -143,12 +145,67 @@ tbody tr:hover {
     justify-content: center;
 }
 
+/* Popup content styling */
 .popup-content {
-    background-color: #fff;
-    padding: 15px;
-    border-radius: 6px;
-    width: 280px;
+    background-color: #252b26;
+    padding: 120px;
+    border-radius: 10px;
+    width: 500px; /* Adjusted width to accommodate larger padding */
     text-align: center;
+    color: white;
+}
+
+.popup-content p{
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    margin: 20px;
+}
+
+/* Container for buttons to align them side by side */
+.button-container {
+    display: flex;
+    justify-content: space-between; /* Space between buttons */
+    gap: 20px; /* Add some gap between buttons */
+    margin-top: 20px;
+}
+
+/* Button styling */
+.popup-btn {
+    padding: 10px; /* Large padding */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px; /* Larger font size */
+    font-weight: bold;
+    text-align: center;
+    flex: 1; /* Equal width for both buttons */
+    display: inline-block; /* Ensure inline-block behavior */
+    margin-top: 30px;
+}
+
+/* Green button for "Yes" */
+#confirmYes {
+    background-color: #28a745; /* Green */
+    color: white;
+    width: 100%; /* Full width of container */
+}
+
+/* Black button for "Cancel" */
+#confirmNo {
+    background-color: #333333; /* Black */
+    color: white;
+    width: 100%; /* Full width of container */
+}
+
+
+/* Hover effects for better user feedback */
+#confirmYes:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+#confirmNo:hover {
+    background-color: #555555; /* Lighter black on hover */
 }
 
 /* Responsive */

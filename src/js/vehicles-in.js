@@ -61,34 +61,53 @@ function displayVehicles(vehiclesData) {
 }
 
 async function checkoutVehicle(vehicleId) {
-    const confirmed = confirm("Are you sure you want to checkout this vehicle?");
-    if (!confirmed) return;
+    // Display the confirmation modal
+    const confirmationModal = document.getElementById('confirmationModal');
+    confirmationModal.style.display = 'flex';
 
-    try {
-        const vehicleRef = doc(db, "vehiclesIn", vehicleId);
-        const vehicleDoc = await getDoc(vehicleRef);
+    // Handle Yes and No button actions
+    const confirmYes = document.getElementById('confirmYes');
+    const confirmNo = document.getElementById('confirmNo');
 
-        if (!vehicleDoc.exists()) {
-            alert("Vehicle not found in vehicles in.");
-            return;
+    const closeModal = () => {
+        confirmationModal.style.display = 'none';
+    };
+
+    // "Yes" button confirms checkout
+    confirmYes.onclick = async () => {
+        closeModal(); // Hide the modal
+
+        try {
+            const vehicleRef = doc(db, "vehiclesIn", vehicleId);
+            const vehicleDoc = await getDoc(vehicleRef);
+
+            if (!vehicleDoc.exists()) {
+                alert("Vehicle not found in vehicles in.");
+                return;
+            }
+
+            const timeOut = formatTime(new Date());
+            const vehicleData = vehicleDoc.data();
+
+            await addDoc(collection(db, "vehiclesOut"), { 
+                ...vehicleData, 
+                timeOut 
+            });
+
+            await deleteDoc(vehicleRef);
+
+            alert("Vehicle checked out successfully!");
+            fetchVehiclesData(); // Refresh vehicle data
+        } catch (error) {
+            console.error("Error during checkout:", error);
+            alert("Failed to checkout vehicle. Please try again.");
         }
+    };
 
-        const timeOut = formatTime(new Date());
-        const vehicleData = vehicleDoc.data();
-        await addDoc(collection(db, "vehiclesOut"), { 
-            ...vehicleData, 
-            timeOut 
-        });
-
-        await deleteDoc(vehicleRef);
-
-        alert("Vehicle checked out successfully!");
-        fetchVehiclesData();
-    } catch (error) {
-        console.error("Error during checkout:", error);
-        alert("Failed to checkout vehicle. Please try again.");
-    }
+    // "No" button cancels the action and closes the modal
+    confirmNo.onclick = closeModal;
 }
+
 
 // Function to setup search functionality
 function setupSearch() {
