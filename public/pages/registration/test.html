@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visitor Registration</title>
+    <link rel="stylesheet" href="/src/css/visitor.css">
+</head>
+<body>
+    <div class="visitor-container">
+        
+        <div class="main-content">
+            <div class="navbar">
+                <h2 class="reg-title">Register</h2>
+                <a href="/public/pages/registration/visitor.html" class="add-visitor-link">Add Visitor</a>
+            </div>
+            <div class="form-container card-body">
+                <h2 class="">Visitor Registration</h2>
+                <form id="visitorForm">
+                    <!-- Horizontal alignment for name fields -->
+                    <div class="horizontal-fields">
+                        <div class="form-field">
+                            <label for="firstName">First Name</label>
+                            <input type="text" id="firstName" required>
+                        </div>
+                        <div class="form-field">
+                            <label for="middleName">Middle Name</label>
+                            <input type="text" id="middleName">
+                        </div>
+                        <div class="form-field">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" id="lastName" required>
+                        </div>
+                    </div>
+
+                    <div class="horizontal-fields">
+                        <div class="form-field">
+                            <label for="contactNumber">Contact Number</label>
+                            <input type="text" id="contactNumber" required>
+                        </div>
+                        <div class="form-field">
+                            <label for="plateNumber">Plate Number</label>
+                            <input type="text" id="plateNumber" required>
+                        </div>
+                    </div>
+
+                    <div class="horizontal-fields">
+                        <div class="form-field">
+                            <label for="vehicleType">Vehicle Type</label>
+                            <input type="text" id="vehicleType" required>
+                        </div>
+                        <div class="form-field">
+                            <label for="userType">User Type</label>
+                            <select id="userType" name="userType" required>
+                                <option value=""></option>
+                                <option value="driver">Driver</option>
+                                <option value="passenger">Passenger</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- Other fields -->
+                    <div class="form-field submitBtn">
+                        <button type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="/app.js"></script>
+    <script type="module" src="/src/js/visitor.js"></script>
+    <script type="module" src="/src/scripts/auth/auth.js"></script>
+</body>
+</html>
