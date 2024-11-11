@@ -4,9 +4,13 @@ import { db } from '/app.js';
 document.addEventListener('DOMContentLoaded', async () => {
     await loadDriversData();
     document.getElementById('searchInput').addEventListener('input', filterDriversData);
+    document.getElementById("prevPageBtn").addEventListener("click", prevPage);
+    document.getElementById("nextPageBtn").addEventListener("click", nextPage);
 });
 
 let allDriversData = [];
+let currentPage = 1;
+const itemsPerPage = 7; // Limit display to 5 drivers per page
 
 async function loadDriversData() {
     const driversTableBody = document.querySelector('#driversTable tbody');
@@ -16,7 +20,7 @@ async function loadDriversData() {
         const querySnapshot = await getDocs(collection(db, "drivers"));
         allDriversData = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 
-        // Render all drivers initially
+        currentPage = 1; // Reset to the first page on data load
         displayDrivers(allDriversData);
     } catch (error) {
         console.error("Error loading driver data:", error);
@@ -25,9 +29,14 @@ async function loadDriversData() {
 
 function displayDrivers(driversData) {
     const driversTableBody = document.querySelector('#driversTable tbody');
-    driversTableBody.innerHTML = "";  // Clear existing data
+    driversTableBody.innerHTML = ""; // Clear existing data
 
-    driversData.forEach(driverData => {
+    // Calculate pagination range
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const driversToShow = driversData.slice(startIndex, endIndex);
+
+    driversToShow.forEach(driverData => {
         const row = driversTableBody.insertRow();
         row.insertCell(0).innerText = driverData.firstName;
         row.insertCell(1).innerText = driverData.middleInitials || "N/A";
@@ -47,7 +56,8 @@ function displayDrivers(driversData) {
         showQRBtn.onclick = () => showQrPopup(driverData.id);
         showQRBtn.style.backgroundColor = '#4aa5ff';
         showQRBtn.style.border = 'none';
-        showQRBtn.style.padding = '10px';
+        showQRBtn.style.padding = '5px';
+        showQRBtn.style.width = '50px';
         showQRBtn.style.borderRadius = '20px';
         showQRBtn.style.color = '#ffffff';
 
@@ -56,7 +66,16 @@ function displayDrivers(driversData) {
         });
         row.insertCell(12).appendChild(showQRBtn);
     });
+
+    // Update pagination text
+    document.getElementById("paginationText").innerText = currentPage;
+    document.getElementById("pageTracker").innerText = `Page ${currentPage} of ${Math.ceil(driversData.length / itemsPerPage)}`;
+
+    // Enable/disable pagination buttons
+    document.getElementById("prevPageBtn").disabled = currentPage === 1;
+    document.getElementById("nextPageBtn").disabled = endIndex >= driversData.length;
 }
+
 
 function filterDriversData() {
     const searchTerm = document.getElementById('searchInput').value.toLowerCase();
@@ -74,8 +93,18 @@ function filterDriversData() {
         );
     });
 
-    // Display filtered data
+    currentPage = 1; // Reset to the first page on filter
     displayDrivers(filteredData);
+}
+
+function nextPage() {
+    currentPage++;
+    displayDrivers(allDriversData);
+}
+
+function prevPage() {
+    currentPage--;
+    displayDrivers(allDriversData);
 }
 
 async function showQrPopup(docId) {

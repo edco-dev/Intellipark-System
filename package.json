@@ -4,7 +4,8 @@
   "type": "module",
   "scripts": {
     "start": "parcel serve index.html",
-    "build": "parcel build index.html  src/styles.css --no-autoinstall --no-cache --no-scope-hoist --no-content-hash"
+    "build:tailwind": "tailwindcss -i ./src/styles.css -o ./dist/tailwind.css --minify",
+    "build": "npm run build:tailwind && parcel build index.html ./dist/tailwind.css --no-autoinstall --no-cache --no-scope-hoist --no-content-hash"
   },
   "keywords": [],
   "author": "",
