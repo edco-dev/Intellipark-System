@@ -3,24 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/src/css/vehicles-in.css">
-    <link rel="stylesheet" href="/src/css/sidebar.css">
     <title>Vehicles In</title>
+    <link rel="stylesheet" href="/src/css/vehicles-in.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="vehicleIn-container">
-        <app-sidebar></app-sidebar>
-        <div class="container">
-            <nav class="navbar">
-                <h1 class="vehicleIN-text">
-                    <img src="/src/assets/img/toll.svg" class="tollImg" width="40" style="margin-right: 5px;" alt="">Vehicles Currently In
-                </h1>
-                <input type="text" id="searchInput" placeholder="Search" />
+    <div class="drivers-info-container">
+        <div class="w-[350px] bg-white text-black p-6 flex flex-col shadow-xl mr-0 mt-6 ml-6 mb-10 rounded-2xl">
+            <div class="flex items-center mb-5">
+                <img src="/src/assets/img/carLogo.svg" width="40" alt="Logo" class="mr-4">
+                <h2 class="text-2xl font-semibold text-black">IntelliPark System</h2>
+            </div>
+    
+            <ul class="flex flex-col space-y-4 text-black mt-20 ml-10">
+                <li>
+                    <a href="/public/pages/dashboard/dashboard.html" class="flex items-center p-3 hover:bg-[#49a5ff] hover:text-white">
+                        <img src="https://img.icons8.com/?size=100&id=sUJRwjfnGwbJ&format=png&color=000000" width="30" alt="Dashboard" class="mr-4">
+                        <span class="text-lg font-medium">Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/public/pages/drivers-info.html" class="flex items-center p-3 hover:bg-[#49a5ff] hover:text-white">
+                        <img src="https://img.icons8.com/?size=100&id=84020&format=png&color=000000" width="30" alt="Drivers Info" class="mr-4">
+                        <span class="text-lg font-medium">Drivers Info</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/public/pages/vehicles-in.html" class="flex items-center p-3 hover:bg-[#49a5ff] hover:text-white">
+                        <img src="https://raw.githubusercontent.com/edco-dev/Intellipark-Images/2e161a45b745a345a020913181cacf47501e3b88/toll.svg" width="30" alt="Vehicles In" class="mr-4">
+                        <span class="text-lg font-medium">Vehicles In</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/public/pages/registration/register.html" class="flex items-center p-3 hover:bg-[#49a5ff] hover:text-white">
+                        <img src="https://img.icons8.com/?size=100&id=85484&format=png&color=000000" width="30" alt="Register" class="mr-4">
+                        <span class="text-lg font-medium">Register</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/public/pages/history.html" class="flex items-center p-3 hover:bg-[#49a5ff] hover:text-white">
+                        <img src="https://img.icons8.com/?size=100&id=6904&format=png&color=000000" width="30" alt="History" class="mr-4">
+                        <span class="text-lg font-medium">History</span>
+                    </a>
+                </li>
+            </ul>
+    
+            <p class="text-[#ed7576] font-bold text-center cursor-pointer mt-auto py-3" id="logoutButton">Logout</p>
+            <script>
+                const logoutButton = document.querySelector('#logoutButton');
+                if (logoutButton) {
+                    logoutButton.addEventListener('click', logoutUser);
+                }
+            </script>
+        </div>
+
+        <div class="container flex-grow p-8">
+            <nav class="navbar p-4 drop-shadow-lg bg-white flex justify-between rounded-t-xl">
+                <h1><img src="/src/assets/img/toll.svg" width="30" style="margin-right: 3px;" alt=""> Vehicles In</h1>
+                <input
+                type="text"
+                id="searchInput"
+                placeholder="Search"
+                class="px-4 py-1 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 placeholder-gray-500 text-sm w-96"
+            />
             </nav>
             <div class="card-body">
-                <h2>Parked Vehicles</h2>
+                <h2 class="text-3xl font-semibold text-black pt-8 pb-8">Parked Vehicles</h2>
                 <div class="table-container">
-                    <table id="vehiclesTable">
+                    <table class="table-modern shadow-lg w-full" id="vehiclesTable">
                         <thead>
                             <tr>
                                 <th>Transaction ID</th>
@@ -36,15 +87,31 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <!-- Driver data will be populated here -->
                         </tbody>
                     </table>
                 </div>
+                <div class="flex justify-between mt-4">
+                    <!-- Left-aligned page tracker -->
+                    <span id="pageTracker" class="text-gray-600 self-center">Page 1 of 1</span>
+    
+                    <div class="flex space-x-1">
+                        <button id="prevPageBtn" class="rounded-md border border-slate-300 py-2 px-3 text-center text-sm transition-all shadow-sm hover:shadow-lg text-slate-600 hover:text-white hover:bg-[#49a5ff]     focus:text-white focus:bg-slate-800 focus:border-slate-800 active:border-slate-800 active:text-white active:bg-slate-800 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2">
+                            Prev
+                        </button>
+                        <span id="paginationText" class="self-center min-w-9 rounded-md bg-[#49a5ff] py-2 px-3 border border-transparent text-center text-sm text-white transition-all shadow-md focus:shadow-none active:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2">1</span>
+                        <button id="nextPageBtn" class="min-w-9 rounded-md border border-slate-300 py-2 px-3 text-center text-sm transition-all shadow-sm hover:shadow-lg text-slate-600 hover:text-white hover:bg-[#49a5ff] focus:text-white focus:bg-slate-800 focus:border-slate-800 active:border-slate-800 active:text-white active:bg-slate-800 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2">
+                            Next
+                        </button>
+                      </div>
+                </div>
             </div>
+            
         </div>
+        
     </div>
     <script type="module" src="/app.js"></script>
     <script type="module" src="/src/js/vehicles-in.js"></script>
     <script type="module" src="/src/scripts/auth/auth.js"></script>
-    <script type="module" src="/src/js/loadSidebar.js"></script>
 </body>
 </html>

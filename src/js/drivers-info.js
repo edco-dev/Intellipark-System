@@ -6,9 +6,15 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.getElementById('searchInput').addEventListener('input', filterDriversData);
     document.getElementById("prevPageBtn").addEventListener("click", prevPage);
     document.getElementById("nextPageBtn").addEventListener("click", nextPage);
+
+    const logoutButton = document.querySelector('#logoutButton');
+    if (logoutButton) {
+        logoutButton.addEventListener('click', logoutUser);
+    }
 });
 
 let allDriversData = [];
+let filteredDriversData = [];
 let currentPage = 1;
 const itemsPerPage = 7; // Limit display to 5 drivers per page
 
@@ -19,9 +25,9 @@ async function loadDriversData() {
     try {
         const querySnapshot = await getDocs(collection(db, "drivers"));
         allDriversData = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-
+        filteredDriversData = [...allDriversData];  // Initially set filtered data to all drivers
         currentPage = 1; // Reset to the first page on data load
-        displayDrivers(allDriversData);
+        displayDrivers(filteredDriversData);
     } catch (error) {
         console.error("Error loading driver data:", error);
     }
@@ -79,32 +85,33 @@ function displayDrivers(driversData) {
 
 function filterDriversData() {
     const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-    const filteredData = allDriversData.filter(driver => {
+
+    filteredDriversData = allDriversData.filter(driver => {
         return (
-            driver.firstName.toLowerCase().includes(searchTerm) ||
-            driver.middleInitials?.toLowerCase().includes(searchTerm) ||
-            driver.lastName.toLowerCase().includes(searchTerm) ||
-            driver.contactNumber.includes(searchTerm) ||
-            driver.emailAddress.toLowerCase().includes(searchTerm) ||
-            driver.address.toLowerCase().includes(searchTerm) ||
-            driver.plateNumber.toLowerCase().includes(searchTerm) ||
-            driver.vehicleType.toLowerCase().includes(searchTerm) ||
-            driver.vehicleColor.toLowerCase().includes(searchTerm)
+            (driver.firstName && driver.firstName.toLowerCase().includes(searchTerm)) ||
+            (driver.middleName && driver.middleInitials.toLowerCase().includes(searchTerm)) ||
+            (driver.lastName && driver.lastName.toLowerCase().includes(searchTerm)) ||
+            (driver.contactNumber && driver.contactNumber.includes(searchTerm)) ||
+            (driver.emailAddress && driver.emailAddress.toLowerCase().includes(searchTerm)) ||
+            (driver.address && driver.address.toLowerCase().includes(searchTerm)) ||
+            (driver.plateNumber && driver.plateNumber.toLowerCase().includes(searchTerm)) ||
+            (driver.vehicleType && driver.vehicleType.toLowerCase().includes(searchTerm)) ||
+            (driver.vehicleColor && driver.vehicleColor.toLowerCase().includes(searchTerm))
         );
     });
 
     currentPage = 1; // Reset to the first page on filter
-    displayDrivers(filteredData);
+    displayDrivers(filteredDriversData);
 }
 
 function nextPage() {
     currentPage++;
-    displayDrivers(allDriversData);
+    displayDrivers(filteredDriversData);
 }
 
 function prevPage() {
     currentPage--;
-    displayDrivers(allDriversData);
+    displayDrivers(filteredDriversData);
 }
 
 async function showQrPopup(docId) {

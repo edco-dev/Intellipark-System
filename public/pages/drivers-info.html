@@ -49,9 +49,9 @@
                 </li>
             </ul>
     
-            <p class="text-red-600 font-bold text-center cursor-pointer mt-auto py-3" id="logoutButton">Logout</p>
+            <p class="text-[#ed7576] font-bold text-center cursor-pointer mt-auto py-3" id="logoutButton">Logout</p>
             <script>
-                const logoutButton = this.querySelector('#logoutButton');
+                const logoutButton = document.querySelector('#logoutButton');
                 if (logoutButton) {
                     logoutButton.addEventListener('click', logoutUser);
                 }
@@ -115,22 +115,26 @@
             
             <div id="qrPopup" class="popup">
                 <div id="popupContent" class="popup-content">
-                    <h2 id="userType"> </h2>
-                    <p id="driverName">Driver Name: </p>
-                    <p id="plateNumber">Plate Number: </p>
+                    <h2 id="userType">User Type</h2>
+                    <p id="driverName">Driver Name: John Doe</p>
+                    <p id="plateNumber">Plate Number: ABC1234</p>
                     <div class="qrStyle">
-                        <canvas id="qrCodeCanvas"></canvas>
+                        <div class="qr-corner top-left"></div>
+                        <div class="qr-corner top-right"></div>
+                        <div class="qr-corner bottom-left"></div>
+                        <div class="qr-corner bottom-right"></div>
+                        <canvas id="qrCodeCanvas" width="200" height="200"></canvas> <!-- Set fixed width/height -->
                     </div>                   
                     <button id="downloadQRBtn" class="btn-primary">Download</button>
                     <button id="closePopupBtn" class="btn-secondary">Close</button>
                 </div>
             </div>
+            
         </div>
         
     </div>
     <script type="module" src="/app.js"></script>
     <script type="module" src="/src/js/drivers-info.js"></script>
-    <script type="module" src="/src/js/loadSidebar.js"></script>
     <script type="module" src="/src/scripts/auth/auth.js"></script>
 </body>
 </html>

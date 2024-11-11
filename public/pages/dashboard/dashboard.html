@@ -12,7 +12,7 @@
 
 <div class="dashboard-container flex h-screen">
     <!-- Sidebar -->
-    <div class="w-[350px] bg-white text-black p-6 flex flex-col shadow-lg mr-0 mt-6 ml-6 mb-10 rounded-2xl">
+    <div class="w-[300px] bg-white text-black p-6 flex flex-col shadow-lg mr-0 mt-6 ml-6 mb-10 rounded-2xl">
         <div class="flex items-center mb-5">
             <img src="/src/assets/img/carLogo.svg" width="40" alt="Logo" class="mr-4">
             <h2 class="text-2xl font-semibold text-black">IntelliPark System</h2>
@@ -51,9 +51,9 @@
             </li>
         </ul>
 
-        <p class="text-red-600 font-bold text-center cursor-pointer mt-auto py-3" id="logoutButton">Logout</p>
+        <p class="text-[#ed7576] font-bold text-center cursor-pointer mt-auto py-3" id="logoutButton">Logout</p>
         <script>
-            const logoutButton = this.querySelector('#logoutButton');
+            const logoutButton = document.querySelector('#logoutButton');
             if (logoutButton) {
                 logoutButton.addEventListener('click', logoutUser);
             }
@@ -61,7 +61,7 @@
     </div>
 
     <!-- Main Content -->
-    <div class="main-content flex-grow p-12">
+    <div class="main-content flex-grow p-9">
         <section id="dashboard" class="content-section active flex flex-col">
             <nav class="navbar bg-white drop-shadow-xl p-5 rounded-b-none rounded-t-2xl">
                 <h1 class="navbar-title text-2xl font-semibold flex items-center">
@@ -70,7 +70,7 @@
                 </h1>
             </nav>
     
-            <div class="card-body shadow-md bg-white rounded-xl p-8">
+            <div class="card-body shadow-md bg-white rounded-xl p-24">
                 <h2 class="text-center text-3xl font-semibold mb-14">Dashboard</h2>
                 <div class="dashboard-statistics grid grid-cols-1 md:grid-cols-2 gap-10 justify-center">
                     <!-- Total Vehicles Card -->

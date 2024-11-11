@@ -120,6 +120,7 @@ tbody tr:hover {
 }
 
 /* Popup Styles */
+/* Popup Styles */
 .popup {
     display: none;
     position: fixed;
@@ -130,31 +131,160 @@ tbody tr:hover {
     background-color: rgba(0, 0, 0, 0.6);
     align-items: center;
     justify-content: center;
+    z-index: 9999;
 }
 
 .popup-content {
     background-color: #fff;
-    padding: 15px;
-    border-radius: 6px;
-    width: 280px;
+    padding: 50px;
+    border-radius: 10px;
+    width: 480px;
+    text-align: center;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Text Styling for Popup */
+.popup-content h2#userType {
+    font-size: 1.8rem;  /* Larger font size for user type */
+    font-weight: 600;
+    color: #49a5ff;
+    margin-bottom: 10px;
+}
+
+.popup-content p#driverName {
+    font-size: 1.2rem;  /* Bold font for driver name */
+    font-weight: bold;
+    color: #444;
+    margin: 8px 0;
+}
+
+.popup-content p#plateNumber {
+    font-size: 1rem;    /* Regular thin text for plate number */
+    font-weight: 400;
+    color: #555;
+    margin: 5px 0;
+}
+
+.qrStyle {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px; /* Slightly larger to allow room for corners */
+    height: 250px;
+    background-color: #f9f9f9;
+    margin: 20px 62px;
+    box-sizing: border-box;
+}
+
+/* Corner Lines */
+#qrCodeCanvas {
+    width: 180px;
+    height: 180px;
+    background-color: #fff;
+    image-rendering: crisp-edges;
+}
+
+/* Corner Lines */
+.qr-corner {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border: 3px solid #49a5ff; /* Blue color for the corner lines */
+    box-sizing: border-box;
+}
+
+/* Specific positions for each corner */
+.qr-corner.top-left {
+    top: 0;
+    left: 0;
+    border-bottom: none;
+    border-right: none;
+}
+
+.qr-corner.top-right {
+    top: 0;
+    right: 0;
+    border-bottom: none;
+    border-left: none;
+}
+
+.qr-corner.bottom-left {
+    bottom: 0;
+    left: 0;
+    border-top: none;
+    border-right: none;
+}
+
+.qr-corner.bottom-right {
+    bottom: 0;
+    right: 0;
+    border-top: none;
+    border-left: none;
+}
+
+/* Button Styling */
+.btn-primary, .btn-secondary {
+    padding: 10px 0;           /* Slightly increased padding for better click area */
+    font-size: 1rem;
+    width: 140px;               /* Reduced width for more compact buttons */
+    margin: 10px auto;          /* Center the buttons */
+    border: none;
+    border-radius: 20px;        /* Rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: inline-block;
     text-align: center;
 }
 
-/* Responsive */
+.btn-primary {
+    background-color: #353535;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #49a5ff;
+}
+
+.btn-secondary {
+    background-color: #f0f0f0;
+    color: #555;
+}
+
+.btn-secondary:hover {
+    background-color: #ddd;
+}
+
+.popup-content h2,
+.popup-content p:not(#driverName) { /* Target all p elements except the name */
+    text-transform: uppercase;
+}
+
+#downloadQRBtn, #closePopupBtn {
+    display: inline-block;
+    width: 140px;              /* Matching width */
+    margin: 10px 0;
+}
+
+#closePopupBtn {
+    background-color: #49a5ff;
+    color: white;
+}
+
+#closePopupBtn:hover {
+    background-color: #c0392b;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-    #searchInput {
-        width: 100%;
-        margin-top: 10px;
+    .popup-content {
+        width: 95%;
+        padding: 20px;
     }
-}
 
-/* Navbar: Align icon and text horizontally */
-.navbar h1 {
-    display: flex;
-    align-items: center;
-    font-size: 1.2rem; /* Adjust the font size */
-}
-
-.navbar h1 img {
-    margin-right: 10px; /* Space between icon and text */
+    .btn-primary, .btn-secondary {
+        width: 100%;            /* Full width buttons on smaller screens */
+    }
 }
