@@ -3,6 +3,8 @@ body {
     font-family: 'Inter', sans-serif;
     background-color: #f5f5f5;
     margin: 0;
+    padding: 0;
+    color: #333;
 }
 
 /* Optional: You can fine-tune font size for headings or body text */
@@ -45,21 +47,6 @@ p, li, span {
     margin: 0 auto;
 }
 
-table {
-    width: 100%;
-    font-size: 0.85rem;
-    table-layout: fixed; 
-    border-radius: 12px; /* Fixes column width for text wrapping */
-}
-
-th, td {
-    padding: 8px; /* Padding for readability */
-    text-align: left;
-    white-space: normal; /* Allows text wrapping */
-    overflow: hidden; 
-    text-overflow: ellipsis; /* Adds ellipsis if text exceeds cell height */
-}
-
 /* Column Widths */
 th:first-child, td:first-child { width: 80px; }    /* Adjust as needed */
 th:nth-child(2), td:nth-child(2) { width: 80px; }  /* Example width for columns */
@@ -84,13 +71,8 @@ thead th:last-child {
 
 /* Row Styling */
 tbody tr {
-    height: 60px; 
+    height: 10px; 
     border-bottom: 1px solid #ddd; /* Light gray border */
-    text-align: center;
-}
-
-tbody td {
-    padding: 8px;
     text-align: center;
 }
 
@@ -119,7 +101,7 @@ tbody tr:hover {
     color: #fff;
 }
 
-/* Popup Styles */
+
 /* Popup Styles */
 .popup {
     display: none;
@@ -134,15 +116,13 @@ tbody tr:hover {
     z-index: 9999;
 }
 
-.popup-content {
-    background-color: #fff;
-    padding: 50px;
+#popupContent {
+    background-color: #f4f3f3;
     border-radius: 10px;
-    width: 480px;
     text-align: center;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
-    max-width: 100%;
     box-sizing: border-box;
+    width: 400px;
 }
 
 /* Text Styling for Popup */
@@ -288,3 +268,58 @@ tbody tr:hover {
         width: 100%;            /* Full width buttons on smaller screens */
     }
 }
+
+/* Ensure the table has fixed layout and prevents stretching */
+#driversTable {
+    table-layout: fixed;
+    width: 100%; 
+    white-space: nowrap;         /* Prevent text from wrapping */
+    overflow: hidden;            /* Hide overflowed text */
+    text-overflow: ellipsis; /* Make sure the table spans the full width */
+}
+
+/* Assign fixed widths to narrow columns */
+#driversTable th:nth-child(1),
+#driversTable td:nth-child(1) {
+    width: 4%; /* Narrow width for ID column */
+}
+
+
+#driversTable th:nth-child(4),
+#driversTable td:nth-child(4) {
+    width: 2%; /* Narrow width for Age column */
+}
+
+/* Adjust the QR button column */
+#driversTable th:nth-child(12),
+#driversTable td:nth-child(12) {
+    width: 5%; /* Set a smaller width for the QR column */
+}
+
+/* Ensure the Vehicle Owner column has enough width to prevent wrapping */
+#driversTable th:nth-child(3),
+#driversTable td:nth-child(3) {
+    width: 8%; /* Adjust width of Vehicle Owner column */
+    white-space: nowrap; /* Prevent text wrapping in this column */
+}
+
+/* Optional: You can tweak the width for other columns as well */
+#driversTable th:nth-child(2),
+#driversTable td:nth-child(2),
+#driversTable th:nth-child(5),
+#driversTable td:nth-child(5),
+#driversTable th:nth-child(6),
+#driversTable td:nth-child(6),
+#driversTable th:nth-child(7),
+#driversTable td:nth-child(7),
+#driversTable th:nth-child(8),
+#driversTable td:nth-child(8),
+#driversTable th:nth-child(9),
+#driversTable td:nth-child(9),
+#driversTable th:nth-child(10),
+#driversTable td:nth-child(10),
+#driversTable th:nth-child(11),
+#driversTable td:nth-child(11) {
+    width: 5%; /* Make these columns a bit narrower */
+}
+

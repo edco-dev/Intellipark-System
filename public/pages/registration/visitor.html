@@ -6,53 +6,70 @@
     <title>Visitor Registration</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="/src/css/dashboard.css">
+    <link rel="stylesheet" href="/src/css/dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body class="h-screen text-gray-900 bg-gray-100 animate-fade-in">
     <div class="flex h-screen">
         <!-- Sidebar -->
-        <div class="w-[300px] bg-white shadow-xl p-6 m-6 flex flex-col rounded-2xl">
-            <div class="flex items-center mb-5">
-                <img src="/src/assets/img/carLogo.svg" width="40" alt="Logo" class="mr-4">
-                <h2 class="text-2xl font-semibold">IntelliPark System</h2>
+        <div class="w-[300px] flex-shrink-0 bg-white text-black flex flex-col shadow-lg mt-9 mb-10 ml-10 rounded-2xl">
+            <div class="flex items-center justify-center mt-20 mb-4">
+                <img src="/src/assets/img/carLogo.svg" width="30" alt="Logo" class="mr-2">
+                <h2 class="text-2xl leading-tight text-black" style="font-family: 'Organetto', sans-serif;">
+                    <span class="font-bold">IntelliPark</span> <br>
+                    <span class="text-2xl font-bold">System</span>
+                </h2>
             </div>
-            <ul class="mt-20 ml-10 space-y-4">
-                <!-- Sidebar Links -->
+            
+            <!-- Sidebar Links -->
+            <ul class="flex flex-col mt-20 space-y-4 text-black">
                 <li>
-                    <a href="/public/pages/dashboard/dashboard.html" class="flex items-center p-3 hover:bg-[#49a5ff] hover:text-white rounded-lg">
-                        <img src="https://img.icons8.com/?size=100&id=sUJRwjfnGwbJ&format=png&color=000000" width="30" alt="Dashboard" class="mr-4">
-                        <span class="text-lg font-medium">Dashboard</span>
+                    <a href="/public/pages/dashboard/dashboard.html" class="w-full flex justify-start pl-20 items-center p-4 hover:bg-[#49a5ff] hover:text-white group transition-all duration-300 ease-in-out">
+                        <img src="https://img.icons8.com/?size=100&id=sUJRwjfnGwbJ&format=png&color=000000" width="30" alt="Dashboard" class="mr-4 transition-all duration-300 ease-in-out group-hover:brightness-0 group-hover:invert">
+                        <span class="text-xl font-normal transition-all duration-300 ease-in-out">Dashboard</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/public/pages/drivers-info.html" class="flex items-center p-3 hover:bg-[#49a5ff] hover:text-white">
-                        <img src="https://img.icons8.com/?size=100&id=84020&format=png&color=000000" width="30" alt="Drivers Info" class="mr-4">
-                        <span class="text-lg font-medium">Drivers Info</span>
+                    <a href="/public/pages/drivers-info.html" class="w-full flex justify-start pl-20 items-center p-4 hover:bg-[#49a5ff] hover:text-white group transition-all duration-300 ease-in-out">
+                        <img src="https://img.icons8.com/?size=100&id=84020&format=png&color=000000" width="30" alt="Drivers Info" class="mr-4 transition-all duration-300 ease-in-out group-hover:brightness-0 group-hover:invert">
+                        <span class="text-xl font-normal transition-all duration-300 ease-in-out">Drivers Info</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/public/pages/vehicles-in.html" class="flex items-center p-3 hover:bg-[#49a5ff] hover:text-white">
-                        <img src="https://raw.githubusercontent.com/edco-dev/Intellipark-Images/2e161a45b745a345a020913181cacf47501e3b88/toll.svg" width="30" alt="Vehicles In" class="mr-4">
-                        <span class="text-lg font-medium">Vehicles In</span>
+                    <a href="/public/pages/vehicles-in.html" class="w-full flex justify-start pl-20 items-center p-4 hover:bg-[#49a5ff] hover:text-white group transition-all duration-300 ease-in-out">
+                        <img src="https://raw.githubusercontent.com/edco-dev/Intellipark-Images/2e161a45b745a345a020913181cacf47501e3b88/toll.svg" width="30" alt="Vehicles In" class="mr-4 transition-all duration-300 ease-in-out group-hover:brightness-0 group-hover:invert">
+                        <span class="text-xl font-normal transition-all duration-300 ease-in-out">Vehicles In</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/public/pages/registration/register.html" class="flex items-center p-3 hover:bg-[#49a5ff] hover:text-white">
-                        <img src="https://img.icons8.com/?size=100&id=85484&format=png&color=000000" width="30" alt="Register" class="mr-4">
-                        <span class="text-lg font-medium">Register</span>
+                    <a href="/public/pages/registration/register.html" class="w-full flex justify-start pl-20 items-center p-4 hover:bg-[#49a5ff] hover:text-white group transition-all duration-300 ease-in-out">
+                        <img src="https://img.icons8.com/?size=100&id=85484&format=png&color=000000" width="30" alt="Register" class="mr-4 transition-all duration-300 ease-in-out group-hover:brightness-0 group-hover:invert">
+                        <span class="text-xl font-normal transition-all duration-300 ease-in-out">Register</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/public/pages/history.html" class="flex items-center p-3 hover:bg-[#49a5ff] hover:text-white">
-                        <img src="https://img.icons8.com/?size=100&id=6904&format=png&color=000000" width="30" alt="History" class="mr-4">
-                        <span class="text-lg font-medium">History</span>
+                    <a href="/public/pages/history.html" class="w-full flex justify-start pl-20 items-center p-4 hover:bg-[#49a5ff] hover:text-white group transition-all duration-300 ease-in-out">
+                        <img src="https://img.icons8.com/?size=100&id=6904&format=png&color=000000" width="30" alt="History" class="mr-4 transition-all duration-300 ease-in-out group-hover:brightness-0 group-hover:invert">
+                        <span class="text-xl font-normal transition-all duration-300 ease-in-out">History</span>
                     </a>
                 </li>
             </ul>
-            <p class="text-[#ed7576] font-bold text-center cursor-pointer mt-auto py-3 hover:text-red-700" id="logoutButton">Logout</p>
+
+            <!-- Logout Section -->
+            <p class="text-[#ed7576] font-normal text-center text-xl cursor-pointer mt-auto mb-10 py-3 flex items-center justify-center space-x-1" id="logoutButton">
+                <img src="/src/assets/img/logout.jpeg" alt="Logout Icon" width="35" class="inline-block">
+                <span>Log out</span>
+            </p>
+            <script>
+                const logoutButton = document.querySelector('#logoutButton');
+                if (logoutButton) {
+                    logoutButton.addEventListener('click', logoutUser);
+                }
+            </script>
         </div>
 
         <!-- Main Content for Form and Navbar -->
-        <div class="flex flex-col items-center flex-1 p-6 bg-gray-100">
+        <div class="flex flex-col items-center flex-1 p-10 bg-gray-100">
             <div class="flex flex-col w-full h-full bg-white shadow-xl rounded-2xl">
                 <!-- Navbar -->
                 <nav class="w-full p-5 bg-white navbar drop-shadow rounded-t-2xl">

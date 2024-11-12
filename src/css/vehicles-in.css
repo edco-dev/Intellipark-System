@@ -3,10 +3,8 @@ body {
     background-color: #f5f5f5;
     margin: 0;
     padding: 0;
-    line-height: 1.6;
     color: #333;
 }
-
 
 /* Optional: You can fine-tune font size for headings or body text */
 h1, h2, h3 {

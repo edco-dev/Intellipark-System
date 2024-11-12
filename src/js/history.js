@@ -60,15 +60,15 @@ function displayLogsByDate(filterDate = null, filteredLogs = null) {
         table.classList.add('logTable');
         const captionColor = "#ed7576";
         table.innerHTML = `<caption style="color: ${captionColor}; font-weight: semibold; text-align: left; font-size: 1rem; margin: 20px">${date}</caption>
-            <thead>
+            <thead class="font-thin" style="font-size: 13px;">
                 <tr>
                     <th>Transaction #</th>
                     <th>Plate Number</th>
                     <th>Vehicle Owner</th>
                     <th>User Type</th>
                     <th>Vehicle Type</th>
-                    <th>Time In</th>
-                    <th>Time Out</th>
+                    <th>Time IN</th>
+                    <th>Time OUT</th>
                 </tr>
             </thead>`;
 

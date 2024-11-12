@@ -6,6 +6,7 @@
     <title>Driver Registration</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.0/qrious.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/src/css/dashboard.css">
     <link rel="stylesheet" href="/src/css/register.css">
     <link rel="stylesheet" href="/src/css/animation.css">
@@ -13,49 +14,64 @@
 <body class="h-screen text-gray-900 bg-gray-100 animate-fade-in">
     <div class="flex h-screen">
         <!-- Sidebar -->
-        <div class="w-[300px] bg-white shadow-xl p-6 m-6 flex flex-col rounded-2xl">
-            <div class="flex items-center mb-5">
-                <img src="/src/assets/img/carLogo.svg" width="40" alt="Logo" class="mr-4">
-                <h2 class="text-2xl font-semibold">IntelliPark System</h2>
+        <div class="w-[300px] flex-shrink-0 bg-white text-black flex flex-col shadow-lg mt-9 mb-10 ml-10 rounded-2xl">
+            <div class="flex items-center justify-center mt-20 mb-4">
+                <img src="/src/assets/img/carLogo.svg" width="30" alt="Logo" class="mr-2">
+                <h2 class="text-2xl leading-tight text-black" style="font-family: 'Organetto', sans-serif;">
+                    <span class="font-bold">IntelliPark</span> <br>
+                    <span class="text-2xl font-bold">System</span>
+                </h2>
             </div>
-            <ul class="mt-20 ml-10 space-y-4">
-                <!-- Sidebar Links -->
+            
+            <!-- Sidebar Links -->
+            <ul class="flex flex-col mt-20 space-y-4 text-black">
                 <li>
-                    <a href="/public/pages/dashboard/dashboard.html" class="flex items-center p-3 hover:bg-[#49a5ff] hover:text-white rounded-lg">
-                        <img src="https://img.icons8.com/?size=100&id=sUJRwjfnGwbJ&format=png&color=000000" width="30" alt="Dashboard" class="mr-4">
-                        <span class="text-lg font-medium">Dashboard</span>
+                    <a href="/public/pages/dashboard/dashboard.html" class="w-full flex justify-start pl-20 items-center p-4 hover:bg-[#49a5ff] hover:text-white group transition-all duration-300 ease-in-out">
+                        <img src="https://img.icons8.com/?size=100&id=sUJRwjfnGwbJ&format=png&color=000000" width="30" alt="Dashboard" class="mr-4 transition-all duration-300 ease-in-out group-hover:brightness-0 group-hover:invert">
+                        <span class="text-xl font-normal transition-all duration-300 ease-in-out">Dashboard</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/public/pages/drivers-info.html" class="flex items-center p-3 hover:bg-[#49a5ff] hover:text-white">
-                        <img src="https://img.icons8.com/?size=100&id=84020&format=png&color=000000" width="30" alt="Drivers Info" class="mr-4">
-                        <span class="text-lg font-medium">Drivers Info</span>
+                    <a href="/public/pages/drivers-info.html" class="w-full flex justify-start pl-20 items-center p-4 hover:bg-[#49a5ff] hover:text-white group transition-all duration-300 ease-in-out">
+                        <img src="https://img.icons8.com/?size=100&id=84020&format=png&color=000000" width="30" alt="Drivers Info" class="mr-4 transition-all duration-300 ease-in-out group-hover:brightness-0 group-hover:invert">
+                        <span class="text-xl font-normal transition-all duration-300 ease-in-out">Drivers Info</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/public/pages/vehicles-in.html" class="flex items-center p-3 hover:bg-[#49a5ff] hover:text-white">
-                        <img src="https://raw.githubusercontent.com/edco-dev/Intellipark-Images/2e161a45b745a345a020913181cacf47501e3b88/toll.svg" width="30" alt="Vehicles In" class="mr-4">
-                        <span class="text-lg font-medium">Vehicles In</span>
+                    <a href="/public/pages/vehicles-in.html" class="w-full flex justify-start pl-20 items-center p-4 hover:bg-[#49a5ff] hover:text-white group transition-all duration-300 ease-in-out">
+                        <img src="https://raw.githubusercontent.com/edco-dev/Intellipark-Images/2e161a45b745a345a020913181cacf47501e3b88/toll.svg" width="30" alt="Vehicles In" class="mr-4 transition-all duration-300 ease-in-out group-hover:brightness-0 group-hover:invert">
+                        <span class="text-xl font-normal transition-all duration-300 ease-in-out">Vehicles In</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/public/pages/registration/register.html" class="flex items-center p-3 hover:bg-[#49a5ff] hover:text-white">
-                        <img src="https://img.icons8.com/?size=100&id=85484&format=png&color=000000" width="30" alt="Register" class="mr-4">
-                        <span class="text-lg font-medium">Register</span>
+                    <a href="/public/pages/registration/register.html" class="w-full flex justify-start pl-20 items-center p-4 hover:bg-[#49a5ff] hover:text-white group transition-all duration-300 ease-in-out">
+                        <img src="https://img.icons8.com/?size=100&id=85484&format=png&color=000000" width="30" alt="Register" class="mr-4 transition-all duration-300 ease-in-out group-hover:brightness-0 group-hover:invert">
+                        <span class="text-xl font-normal transition-all duration-300 ease-in-out">Register</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/public/pages/history.html" class="flex items-center p-3 hover:bg-[#49a5ff] hover:text-white">
-                        <img src="https://img.icons8.com/?size=100&id=6904&format=png&color=000000" width="30" alt="History" class="mr-4">
-                        <span class="text-lg font-medium">History</span>
+                    <a href="/public/pages/history.html" class="w-full flex justify-start pl-20 items-center p-4 hover:bg-[#49a5ff] hover:text-white group transition-all duration-300 ease-in-out">
+                        <img src="https://img.icons8.com/?size=100&id=6904&format=png&color=000000" width="30" alt="History" class="mr-4 transition-all duration-300 ease-in-out group-hover:brightness-0 group-hover:invert">
+                        <span class="text-xl font-normal transition-all duration-300 ease-in-out">History</span>
                     </a>
                 </li>
             </ul>
-            <p class="text-[#ed7576] font-bold text-center cursor-pointer mt-auto py-3 hover:text-red-700" id="logoutButton">Logout</p>
+
+            <!-- Logout Section -->
+            <p class="text-[#ed7576] font-normal text-center text-xl cursor-pointer mt-auto mb-10 py-3 flex items-center justify-center space-x-1" id="logoutButton">
+                <img src="/src/assets/img/logout.jpeg" alt="Logout Icon" width="35" class="inline-block">
+                <span>Log out</span>
+            </p>
+            <script>
+                const logoutButton = document.querySelector('#logoutButton');
+                if (logoutButton) {
+                    logoutButton.addEventListener('click', logoutUser);
+                }
+            </script>
         </div>
 
         <!-- Main Content for Form and Navbar -->
-        <div class="flex flex-col items-center flex-1 p-6 bg-gray-100">
+        <div class="flex flex-col items-center flex-1 p-10 bg-gray-100">
             <div class="flex flex-col w-full h-full bg-white shadow-xl rounded-2xl">
                 <!-- Navbar -->
                 <nav class="flex items-center justify-between w-full p-5 bg-white drop-shadow rounded-t-2xl">
@@ -97,126 +113,176 @@
                             </div>
                         </div>
                         
-                        <form id="driverForm" class="space-y-9">
+                        <form id="driverForm" class="space-y-4 max-w-2xl mx-auto p-1 bg-white rounded-lg">
                             <!-- Name Fields -->
-                            <div class="grid grid-cols-3 gap-4">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                                 <div>
-                                    <label for="firstName" class="block font-medium text-gray-700 text-md">First Name</label>
-                                    <input type="text" id="firstName" name="firstName" class="block w-full h-10 mt-1 border-2 border-gray-200 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
+                                    <label for="firstName" class="block text-gray-700 font-medium">First Name</label>
+                                    <input type="text" id="firstName" name="firstName" class="block w-full h-10 mt-2 px-4 border-2 border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm" required>
                                 </div>
                                 <div>
-                                    <label for="middleName" class="block font-medium text-gray-700 text-md">Middle Name</label>
-                                    <input type="text" id="middleName" name="middleName" class="block w-full h-10 mt-1 border-2 border-gray-200 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                                    <label for="middleName" class="block text-gray-700 font-medium">Middle Name</label>
+                                    <input type="text" id="middleName" name="middleName" class="block w-full h-10 mt-2 px-4 border-2 border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm">
                                 </div>
                                 <div>
-                                    <label for="lastName" class="block font-medium text-gray-700 text-md">Last Name</label>
-                                    <input type="text" id="lastName" name="lastName" class="block w-full h-10 mt-1 border-2 border-gray-200 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
+                                    <label for="lastName" class="block text-gray-700 font-medium">Last Name</label>
+                                    <input type="text" id="lastName" name="lastName" class="block w-full h-10 mt-2 px-4 border-2 border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm" required>
                                 </div>
                             </div>
-
-                            <div class="grid grid-cols-[1fr_1fr_2fr] gap-4">
+                        
+                            <!-- Gender, Age, User Type Fields -->
+                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                                 <div>
-                                    <label for="Gender" class="block font-medium text-gray-700 text-md">Gender</label>
-                                    <select id="gender" name="gender" class="block w-full h-10 mt-1 border-2 border-gray-200 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
+                                    <label for="gender" class="block text-gray-700 font-medium">Gender</label>
+                                    <select id="gender" name="gender" class="block w-full h-10 mt-2 px-4 border-2 border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm" required>
                                         <option value="">Select</option>
                                         <option value="male">Male</option>
                                         <option value="female">Female</option>
                                         <option value="other">Other</option>
                                     </select>
                                 </div>
-                              
+                        
                                 <div>
-                                    <label for="Age" class="block font-medium text-gray-700 text-md">Age</label>
-                                    <input type="text" id="age" name="age" class="block w-full h-10 mt-1 border-2 border-gray-200 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
+                                    <label for="age" class="block text-gray-700 font-medium">Age</label>
+                                    <input type="text" id="age" name="age" class="block w-full h-10 mt-2 px-4 border-2 border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm" required>
                                 </div>
+                        
                                 <div>
-                                <label for="userType" class="block font-medium text-gray-700 text-md">User Type</label>
-                                <select id="userType" name="userType" class="block w-full h-10 mt-1 border-2 border-gray-200 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
-                                    <option value="" disabled selected>Select</option>
-                                    <option value="driver">Driver</option>
-                                    <option value="passenger">Passenger</option>
-                                </select>
-                                </div>
-                            </div>
-                            <div class="grid grid-cols-2 gap-4">
-                                <div>
-                                    <label for="contactNumber" class="block font-medium text-gray-700 text-md">Contact Number</label>
-                                    <input type="text" id="contactNumber" name="contactNumber" class="block w-full h-10 mt-1 border-2 border-gray-200 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
-                                </div>
-                                <div>
-                                    <label for="Email Address" class="block font-medium text-gray-700 text-md">Email Address</label>
-                                    <input type="text" id="emailAddress" name="emailAddress" class="block w-full h-10 mt-1 border-2 border-gray-200 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
+                                    <label for="userType" class="block text-gray-700 font-medium">User Type</label>
+                                    <select id="userType" name="userType" class="block w-full h-10 mt-2 px-4 border-2 border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm" required>
+                                        <option value="" disabled selected>Select</option>
+                                        <option value="driver">Driver</option>
+                                        <option value="passenger">Passenger</option>
+                                    </select>
                                 </div>
                             </div>
-
-                            <div class="grid grid-cols-1 gap-4">
+                        
+                            <!-- Contact Number and Email Fields -->
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                 <div>
-                                    <label for="address" class="block font-medium text-gray-700 text-md">Address</label>
-                                    <input type="text" id="address" name="address" class="block w-full h-10 mt-1 border-2 border-gray-200 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
+                                    <label for="contactNumber" class="block text-gray-700 font-medium">Contact Number</label>
+                                    <input type="text" id="contactNumber" name="contactNumber" class="block w-full h-10 mt-2 px-4 border-2 border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm" required>
+                                </div>
+                                <div>
+                                    <label for="emailAddress" class="block text-gray-700 font-medium">Email Address</label>
+                                    <input type="text" id="emailAddress" name="emailAddress" class="block w-full h-10 mt-2 px-4 border-2 border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm" required>
                                 </div>
                             </div>
-
+                        
+                            <!-- Address Field -->
+                            <div>
+                                <label for="address" class="block text-gray-700 font-medium">Address</label>
+                                <input type="text" id="address" name="address" class="block w-full h-10 mt-2 px-4 border-2 border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm" required>
+                            </div>
+                        
                             <!-- Vehicle Type and User Type Fields -->
-                            <div class="grid grid-cols-3 gap-4">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                                 <div>
-                                    <label for="plateNumber" class="block font-medium text-gray-700 text-md">Plate Number</label>
-                                    <input type="text" id="plateNumber" name="plateNumber" class="block w-full h-10 mt-1 border-2 border-gray-200 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
+                                    <label for="plateNumber" class="block text-gray-700 font-medium">Plate Number</label>
+                                    <input type="text" id="plateNumber" name="plateNumber" class="block w-full h-10 mt-2 px-4 border-2 border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm" required>
                                 </div>
                                 <div>
-                                    <label for="vehicleType" class="block font-medium text-gray-700 text-md">Vehicle Type</label>
-                                    <input type="text" id="vehicleType" name="vehicleType" class="block w-full h-10 mt-1 border-2 border-gray-200 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
+                                    <label for="vehicleType" class="block text-gray-700 font-medium">Vehicle Type</label>
+                                    <input type="text" id="vehicleType" name="vehicleType" class="block w-full h-10 mt-2 px-4 border-2 border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm" required>
                                 </div>
                                 <div>
-                                    <label for="vehicleColor" class="block font-medium text-gray-700 text-md">Vehicle Color</label>
-                                    <input type="text" id="vehicleColor" name="vehicleColor" class="block w-full h-10 mt-1 border-2 border-gray-200 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
+                                    <label for="vehicleColor" class="block text-gray-700 font-medium">Vehicle Color</label>
+                                    <input type="text" id="vehicleColor" name="vehicleColor" class="block w-full h-10 mt-2 px-4 border-2 border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm" required>
                                 </div>
                             </div>
-                            
+                        
                             <!-- Submit Button -->
                             <div class="text-center">
-                                <button type="submit" class="w-[150px] px-4 py-2 bg-[#49a5ff] text-white rounded-3xl shadow-md text-lg hover:bg-[#4995ff] focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50">
+                                <button type="submit" class="w-full sm:w-[180px] px-6 mt-12 py-3 bg-[#49a5ff] text-white rounded-3xl text-lg hover:bg-[#4980ff] focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50">
                                     Generate
                                 </button>
                             </div>
                         </form>
+                        
                     </div>
-                      <!-- QR Code Section (hidden initially) -->
-                <div class="flex justify-center items-center mt-10 min-h-[500px] hidden" id="qrSection">
-                    <div class="w-full max-w-lg p-8 text-center bg-white rounded-xl">
-                        <h2 class="text-4xl font-semibold text-center text-slate-900">Register</h2>
-                        <div class="flex justify-center p-4 mb-20">
-                            <div class="relative flex items-center justify-between w-full max-w-4xl">
-                                <div id="step1" class="relative text-center step-circle active">
-                                    <span class="step-number">1</span>
-                                    <div class="step-label">General Details</div>
-                                    <!-- Line After Step 1 -->
-                                    <div class="step-line absolute top-1/2 mr-10 right-[-90%] w-[50%] border-t-2 border-gray-300"></div>
-                                </div>
-                                <div id="step2" class="relative text-center step-circle">
-                                    <span class="ml-5 step-number">2</span>
-                                    <div class="step-label">QR Code</div>
-                                    <!-- Line After Step 2 -->
-                                </div>
-                                <div id="step3" class="relative text-center step-circle">
-                                    <span class="step-number">3</span>
-                                    <div class="step-label">Finish Registration</div>
-                                    <div class="step-line absolute top-1/2 left-[-54%] w-[42%] border-t-2 border-gray-300"></div>
+                    <div class="flex justify-center items-center mt-10 min-h-[500px] hidden" id="qrSection">
+                        <div class="w-full max-w-4xl p-8 text-center bg-white rounded-xl">
+                            <h2 class="text-4xl font-semibold text-center text-slate-900 mb-6">Register</h2>
+                    
+                            <!-- Progress Tracker -->
+                            <div class="flex justify-center p-4 mb-10">
+                                <div class="relative flex items-center justify-between w-full max-w-4xl">
+                                    <div id="step1" class="relative text-center step-circle active">
+                                        <span class="step-number">1</span>
+                                        <div class="step-label">General Details</div>
+                                        <!-- Line After Step 1 -->
+                                        <div class="step-line absolute top-1/2 mr-10 right-[-90%] w-[50%] border-t-2 border-gray-300"></div>
+                                    </div>
+                                    <div id="step2" class="relative text-center step-circle">
+                                        <span class="ml-5 step-number">2</span>
+                                        <div class="step-label">QR Code</div>
+                                        <!-- Line After Step 2 -->
+                                    </div>
+                                    <div id="step3" class="relative text-center step-circle">
+                                        <span class="step-number">3</span>
+                                        <div class="step-label">Finish Registration</div>
+                                        <div class="step-line absolute top-1/2 left-[-54%] w-[42%] border-t-2 border-gray-300"></div>
+                                    </div>
                                 </div>
                             </div>
+                    
+                            <!-- QR Code Section -->
+                            <div class="flex justify-center items-center mb-8">
+                                <div class="w-[300px] h-[300px] flex justify-center items-center rounded-lg">
+                                    <!-- QR Code Canvas -->
+                                    <canvas id="qrcode" width="300" height="300" class="mx-auto mt-6"></canvas>
+                                </div>
+                            </div>
+                    
+                            <!-- Action Buttons -->
+                            <div class="flex justify-center space-x-6 mb-6">
+                                <!-- Download Button -->
+                                <button id="downloadBtn" class="w-[180px] px-6 py-3 bg-[#353535] text-white rounded-3xl text-lg focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50">
+                                    Download
+                                </button>
+                    
+                                <!-- Next Button -->
+                                <button type="button" id="nextBtn" class="w-[180px] px-6 py-3 bg-[#49a5ff] text-white rounded-3xl text-lg hover:bg-blue-600 focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50">
+                                    Next
+                                </button>
+                            </div>
                         </div>
-                        <h2 class="text-4xl font-semibold text-gray-700">Generated QR Code</h2>
-                        <canvas id="qrcode" width="128" height="128" class="mx-auto mt-6"></canvas>
-                        <button id="nextBtn" class="mt-8 w-[150px] px-4 py-2 bg-[#49a5ff] text-white rounded-3xl shadow-md text-lg hover:bg-[#4995ff]">Next</button>
                     </div>
-                </div>
-
-                <!-- Finish Section (hidden initially) -->
-                <div class="flex justify-center items-center mt-10 min-h-[500px] hidden" id="finishSection">
-                    <div class="w-full max-w-lg p-8 text-center bg-white rounded-xl">
-                        <h2 class="text-4xl font-semibold text-gray-700">Finished Registration!</h2>
-                        <button id="finishBtn" class="mt-8 w-[150px] px-4 py-2 bg-green-500 text-white rounded-3xl shadow-md text-lg hover:bg-green-600">Finish</button>
-                    </div>
-                </div>
+                    
+                    <div class="flex justify-center items-center mt-10 min-h-[500px] hidden" id="finishSection">
+                        <div class="w-full max-w-4xl p-8 text-center bg-white rounded-xl">
+                            <h2 class="text-4xl font-semibold text-center text-slate-900 mb-6">Finished Registration!</h2>
+                    
+                            <!-- Progress Tracker -->
+                            <div class="flex justify-center p-4 mb-10">
+                                <div class="relative flex items-center justify-between w-full max-w-4xl">
+                                    <div id="step1" class="relative text-center step-circle active">
+                                        <span class="step-number">1</span>
+                                        <div class="step-label">General Details</div>
+                                        <!-- Line After Step 1 -->
+                                        <div class="step-line absolute top-1/2 mr-10 right-[-90%] w-[50%] border-t-2 border-gray-300"></div>
+                                    </div>
+                                    <div id="step2" class="relative text-center step-circle">
+                                        <span class="ml-5 step-number">2</span>
+                                        <div class="step-label">QR Code</div>
+                                        <!-- Line After Step 2 -->
+                                    </div>
+                                    <div id="step3" class="relative text-center step-circle">
+                                        <span class="step-number">3</span>
+                                        <div class="step-label">Finish Registration</div>
+                                        <div class="step-line absolute top-1/2 left-[-54%] w-[42%] border-t-2 border-gray-300"></div>
+                                    </div>
+                                </div>
+                            </div>
+                    
+                            <div class="flex justify-center space-x-6 mb-6">
+                                
+                    
+                                <!-- Next Button -->
+                                <button type="button" id="finishBtn" class="w-[180px] px-6 py-3 bg-[#49a5ff] text-white rounded-3xl text-lg hover:bg-blue-600 focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50">
+                                    Finish
+                                </button>
+                            </div>
                 </div>
             </div>
         </div>

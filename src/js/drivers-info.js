@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 let allDriversData = [];
 let filteredDriversData = [];
 let currentPage = 1;
-const itemsPerPage = 7; // Limit display to 5 drivers per page
+const itemsPerPage = 8; // Limit display to 5 drivers per page
 
 async function loadDriversData() {
     const driversTableBody = document.querySelector('#driversTable tbody');
@@ -42,21 +42,30 @@ function displayDrivers(driversData) {
     const endIndex = startIndex + itemsPerPage;
     const driversToShow = driversData.slice(startIndex, endIndex);
 
-    driversToShow.forEach(driverData => {
+    // Loop through the subset of driversData to show (limited to itemsPerPage)
+    driversToShow.forEach((driverData, index) => {
         const row = driversTableBody.insertRow();
-        row.insertCell(0).innerText = driverData.firstName;
-        row.insertCell(1).innerText = driverData.middleInitials || "N/A";
-        row.insertCell(2).innerText = driverData.lastName;
-        row.insertCell(3).innerText = driverData.gender;
-        row.insertCell(4).innerText = driverData.age;
-        row.insertCell(5).innerText = driverData.userType;
-        row.insertCell(6).innerText = driverData.contactNumber;
-        row.insertCell(7).innerText = driverData.emailAddress;
-        row.insertCell(8).innerText = driverData.address;
-        row.insertCell(9).innerText = driverData.plateNumber;
-        row.insertCell(10).innerText = driverData.vehicleType;
-        row.insertCell(11).innerText = driverData.vehicleColor;
 
+        // Generate incrementing ID (001, 002, 003, ...)
+        const incrementingId = (startIndex + index + 1).toString().padStart(3, '0');
+        row.insertCell(0).innerText = incrementingId;
+
+        // Combine firstName, middleInitials, and lastName for Vehicle Owner
+        const vehicleOwner = `${driverData.firstName || ''} ${driverData.middleInitials || ''} ${driverData.lastName || ''}`.trim() || "N/A";
+        row.insertCell(1).innerText = vehicleOwner;
+
+        // Populate the rest of the driver details
+        row.insertCell(2).innerText = driverData.gender || "N/A";
+        row.insertCell(3).innerText = driverData.age || "N/A";
+        row.insertCell(4).innerText = driverData.userType || "N/A";
+        row.insertCell(5).innerText = driverData.contactNumber || "N/A";
+        row.insertCell(6).innerText = driverData.emailAddress || "N/A";
+        row.insertCell(7).innerText = driverData.address || "N/A";
+        row.insertCell(8).innerText = driverData.plateNumber || "N/A";
+        row.insertCell(9).innerText = driverData.vehicleType || "N/A";
+        row.insertCell(10).innerText = driverData.vehicleColor || "N/A";
+
+        // QR button setup
         const showQRBtn = document.createElement('button');
         showQRBtn.innerText = "Show";
         showQRBtn.onclick = () => showQrPopup(driverData.id);
@@ -70,7 +79,7 @@ function displayDrivers(driversData) {
         showQRBtn.addEventListener('mouseover', () => {
             showQRBtn.style.cursor = 'pointer'; 
         });
-        row.insertCell(12).appendChild(showQRBtn);
+        row.insertCell(11).appendChild(showQRBtn); // Adjust column index for QR button
     });
 
     // Update pagination text
@@ -82,27 +91,28 @@ function displayDrivers(driversData) {
     document.getElementById("nextPageBtn").disabled = endIndex >= driversData.length;
 }
 
-
 function filterDriversData() {
     const searchTerm = document.getElementById('searchInput').value.toLowerCase();
 
     filteredDriversData = allDriversData.filter(driver => {
+        // Combine first, middle, and last name into a single string for easier full name matching
+        const fullName = `${driver.firstName || ''} ${driver.middleInitials || ''} ${driver.lastName || ''}`.toLowerCase();
+
         return (
-            (driver.firstName && driver.firstName.toLowerCase().includes(searchTerm)) ||
-            (driver.middleName && driver.middleInitials.toLowerCase().includes(searchTerm)) ||
-            (driver.lastName && driver.lastName.toLowerCase().includes(searchTerm)) ||
-            (driver.contactNumber && driver.contactNumber.includes(searchTerm)) ||
-            (driver.emailAddress && driver.emailAddress.toLowerCase().includes(searchTerm)) ||
-            (driver.address && driver.address.toLowerCase().includes(searchTerm)) ||
-            (driver.plateNumber && driver.plateNumber.toLowerCase().includes(searchTerm)) ||
-            (driver.vehicleType && driver.vehicleType.toLowerCase().includes(searchTerm)) ||
-            (driver.vehicleColor && driver.vehicleColor.toLowerCase().includes(searchTerm))
+            fullName.includes(searchTerm) || // Search in full name
+            (driver.contactNumber || '').includes(searchTerm) ||
+            (driver.emailAddress || '').toLowerCase().includes(searchTerm) ||
+            (driver.address || '').toLowerCase().includes(searchTerm) ||
+            (driver.plateNumber || '').toLowerCase().includes(searchTerm) ||
+            (driver.vehicleType || '').toLowerCase().includes(searchTerm) ||
+            (driver.vehicleColor || '').toLowerCase().includes(searchTerm)
         );
     });
 
     currentPage = 1; // Reset to the first page on filter
     displayDrivers(filteredDriversData);
 }
+
 
 function nextPage() {
     currentPage++;
