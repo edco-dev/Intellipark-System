@@ -7,51 +7,61 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="/src/css/dashboard.css">
     <link rel="stylesheet" href="/src/css/animation.css">
+    <link href="https://fonts.googleapis.com/css2?family=Organetto:wght@400;700&display=swap" rel="stylesheet">
+
 </head>
-<body class="bg-gray-100 font-sans animate-fade-in">
+<body class="font-sans bg-gray-100 animate-fade-in">
 
-<div class="dashboard-container flex h-screen">
+<div class="flex h-screen dashboard-container">
     <!-- Sidebar -->
-    <div class="w-[300px] bg-white text-black p-6 flex flex-col shadow-lg mr-0 mt-6 ml-6 mb-10 rounded-2xl">
-        <div class="flex items-center mb-5">
-            <img src="/src/assets/img/carLogo.svg" width="40" alt="Logo" class="mr-4">
-            <h2 class="text-2xl font-semibold text-black">IntelliPark System</h2>
+    <div class="w-[300px] bg-white text-black flex flex-col shadow-lg ml-10 mt-9 mb-10 rounded-2xl">
+        <div class="flex items-center justify-center mt-20 mb-4">
+            <img src="/src/assets/img/carLogo.svg" width="30" alt="Logo" class="mr-2">
+            <h2 class="text-2xl leading-tight text-black" style="font-family: 'Organetto', sans-serif;">
+                <span class="font-bold">IntelliPark</span> <br>
+                <span class="text-2xl font-bold">System</span>
+            </h2>
         </div>
-
-        <ul class="flex flex-col space-y-4 text-black mt-20 ml-10">
+              
+    
+        <ul class="flex flex-col mt-20 space-y-4 text-black">
             <li>
-                <a href="/public/pages/dashboard/dashboard.html" class="flex items-center p-3 hover:bg-[#49a5ff] hover:text-white">
-                    <img src="https://img.icons8.com/?size=100&id=sUJRwjfnGwbJ&format=png&color=000000" width="30" alt="Dashboard" class="mr-4">
-                    <span class="text-lg font-medium">Dashboard</span>
+                <a href="/public/pages/dashboard/dashboard.html" class="w-full flex justify-start pl-20 items-center p-4 hover:bg-[#49a5ff] hover:text-white group transition-all duration-300 ease-in-out">
+                    <img src="https://img.icons8.com/?size=100&id=sUJRwjfnGwbJ&format=png&color=000000" width="30" alt="Dashboard" class="mr-4 transition-all duration-300 ease-in-out group-hover:brightness-0 group-hover:invert">
+                    <span class="text-xl font-normal transition-all duration-300 ease-in-out">Dashboard</span>
                 </a>
             </li>
             <li>
-                <a href="/public/pages/drivers-info.html" class="flex items-center p-3 hover:bg-[#49a5ff] hover:text-white">
-                    <img src="https://img.icons8.com/?size=100&id=84020&format=png&color=000000" width="30" alt="Drivers Info" class="mr-4">
-                    <span class="text-lg font-medium">Drivers Info</span>
+                <a href="/public/pages/drivers-info.html" class="w-full flex justify-start pl-20 items-center p-4 hover:bg-[#49a5ff] hover:text-white group transition-all duration-300 ease-in-out">
+                    <img src="https://img.icons8.com/?size=100&id=84020&format=png&color=000000" width="30" alt="Drivers Info" class="mr-4 transition-all duration-300 ease-in-out group-hover:brightness-0 group-hover:invert">
+                    <span class="text-xl font-normal transition-all duration-300 ease-in-out">Drivers Info</span>
                 </a>
             </li>
             <li>
-                <a href="/public/pages/vehicles-in.html" class="flex items-center p-3 hover:bg-[#49a5ff] hover:text-white">
-                    <img src="https://raw.githubusercontent.com/edco-dev/Intellipark-Images/2e161a45b745a345a020913181cacf47501e3b88/toll.svg" width="30" alt="Vehicles In" class="mr-4">
-                    <span class="text-lg font-medium">Vehicles In</span>
+                <a href="/public/pages/vehicles-in.html" class="w-full flex justify-start pl-20 items-center p-4 hover:bg-[#49a5ff] hover:text-white group transition-all duration-300 ease-in-out">
+                    <img src="https://raw.githubusercontent.com/edco-dev/Intellipark-Images/2e161a45b745a345a020913181cacf47501e3b88/toll.svg" width="30" alt="Vehicles In" class="mr-4 transition-all duration-300 ease-in-out group-hover:brightness-0 group-hover:invert">
+                    <span class="text-xl font-normal transition-all duration-300 ease-in-out">Vehicles In</span>
                 </a>
             </li>
             <li>
-                <a href="/public/pages/registration/register.html" class="flex items-center p-3 hover:bg-[#49a5ff] hover:text-white">
-                    <img src="https://img.icons8.com/?size=100&id=85484&format=png&color=000000" width="30" alt="Register" class="mr-4">
-                    <span class="text-lg font-medium">Register</span>
+                <a href="/public/pages/registration/register.html" class="w-full flex justify-start pl-20 items-center p-4 hover:bg-[#49a5ff] hover:text-white group transition-all duration-300 ease-in-out">
+                    <img src="https://img.icons8.com/?size=100&id=85484&format=png&color=000000" width="30" alt="Register" class="mr-4 transition-all duration-300 ease-in-out group-hover:brightness-0 group-hover:invert">
+                    <span class="text-xl font-normal transition-all duration-300 ease-in-out">Register</span>
                 </a>
             </li>
             <li>
-                <a href="/public/pages/history.html" class="flex items-center p-3 hover:bg-[#49a5ff] hover:text-white">
-                    <img src="https://img.icons8.com/?size=100&id=6904&format=png&color=000000" width="30" alt="History" class="mr-4">
-                    <span class="text-lg font-medium">History</span>
+                <a href="/public/pages/history.html" class="w-full flex justify-start pl-20 items-center p-4 hover:bg-[#49a5ff] hover:text-white group transition-all duration-300 ease-in-out">
+                    <img src="https://img.icons8.com/?size=100&id=6904&format=png&color=000000" width="30" alt="History" class="mr-4 transition-all duration-300 ease-in-out group-hover:brightness-0 group-hover:invert">
+                    <span class="text-xl font-normal transition-all duration-300 ease-in-out">History</span>
                 </a>
             </li>
         </ul>
-
-        <p class="text-[#ed7576] font-bold text-center cursor-pointer mt-auto py-3" id="logoutButton">Logout</p>
+        
+    
+        <p class="text-[#ed7576] font-normal text-center text-xl cursor-pointer mt-auto mb-10 py-3 flex items-center justify-center space-x-1" id="logoutButton">
+            <img src="/src/assets/img/logout.jpeg" alt="Logout Icon" width="35" class="inline-block">
+            <span>Log out</span>
+        </p>
         <script>
             const logoutButton = document.querySelector('#logoutButton');
             if (logoutButton) {
@@ -59,48 +69,52 @@
             }
         </script>
     </div>
+    
+        
 
     <!-- Main Content -->
-    <div class="main-content flex-grow p-9">
-        <section id="dashboard" class="content-section active flex flex-col">
-            <nav class="navbar bg-white drop-shadow-xl p-5 rounded-b-none rounded-t-2xl">
-                <h1 class="navbar-title text-2xl font-semibold flex items-center">
+    <div class="flex-grow m-10 main-content">
+        <section id="dashboard" class="flex flex-col content-section active">
+            <nav class="p-5 bg-white rounded-b-none navbar drop-shadow-xl rounded-t-2xl">
+                <h1 class="flex items-center text-4xl font-semibold navbar-title">
                     <img src="/src/assets/img/ds-logo.svg" width="40" alt="Dashboard Logo" class="mr-4">
                     Dashboard
                 </h1>
             </nav>
-    
-            <div class="card-body shadow-md bg-white rounded-xl p-24">
-                <h2 class="text-center text-3xl font-semibold mb-14">Dashboard</h2>
-                <div class="dashboard-statistics grid grid-cols-1 md:grid-cols-2 gap-10 justify-center">
+            
+            <div class="p-20 bg-white shadow-md card-body ">
+                <h2 class="mb-20 text-4xl font-semibold text-center">DASHBOARD</h2>
+                <div class="grid justify-center grid-cols-1 gap-y-6 gap-x-6 dashboard-statistics md:grid-cols-2">
                     <!-- Total Vehicles Card -->
-                    <div id="totalVehicles" class="statistic-block bg-teal-700 p-6 rounded-lg text-white flex flex-col h-72 relative">
-                        <h3 class="text-6xl font-bold absolute top-3 left-3"><i>0</i></h3> <!-- Larger number -->
-                        <p class="font-semibold text-2xl absolute bottom-3 left-3">Total Vehicles Parked</p> <!-- Larger text -->
-                        <img src="/src/assets/img/car.png" width="100" alt="Car Icon" class="icon absolute bottom-3 right-3"> <!-- Larger logo -->
+                    <div id="totalVehicles" class="relative flex flex-col max-w-lg min-w-full p-6 mx-auto text-white bg-teal-700 rounded-lg statistic-block h-72">
+                        <h3 class="absolute text-6xl font-bold top-3 left-3"><i>0</i></h3>
+                        <p class="absolute text-2xl font-semibold bottom-3 left-3">Total Vehicles Parked</p>
+                        <img src="/src/assets/img/car.png" width="100" alt="Car Icon" class="absolute icon bottom-3 right-3">
                     </div>
                     
                     <!-- Slots Available Card -->
-                    <div id="slotsAvailable" class="statistic-block bg-teal-700 p-6 rounded-lg text-white flex flex-col h-72 relative">
-                        <h3 class="text-6xl font-bold absolute top-3 left-3"><i>0/50</i></h3> <!-- Larger number -->
-                        <p class="font-semibold text-2xl absolute bottom-3 left-3">Slots Available</p> <!-- Larger text -->
-                        <img src="/src/assets/img/slotsAvail.png" width="100" alt="Slots Icon" class="icon absolute bottom-3 right-3"> <!-- Larger logo -->
+                    <div id="slotsAvailable" class="relative flex flex-col max-w-lg min-w-full p-6 mx-auto text-white bg-teal-700 rounded-lg statistic-block h-72">
+                        <h3 class="absolute text-6xl font-bold top-3 left-3"><i>0/50</i></h3>
+                        <p class="absolute text-2xl font-semibold bottom-3 left-3">Slots Available</p>
+                        <img src="/src/assets/img/slotsAvail.png" width="100" alt="Slots Icon" class="absolute icon bottom-3 right-3">
                     </div>
                     
                     <!-- Vehicles In Card -->
-                    <div id="vehiclesIn" class="statistic-block bg-teal-700 p-6 rounded-lg text-white flex flex-col h-72 relative">
-                        <h3 class="text-6xl font-bold absolute top-3 left-3"><i>0</i></h3> <!-- Larger number -->
-                        <p class="font-semibold text-2xl absolute bottom-3 left-3">Vehicles IN</p> <!-- Larger text -->
-                        <img src="/src/assets/img/vehicleIN.png" width="100" alt="Vehicles In Icon" class="icon absolute bottom-3 right-3"> <!-- Larger logo -->
+                    <div id="vehiclesIn" class="relative flex flex-col max-w-lg min-w-full p-6 p-20 mx-auto text-white bg-teal-700 rounded-lg statistic-block h-72">
+                        <h3 class="absolute text-6xl font-bold top-3 left-3"><i>0</i></h3>
+                        <p class="absolute text-2xl font-semibold bottom-3 left-3">Vehicles IN</p>
+                        <img src="/src/assets/img/vehicleIN.png" width="100" alt="Vehicles In Icon" class="absolute icon bottom-3 right-3">
                     </div>
                     
                     <!-- Vehicles Out Card -->
-                    <div id="vehiclesOut" class="statistic-block bg-teal-700 p-6 rounded-lg text-white flex flex-col h-72 relative">
-                        <h3 class="text-6xl font-bold absolute top-3 left-3"><i>0</i></h3> <!-- Larger number -->
-                        <p class="font-semibold text-2xl absolute bottom-3 left-3">Vehicles OUT</p> <!-- Larger text -->
-                        <img src="/src/assets/img/vehicleOUT.png" width="100" alt="Vehicles Out Icon" class="icon absolute bottom-3 right-3"> <!-- Larger logo -->
+                    <div id="vehiclesOut" class="relative flex flex-col max-w-lg min-w-full p-6 mx-auto text-white bg-teal-700 rounded-lg statistic-block h-72">
+                        <h3 class="absolute text-6xl font-bold top-3 left-3"><i>0</i></h3>
+                        <p class="absolute text-2xl font-semibold bottom-3 left-3">Vehicles OUT</p>
+                        <img src="/src/assets/img/vehicleOUT.png" width="100" alt="Vehicles Out Icon" class="absolute icon bottom-3 right-3">
                     </div>
                 </div>
+            </div>
+                       
             </div>
         </section>
     
