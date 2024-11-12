@@ -3,27 +3,28 @@ import { collection, query, getDocs, orderBy } from "firebase/firestore";
 import { db } from '/app.js';
 
 let currentPage = 1;
-const entriesPerPage = 2; // Display 2 dates per page
-let parkingLogsByDate = {};
-let allParkingLogs = [];
+const entriesPerPage = 2; // Display 2 records per page
+let vehiclesOutByDate = {};
+let allVehiclesOut = [];
 
 // Initialize event listeners on DOM load
 document.addEventListener('DOMContentLoaded', async () => {
-    await loadParkingLogs();
+    await loadVehiclesOut();
     setupPagination();
     setupDropdownFilter();
     setupSearchFilter();
 });
 
-// Load parking logs, optionally filtered by a specific date
-async function loadParkingLogs(filterDate = null) {
-    parkingLogsByDate = {};
-    allParkingLogs = [];
+// Load vehiclesOut logs, optionally filtered by a specific date
+async function loadVehiclesOut(filterDate = null) {
+    vehiclesOutByDate = {};
+    allVehiclesOut = [];
     const dateToFilter = filterDate ? new Date(filterDate) : null;
 
+    // Query vehiclesOut collection, ordered by date in descending order
     let logsQuery = query(
-        collection(db, "parkingLog"),
-        orderBy("date", "asc")
+        collection(db, "vehiclesOut"),
+        orderBy("date", "desc")  // Change to descending order to get the newest logs first
     );
 
     const querySnapshot = await getDocs(logsQuery);
@@ -31,11 +32,11 @@ async function loadParkingLogs(filterDate = null) {
         const logData = doc.data();
         const date = logData.date;
 
-        if (!parkingLogsByDate[date]) {
-            parkingLogsByDate[date] = [];
+        if (!vehiclesOutByDate[date]) {
+            vehiclesOutByDate[date] = [];
         }
-        parkingLogsByDate[date].push(logData);
-        allParkingLogs.push(logData);
+        vehiclesOutByDate[date].push(logData);
+        allVehiclesOut.push(logData);
     });
 
     displayLogsByDate(filterDate);
@@ -46,8 +47,8 @@ function displayLogsByDate(filterDate = null, filteredLogs = null) {
     const tablesContainer = document.getElementById('tablesContainer');
     tablesContainer.innerHTML = '';
 
-    const logsToDisplay = filteredLogs || (filterDate ? parkingLogsByDate[filterDate] || [] : Object.values(parkingLogsByDate).flat());
-    const datesToDisplay = filterDate ? [filterDate] : Object.keys(parkingLogsByDate);
+    const logsToDisplay = filteredLogs || (filterDate ? vehiclesOutByDate[filterDate] || [] : Object.values(vehiclesOutByDate).flat());
+    const datesToDisplay = filterDate ? [filterDate] : Object.keys(vehiclesOutByDate);
 
     const paginatedDates = paginateDates(datesToDisplay);
     const currentDates = paginatedDates[currentPage - 1] || [];
@@ -76,9 +77,13 @@ function displayLogsByDate(filterDate = null, filteredLogs = null) {
         logs.forEach((log, index) => {
             const row = tbody.insertRow();
             const formattedTransactionId = (index + 1).toString().padStart(3, '0');
+
+            // Combine firstName, middleName, and lastName to form the vehicleOwner
+            const vehicleOwner = `${log.firstName || ''} ${log.middleName || ''} ${log.lastName || ''}`.trim();
+
             row.insertCell(0).innerText = formattedTransactionId;
             row.insertCell(1).innerText = log.plateNumber || "N/A";
-            row.insertCell(2).innerText = log.vehicleOwner || "N/A";
+            row.insertCell(2).innerText = vehicleOwner || "N/A"; // Display the combined vehicleOwner
             row.insertCell(3).innerText = log.userType || "N/A";
             row.insertCell(4).innerText = log.vehicleType || "N/A";
             row.insertCell(5).innerText = log.timeIn || "N/A";
@@ -111,7 +116,7 @@ function setupPagination() {
     });
 
     document.getElementById('nextPage').addEventListener('click', () => {
-        const totalPages = Math.ceil(Object.keys(parkingLogsByDate).length / entriesPerPage);
+        const totalPages = Math.ceil(Object.keys(vehiclesOutByDate).length / entriesPerPage);
         if (currentPage < totalPages) {
             currentPage++;
             displayLogsByDate();
@@ -138,7 +143,7 @@ function setupDatePicker() {
         dateFormat: "Y-m-d",
         onChange: function(selectedDates, dateStr) {
             const selectedDate = dateStr;
-            loadParkingLogs(selectedDate);
+            loadVehiclesOut(selectedDate);
         }
     });
     datePicker.value = ""; // Clear any previous selection
@@ -165,7 +170,7 @@ function setupDropdownFilter() {
     allOption.addEventListener('click', () => {
         dropdownBtn.innerText = "All";  // Show "All" on the dropdown button
         dropdownBtn.style.color = "";   // Reset color to default
-        loadParkingLogs(); // Load all logs without date filter
+        loadVehiclesOut(); // Load all logs without date filter
         dropdownContent.classList.add('hidden'); // Close the dropdown menu
     });
 
@@ -180,21 +185,19 @@ function setupDropdownFilter() {
             onChange: function(selectedDates, dateStr) {
                 dropdownBtn.innerText = dateStr; // Show selected date on dropdown button
                 dropdownBtn.style.color = "#ed7576"; // Set the text color to red
-                loadParkingLogs(dateStr); // Filter logs based on selected date
+                loadVehiclesOut(dateStr); // Filter logs based on selected date
             }
         });
         fpInstance.open(); // Open the date picker automatically
     });
 }
 
-
-
 // Set up search filter based on input
 function setupSearchFilter() {
     const searchInput = document.getElementById('searchInput');
     searchInput.addEventListener('input', (e) => {
         const query = e.target.value.toLowerCase();
-        const filteredLogs = allParkingLogs.filter(log =>
+        const filteredLogs = allVehiclesOut.filter(log =>
             (log.plateNumber && log.plateNumber.toLowerCase().includes(query)) || 
             (log.vehicleOwner && log.vehicleOwner.toLowerCase().includes(query)) ||
             (log.userType && log.userType.toLowerCase().includes(query))

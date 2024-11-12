@@ -1,5 +1,5 @@
 import { db } from '/app.js';
-import { collection, getDocs, doc, getDoc, addDoc, deleteDoc } from "firebase/firestore";
+import { collection, getDocs, doc, getDoc, addDoc, deleteDoc, updateDoc } from "firebase/firestore";
 
 let allVehiclesData = [];
 
@@ -65,13 +65,13 @@ async function checkoutVehicle(vehicleId) {
     const popupContent = confirmationModal.querySelector('.popup-content');
 
     // Show the modal with animation
-    confirmationModal.classList.remove('hidden'); // Show the modal
+    confirmationModal.classList.remove('hidden');
     setTimeout(() => {
-        confirmationModal.classList.remove('opacity-0', 'scale-75'); // Trigger animation to fade in and scale up
+        confirmationModal.classList.remove('opacity-0', 'scale-75');
         confirmationModal.classList.add('opacity-100', 'scale-100');
         popupContent.classList.remove('opacity-0', 'scale-75');
         popupContent.classList.add('opacity-100', 'scale-100');
-    }, 10); // Delay for animation to trigger properly
+    }, 10);
 
     // Handle Yes and No button actions
     const confirmYes = document.getElementById('confirmYes');
@@ -79,17 +79,13 @@ async function checkoutVehicle(vehicleId) {
 
     // Function to close the modal with animation
     const closeModal = () => {
-        // Fade out and scale down the modal
         confirmationModal.classList.add('opacity-0', 'scale-75');
         popupContent.classList.add('opacity-0', 'scale-75');
-        
-        // Wait for the animation to complete before hiding the modal
         setTimeout(() => {
-            confirmationModal.classList.add('hidden'); // Hide the modal after animation
-            // Reset animation classes after closing
+            confirmationModal.classList.add('hidden');
             confirmationModal.classList.remove('opacity-0', 'scale-75', 'opacity-100', 'scale-100');
             popupContent.classList.remove('opacity-0', 'scale-75', 'opacity-100', 'scale-100');
-        }, 300); // Duration of the animation (matching the transition time)
+        }, 300);
     };
 
     // "Yes" button confirms checkout
@@ -105,16 +101,38 @@ async function checkoutVehicle(vehicleId) {
                 return;
             }
 
-            const timeOut = formatTime(new Date());
+            const timeOut = formatTime(new Date()); // Get the current time for checkout
             const vehicleData = vehicleDoc.data();
+            const plateNumber = vehicleData.plateNumber;
 
             // Add the vehicle to the "vehiclesOut" collection and remove it from "vehiclesIn"
             await addDoc(collection(db, "vehiclesOut"), { 
                 ...vehicleData, 
                 timeOut 
             });
-
             await deleteDoc(vehicleRef);
+
+            // Log the timeOut in the parkingLog collection
+            const parkingLogRef = collection(db, "parkingLog");
+            const parkingLogQuery = query(parkingLogRef, where("plateNumber", "==", plateNumber));
+
+            console.log("Searching for parking log with plate number:", plateNumber);
+
+            const parkingLogSnapshot = await getDocs(parkingLogQuery);
+
+            if (!parkingLogSnapshot.empty) {
+                const parkingLogDoc = parkingLogSnapshot.docs[0]; // Get the first matching document
+                console.log("Parking log found. Updating timeOut...");
+
+                // Update the parkingLog with the timeOut
+                await updateDoc(parkingLogDoc.ref, {
+                    timeOut // Set the actual timeOut when the vehicle checks out
+                });
+
+                console.log(`Updated timeOut in parking log for plate ${plateNumber}`);
+            } else {
+                console.error("No matching parking log entry found for this plate number.");
+            }
 
             alert("Vehicle checked out successfully!");
             fetchVehiclesData(); // Refresh vehicle data
@@ -127,7 +145,6 @@ async function checkoutVehicle(vehicleId) {
     // "No" button cancels the action and closes the modal
     confirmNo.onclick = closeModal;
 }
-
 
 
 
