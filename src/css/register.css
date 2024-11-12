@@ -16,6 +16,7 @@ p, li, span {
     font-weight: 400; /* Regular weight for normal text */
 }
 
+
 .visitor-container {
     display: flex;
     height: 100vh;
@@ -45,7 +46,7 @@ p, li, span {
     justify-content: center;
     transition: background-color 0.3s, border 0.3s, color 0.3s;
   }
-  
+ 
   .step-label {
     margin-left: 8px; /* Space between the circle and the label */
     font-size: 17px;
@@ -60,3 +61,13 @@ p, li, span {
   }
   
   
+  .step-circle.active .step-label { /* Blue border for active step */
+    color: #0076aa; /* White number for active step */
+  }
+
+#qrcode{
+  width: 250px;
+  height: 250px;
+  background-color: #fff;
+  image-rendering: crisp-edges;
+}

@@ -113,28 +113,28 @@
                             </div>
                         </div>
                         
-                        <form id="driverForm" class="space-y-4 max-w-2xl mx-auto p-1 bg-white rounded-lg">
+                        <form id="driverForm" class="space-y-3 max-w-2xl mx-auto bg-white rounded-lg font-sans">
                             <!-- Name Fields -->
                             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                                 <div>
                                     <label for="firstName" class="block text-gray-700 font-medium">First Name</label>
-                                    <input type="text" id="firstName" name="firstName" class="block w-full h-10 mt-2 px-4 border-2 border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm" required>
+                                    <input type="text" id="firstName" name="firstName" placeholder="Enter first name" class="block w-full h-10 mt-2 px-4 py-2 border-2 border-gray-300 rounded-md placeholder-gray-400 text-sm placeholder:text-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
                                 </div>
                                 <div>
                                     <label for="middleName" class="block text-gray-700 font-medium">Middle Name</label>
-                                    <input type="text" id="middleName" name="middleName" class="block w-full h-10 mt-2 px-4 border-2 border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm">
+                                    <input type="text" id="middleName" name="middleName" placeholder="Enter middle name" class="block w-full h-10 mt-2 px-4 py-2 border-2 border-gray-300 rounded-md placeholder-gray-400 text-sm placeholder:text-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
                                 </div>
                                 <div>
                                     <label for="lastName" class="block text-gray-700 font-medium">Last Name</label>
-                                    <input type="text" id="lastName" name="lastName" class="block w-full h-10 mt-2 px-4 border-2 border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm" required>
+                                    <input type="text" id="lastName" name="lastName" placeholder="Enter last name" class="block w-full h-10 mt-2 px-4 py-2 border-2 border-gray-300 rounded-md placeholder-gray-400 text-sm placeholder:text-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
                                 </div>
                             </div>
-                        
+                            
                             <!-- Gender, Age, User Type Fields -->
                             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                                 <div>
                                     <label for="gender" class="block text-gray-700 font-medium">Gender</label>
-                                    <select id="gender" name="gender" class="block w-full h-10 mt-2 px-4 border-2 border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm" required>
+                                    <select id="gender" name="gender" class="block w-full h-10 mt-2 px-4 py-2 border-2 border-gray-300 rounded-md placeholder-gray-400 text-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
                                         <option value="">Select</option>
                                         <option value="male">Male</option>
                                         <option value="female">Female</option>
@@ -144,50 +144,50 @@
                         
                                 <div>
                                     <label for="age" class="block text-gray-700 font-medium">Age</label>
-                                    <input type="text" id="age" name="age" class="block w-full h-10 mt-2 px-4 border-2 border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm" required>
+                                    <input type="text" id="age" name="age" placeholder="Enter your age" class="block w-full h-10 mt-2 px-4 py-2 border-2 border-gray-300 rounded-md placeholder-gray-400 text-sm placeholder:text-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
                                 </div>
                         
                                 <div>
                                     <label for="userType" class="block text-gray-700 font-medium">User Type</label>
-                                    <select id="userType" name="userType" class="block w-full h-10 mt-2 px-4 border-2 border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm" required>
+                                    <select id="userType" name="userType" class="block w-full h-10 mt-2 px-4 py-2 border-2 border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm" required>
                                         <option value="" disabled selected>Select</option>
                                         <option value="driver">Driver</option>
                                         <option value="passenger">Passenger</option>
                                     </select>
                                 </div>
                             </div>
-                        
+                            
                             <!-- Contact Number and Email Fields -->
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                 <div>
                                     <label for="contactNumber" class="block text-gray-700 font-medium">Contact Number</label>
-                                    <input type="text" id="contactNumber" name="contactNumber" class="block w-full h-10 mt-2 px-4 border-2 border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm" required>
+                                    <input type="text" id="contactNumber" name="contactNumber" placeholder="Enter contact number" class="block w-full h-10 mt-2 px-4 py-2 border-2 border-gray-300 rounded-md placeholder-gray-400 text-sm placeholder:text-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
                                 </div>
                                 <div>
                                     <label for="emailAddress" class="block text-gray-700 font-medium">Email Address</label>
-                                    <input type="text" id="emailAddress" name="emailAddress" class="block w-full h-10 mt-2 px-4 border-2 border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm" required>
+                                    <input type="email" id="emailAddress" name="emailAddress" placeholder="Enter email address" class="block w-full h-10 mt-2 px-4 py-2 border-2 border-gray-300 rounded-md placeholder-gray-400 text-sm placeholder:text-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
                                 </div>
                             </div>
                         
                             <!-- Address Field -->
                             <div>
                                 <label for="address" class="block text-gray-700 font-medium">Address</label>
-                                <input type="text" id="address" name="address" class="block w-full h-10 mt-2 px-4 border-2 border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm" required>
+                                <input type="text" id="address" name="address" placeholder="Enter address" class="block w-full h-10 mt-2 px-4 py-2 border-2 border-gray-300 rounded-md placeholder-gray-400 text-sm placeholder:text-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
                             </div>
                         
                             <!-- Vehicle Type and User Type Fields -->
                             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                                 <div>
                                     <label for="plateNumber" class="block text-gray-700 font-medium">Plate Number</label>
-                                    <input type="text" id="plateNumber" name="plateNumber" class="block w-full h-10 mt-2 px-4 border-2 border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm" required>
+                                    <input type="text" id="plateNumber" name="plateNumber" placeholder="Enter plate number" class="block w-full h-10 mt-2 px-4 py-2 border-2 border-gray-300 rounded-md placeholder-gray-400 text-sm placeholder:text-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
                                 </div>
                                 <div>
                                     <label for="vehicleType" class="block text-gray-700 font-medium">Vehicle Type</label>
-                                    <input type="text" id="vehicleType" name="vehicleType" class="block w-full h-10 mt-2 px-4 border-2 border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm" required>
+                                    <input type="text" id="vehicleType" name="vehicleType" placeholder="Enter vehicle type" class="block w-full h-10 mt-2 px-4 py-2 border-2 border-gray-300 rounded-md placeholder-gray-400 text-sm placeholder:text-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
                                 </div>
                                 <div>
                                     <label for="vehicleColor" class="block text-gray-700 font-medium">Vehicle Color</label>
-                                    <input type="text" id="vehicleColor" name="vehicleColor" class="block w-full h-10 mt-2 px-4 border-2 border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm" required>
+                                    <input type="text" id="vehicleColor" name="vehicleColor" placeholder="Enter vehicle color" class="block w-full h-10 mt-2 px-4 py-2 border-2 border-gray-300 rounded-md placeholder-gray-400 text-sm placeholder:text-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
                                 </div>
                             </div>
                         
@@ -198,39 +198,43 @@
                                 </button>
                             </div>
                         </form>
-                        
                     </div>
                     <div class="flex justify-center items-center mt-10 min-h-[500px] hidden" id="qrSection">
                         <div class="w-full max-w-4xl p-8 text-center bg-white rounded-xl">
                             <h2 class="text-4xl font-semibold text-center text-slate-900 mb-6">Register</h2>
                     
                             <!-- Progress Tracker -->
-                            <div class="flex justify-center p-4 mb-10">
-                                <div class="relative flex items-center justify-between w-full max-w-4xl">
-                                    <div id="step1" class="relative text-center step-circle active">
-                                        <span class="step-number">1</span>
-                                        <div class="step-label">General Details</div>
-                                        <!-- Line After Step 1 -->
-                                        <div class="step-line absolute top-1/2 mr-10 right-[-90%] w-[50%] border-t-2 border-gray-300"></div>
-                                    </div>
-                                    <div id="step2" class="relative text-center step-circle">
-                                        <span class="ml-5 step-number">2</span>
-                                        <div class="step-label">QR Code</div>
-                                        <!-- Line After Step 2 -->
-                                    </div>
-                                    <div id="step3" class="relative text-center step-circle">
-                                        <span class="step-number">3</span>
-                                        <div class="step-label">Finish Registration</div>
-                                        <div class="step-line absolute top-1/2 left-[-54%] w-[42%] border-t-2 border-gray-300"></div>
-                                    </div>
+                            <div class="flex justify-center items-center relative">
+                                <!-- Step 1 -->
+                                <div id="genDetails" class="relative text-center step-circle mr-10">
+                                    <span class="step-number">1</span>
+                                    <div class="step-label">General Details</div>
+                                </div>
+                    
+                                <!-- Line between Step 1 and Step 2 -->
+                                <div class="w-1/4 h-0.5 bg-gray-300 mx-4"></div>
+                    
+                                <!-- Step 2 -->
+                                <div id="step2" class="relative text-center step-circle active">
+                                    <span class="step-number">2</span>
+                                    <div class="step-label">QR Code</div>
+                                </div>
+                    
+                                <!-- Line between Step 2 and Step 3 -->
+                                <div class="w-1/4 h-0.5 bg-gray-300 mx-4"></div>
+                    
+                                <!-- Step 3 -->
+                                <div id="step3" class="relative text-center step-circle ">
+                                    <span class="step-number">3</span>
+                                    <div class="step-label">Finish Registration</div>
                                 </div>
                             </div>
-                    
+                            <h1 class="text-3xl font-bold text-gray-800 mb-5">Generated QR Code</h1>
                             <!-- QR Code Section -->
                             <div class="flex justify-center items-center mb-8">
                                 <div class="w-[300px] h-[300px] flex justify-center items-center rounded-lg">
                                     <!-- QR Code Canvas -->
-                                    <canvas id="qrcode" width="300" height="300" class="mx-auto mt-6"></canvas>
+                                    <canvas id="qrcode" width="300" height="300" class="mx-auto mt-6 mb-20"></canvas>
                                 </div>
                             </div>
                     
@@ -251,40 +255,48 @@
                     
                     <div class="flex justify-center items-center mt-10 min-h-[500px] hidden" id="finishSection">
                         <div class="w-full max-w-4xl p-8 text-center bg-white rounded-xl">
-                            <h2 class="text-4xl font-semibold text-center text-slate-900 mb-6">Finished Registration!</h2>
+                            <h2 class="text-4xl font-semibold text-center text-slate-900 mb-6">Register</h2>
                     
                             <!-- Progress Tracker -->
-                            <div class="flex justify-center p-4 mb-10">
-                                <div class="relative flex items-center justify-between w-full max-w-4xl">
-                                    <div id="step1" class="relative text-center step-circle active">
-                                        <span class="step-number">1</span>
-                                        <div class="step-label">General Details</div>
-                                        <!-- Line After Step 1 -->
-                                        <div class="step-line absolute top-1/2 mr-10 right-[-90%] w-[50%] border-t-2 border-gray-300"></div>
-                                    </div>
-                                    <div id="step2" class="relative text-center step-circle">
-                                        <span class="ml-5 step-number">2</span>
-                                        <div class="step-label">QR Code</div>
-                                        <!-- Line After Step 2 -->
-                                    </div>
-                                    <div id="step3" class="relative text-center step-circle">
-                                        <span class="step-number">3</span>
-                                        <div class="step-label">Finish Registration</div>
-                                        <div class="step-line absolute top-1/2 left-[-54%] w-[42%] border-t-2 border-gray-300"></div>
-                                    </div>
+                            <div class="flex justify-center items-center p-4 mb-10 relative">
+                                <!-- Step 1 -->
+                                <div id="genDetails" class="relative text-center step-circle mr-10">
+                                    <span class="step-number">1</span>
+                                    <div class="step-label">General Details</div>
+                                </div>
+                    
+                                <!-- Line between Step 1 and Step 2 -->
+                                <div class="w-1/4 h-0.5 bg-gray-300 mx-4"></div>
+                    
+                                <!-- Step 2 -->
+                                <div id="step2" class="relative text-center step-circle">
+                                    <span class="step-number">2</span>
+                                    <div class="step-label">QR Code</div>
+                                </div>
+                    
+                                <!-- Line between Step 2 and Step 3 -->
+                                <div class="w-1/4 h-0.5 bg-gray-300 mx-4"></div>
+                    
+                                <!-- Step 3 -->
+                                <div id="step3" class="relative text-center step-circle active">
+                                    <span class="step-number">3</span>
+                                    <div class="step-label">Finish Registration</div>
                                 </div>
                             </div>
                     
-                            <div class="flex justify-center space-x-6 mb-6">
-                                
+                            <!-- "Finished Registration!" Text -->
+                            <h1 class="text-5xl font-bold text-gray-800 mb-36 py-28">Finished Registration!</h1>
                     
-                                <!-- Next Button -->
+                            <!-- Finish Button -->
+                            <div class="flex justify-center">
                                 <button type="button" id="finishBtn" class="w-[180px] px-6 py-3 bg-[#49a5ff] text-white rounded-3xl text-lg hover:bg-blue-600 focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50">
                                     Finish
                                 </button>
                             </div>
-                </div>
-            </div>
+                        </div>
+                    </div>
+                    
+                    
         </div>
     </div>
 

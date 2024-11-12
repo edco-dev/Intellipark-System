@@ -57,5 +57,5 @@ document.getElementById('nextBtn').addEventListener('click', () => {
 });
 
 document.getElementById('finishBtn').addEventListener('click', () => {
-    window.location.href = "/dashboard.html";
+    window.location.href = "/dashboard.8008bccb.html";
 });

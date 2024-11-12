@@ -83,60 +83,60 @@
                 <div class="flex justify-center mt-40 min-h-[500px]">
                     <!-- Form Container -->
                     <div class="w-full max-w-xl p-8 bg-white rounded-xl">
-                        <h2 class="mb-20 text-4xl font-semibold text-center text-gray-700">Visitor Information</h2>
-                        <form id="visitorForm" class="space-y-6">
+                        <h2 class="mb-14 text-4xl font-semibold text-center text-gray-700">Visitor Information</h2>
+                        <form id="visitorForm" class="space-y-3 font-sans">
                             <!-- Name Fields -->
                             <div class="grid grid-cols-3 gap-4">
                                 <div>
                                     <label for="firstName" class="block font-medium text-gray-700 text-md">First Name</label>
-                                    <input type="text" id="firstName" class="block w-full h-10 mt-1 border-2 border-gray-200 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
+                                    <input type="text" id="firstName" placeholder="Enter first name" class="block w-full h-10 px-3 mt-1 border-2 border-gray-200 rounded-md placeholder-gray-400 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
                                 </div>
                                 <div>
                                     <label for="middleName" class="block font-medium text-gray-700 text-md">Middle Name</label>
-                                    <input type="text" id="middleName" class="block w-full h-10 mt-1 border-2 border-gray-200 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                                    <input type="text" id="middleName" placeholder="Enter middle name" class="block w-full h-10 px-3 mt-1 border-2 border-gray-200 rounded-md placeholder-gray-400 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
                                 </div>
                                 <div>
                                     <label for="lastName" class="block font-medium text-gray-700 text-md">Last Name</label>
-                                    <input type="text" id="lastName" class="block w-full h-10 mt-1 border-2 border-gray-200 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
+                                    <input type="text" id="lastName" placeholder="Enter last name" class="block w-full h-10 px-3 mt-1 border-2 border-gray-200 rounded-md placeholder-gray-400 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
                                 </div>
                             </div>
-
+                        
                             <!-- Contact and Plate Number Fields -->
                             <div class="grid grid-cols-2 gap-4">
                                 <div>
                                     <label for="contactNumber" class="block font-medium text-gray-700 text-md">Contact Number</label>
-                                    <input type="text" id="contactNumber" class="block w-full h-10 mt-1 border-2 border-gray-200 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
+                                    <input type="text" id="contactNumber" placeholder="Enter contact number" class="block w-full h-10 px-3 mt-1 border-2 border-gray-200 rounded-md placeholder-gray-400 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
                                 </div>
                                 <div>
                                     <label for="plateNumber" class="block font-medium text-gray-700 text-md">Plate Number</label>
-                                    <input type="text" id="plateNumber" class="block w-full h-10 mt-1 border-2 border-gray-200 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
+                                    <input type="text" id="plateNumber" placeholder="Enter plate number" class="block w-full h-10 px-3 mt-1 border-2 border-gray-200 rounded-md placeholder-gray-400 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
                                 </div>
                             </div>
-
+                        
                             <!-- Vehicle Type and User Type Fields -->
                             <div class="grid grid-cols-2 gap-4">
                                 <div>
                                     <label for="vehicleType" class="block font-medium text-gray-700 text-md">Vehicle Type</label>
-                                    <input type="text" id="vehicleType" class="block w-full h-10 mt-1 border-2 border-gray-200 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
+                                    <input type="text" id="vehicleType" placeholder="Enter vehicle type" class="block w-full h-10 px-3 mt-1 border-2 border-gray-200 rounded-md placeholder-gray-400 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
                                 </div>
                                 <div>
                                     <label for="userType" class="block font-medium text-gray-700 text-md">User Type</label>
-                                    <select id="userType" name="userType" class="block w-full h-10 mt-1 border-2 border-gray-200 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
+                                    <select id="userType" name="userType" class="block w-full h-10 px-3 mt-1 border-2 border-gray-200 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
                                         <option value="" disabled selected>Select</option>
                                         <option value="driver">Driver</option>
                                         <option value="passenger">Passenger</option>
                                     </select>
                                 </div>
                             </div>
-                            <div class="space-y-12 text-white">SPACING</div>
-                            <div class="space-y-10 text-white">SPACING</div>
+                            
                             <!-- Submit Button -->
-                            <div class="text-center">
+                            <div class="text-center py-20">
                                 <button type="submit" class="w-[150px] px-4 py-2 bg-[#49a5ff] text-white rounded-3xl shadow-md text-lg hover:bg-[#4995ff] focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50">
                                     Add
                                 </button>
                             </div>
                         </form>
+                        
                     </div>
                 </div>
             </div>
