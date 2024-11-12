@@ -52,16 +52,17 @@ function displayDrivers(driversData) {
 
         // Combine firstName, middleInitials, and lastName for Vehicle Owner
         const vehicleOwner = `${driverData.firstName || ''} ${driverData.middleInitials || ''} ${driverData.lastName || ''}`.trim() || "N/A";
-        row.insertCell(1).innerText = vehicleOwner;
+        
 
         // Populate the rest of the driver details
-        row.insertCell(2).innerText = driverData.gender || "N/A";
+        row.insertCell(1).innerText = driverData.plateNumber || "N/A";
+        row.insertCell(2).innerText = vehicleOwner;
         row.insertCell(3).innerText = driverData.age || "N/A";
-        row.insertCell(4).innerText = driverData.userType || "N/A";
+        row.insertCell(4).innerText = driverData.gender || "N/A";
         row.insertCell(5).innerText = driverData.contactNumber || "N/A";
         row.insertCell(6).innerText = driverData.emailAddress || "N/A";
         row.insertCell(7).innerText = driverData.address || "N/A";
-        row.insertCell(8).innerText = driverData.plateNumber || "N/A";
+        row.insertCell(8).innerText = driverData.userType || "N/A";
         row.insertCell(9).innerText = driverData.vehicleType || "N/A";
         row.insertCell(10).innerText = driverData.vehicleColor || "N/A";
 
