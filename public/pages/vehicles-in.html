@@ -4,53 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vehicles In</title>
-    <link rel="stylesheet" href="/src/css/vehicles-in.css">
-    <link rel="stylesheet" href="/src/css/dashboard.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/css/vehicles-in.css">
+    <link rel="stylesheet" href="/src/css/animation.css">
+    <link rel="stylesheet" href="/src/css/dashboard.css">
 </head>
-<body class="animate-fade-in">
-    <div class="drivers-info-container">
-        <div class="w-[350px] bg-white text-black p-6 flex flex-col shadow-xl mr-0 mt-6 ml-6 mb-10 rounded-2xl">
-            <div class="flex items-center mb-5">
-                <img src="/src/assets/img/carLogo.svg" width="40" alt="Logo" class="mr-4">
-                <h2 class="text-2xl font-semibold text-black">IntelliPark System</h2>
+<body class="font-sans bg-gray-100 animate-fade-in">
+    <div class="flex h-screen">
+        
+        <!-- Sidebar -->
+        <div class="w-[300px] flex-shrink-0 bg-white text-black flex flex-col shadow-lg mt-9 mb-10 ml-10 rounded-2xl">
+            <div class="flex items-center justify-center mt-20 mb-4">
+                <img src="/src/assets/img/carLogo.svg" width="30" alt="Logo" class="mr-2">
+                <h2 class="text-2xl leading-tight text-black" style="font-family: 'Organetto', sans-serif;">
+                    <span class="font-bold">IntelliPark</span> <br>
+                    <span class="text-2xl font-bold">System</span>
+                </h2>
             </div>
-    
-            <ul class="flex flex-col space-y-4 text-black mt-20 ml-10">
+            
+            <!-- Sidebar Links -->
+            <ul class="flex flex-col mt-20 space-y-4 text-black">
                 <li>
-                    <a href="/public/pages/dashboard/dashboard.html" class="flex items-center p-3 hover:bg-[#49a5ff] hover:text-white">
-                        <img src="https://img.icons8.com/?size=100&id=sUJRwjfnGwbJ&format=png&color=000000" width="30" alt="Dashboard" class="mr-4">
-                        <span class="text-lg font-medium">Dashboard</span>
+                    <a href="/public/pages/dashboard/dashboard.html" class="w-full flex justify-start pl-20 items-center p-4 hover:bg-[#49a5ff] hover:text-white group transition-all duration-300 ease-in-out">
+                        <img src="https://img.icons8.com/?size=100&id=sUJRwjfnGwbJ&format=png&color=000000" width="30" alt="Dashboard" class="mr-4 transition-all duration-300 ease-in-out group-hover:brightness-0 group-hover:invert">
+                        <span class="text-xl font-normal transition-all duration-300 ease-in-out">Dashboard</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/public/pages/drivers-info.html" class="flex items-center p-3 hover:bg-[#49a5ff] hover:text-white">
-                        <img src="https://img.icons8.com/?size=100&id=84020&format=png&color=000000" width="30" alt="Drivers Info" class="mr-4">
-                        <span class="text-lg font-medium">Drivers Info</span>
+                    <a href="/public/pages/drivers-info.html" class="w-full flex justify-start pl-20 items-center p-4 hover:bg-[#49a5ff] hover:text-white group transition-all duration-300 ease-in-out">
+                        <img src="https://img.icons8.com/?size=100&id=84020&format=png&color=000000" width="30" alt="Drivers Info" class="mr-4 transition-all duration-300 ease-in-out group-hover:brightness-0 group-hover:invert">
+                        <span class="text-xl font-normal transition-all duration-300 ease-in-out">Drivers Info</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/public/pages/vehicles-in.html" class="flex items-center p-3 hover:bg-[#49a5ff] hover:text-white">
-                        <img src="https://raw.githubusercontent.com/edco-dev/Intellipark-Images/2e161a45b745a345a020913181cacf47501e3b88/toll.svg" width="30" alt="Vehicles In" class="mr-4">
-                        <span class="text-lg font-medium">Vehicles In</span>
+                    <a href="/public/pages/vehicles-in.html" class="w-full flex justify-start pl-20 items-center p-4 hover:bg-[#49a5ff] hover:text-white group transition-all duration-300 ease-in-out">
+                        <img src="https://raw.githubusercontent.com/edco-dev/Intellipark-Images/2e161a45b745a345a020913181cacf47501e3b88/toll.svg" width="30" alt="Vehicles In" class="mr-4 transition-all duration-300 ease-in-out group-hover:brightness-0 group-hover:invert">
+                        <span class="text-xl font-normal transition-all duration-300 ease-in-out">Vehicles In</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/public/pages/registration/register.html" class="flex items-center p-3 hover:bg-[#49a5ff] hover:text-white">
-                        <img src="https://img.icons8.com/?size=100&id=85484&format=png&color=000000" width="30" alt="Register" class="mr-4">
-                        <span class="text-lg font-medium">Register</span>
+                    <a href="/public/pages/registration/register.html" class="w-full flex justify-start pl-20 items-center p-4 hover:bg-[#49a5ff] hover:text-white group transition-all duration-300 ease-in-out">
+                        <img src="https://img.icons8.com/?size=100&id=85484&format=png&color=000000" width="30" alt="Register" class="mr-4 transition-all duration-300 ease-in-out group-hover:brightness-0 group-hover:invert">
+                        <span class="text-xl font-normal transition-all duration-300 ease-in-out">Register</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/public/pages/history.html" class="flex items-center p-3 hover:bg-[#49a5ff] hover:text-white">
-                        <img src="https://img.icons8.com/?size=100&id=6904&format=png&color=000000" width="30" alt="History" class="mr-4">
-                        <span class="text-lg font-medium">History</span>
+                    <a href="/public/pages/history.html" class="w-full flex justify-start pl-20 items-center p-4 hover:bg-[#49a5ff] hover:text-white group transition-all duration-300 ease-in-out">
+                        <img src="https://img.icons8.com/?size=100&id=6904&format=png&color=000000" width="30" alt="History" class="mr-4 transition-all duration-300 ease-in-out group-hover:brightness-0 group-hover:invert">
+                        <span class="text-xl font-normal transition-all duration-300 ease-in-out">History</span>
                     </a>
                 </li>
             </ul>
-    
-            <p class="text-[#ed7576] font-bold text-center cursor-pointer mt-auto py-3" id="logoutButton">Logout</p>
+
+            <!-- Logout Section -->
+            <p class="text-[#ed7576] font-normal text-center text-xl cursor-pointer mt-auto mb-10 py-3 flex items-center justify-center space-x-1" id="logoutButton">
+                <img src="/src/assets/img/logout.jpeg" alt="Logout Icon" width="35" class="inline-block">
+                <span>Log out</span>
+            </p>
             <script>
                 const logoutButton = document.querySelector('#logoutButton');
                 if (logoutButton) {
@@ -59,73 +69,86 @@
             </script>
         </div>
 
-        <div class="container flex-grow p-8">
-            <nav class="navbar p-4 drop-shadow-lg bg-white flex justify-between rounded-t-xl">
-                <h1><img src="/src/assets/img/toll.svg" width="30" style="margin-right: 3px;" alt=""> Vehicles In</h1>
-                <input
-                type="text"
-                id="searchInput"
-                placeholder="Search"
-                class="px-4 py-1 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 placeholder-gray-500 text-sm w-96"
-            />
-            </nav>
-            <div class="card-body">
-                <h2 class="text-3xl font-semibold text-black pt-8 pb-8">Parked Vehicles</h2>
-                <div class="table-container">
-                    <table class="table-modern shadow-lg w-full" id="vehiclesTable">
-                        <thead>
-                            <tr>
-                                <th>Transaction ID</th>
-                                <th>Plate Number</th>
-                                <th>Vehicle Owner</th>
-                                <th>Contact Number</th>
-                                <th>User Type</th>
-                                <th>Vehicle Type</th>
-                                <th>Vehicle Color</th>
-                                <th>Date</th>
-                                <th>Time In</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- Driver data will be populated here -->
-                        </tbody>
-                    </table>
+        <!-- Main Content Area -->
+        <div class="flex-grow p-10 bg-gray-100">
+            <section id="dashboard" class="flex flex-col">
+                <!-- Navbar -->
+                <nav class="flex items-center justify-between p-4 text-4xl font-semibold bg-white navbar drop-shadow-lg rounded-t-xl navbar-title">
+                    <h1 class="text-5xl font-semibold">
+                        <img src="/src/assets/img/toll.svg" class="w-10 ml-4 fill-black" alt=""> Vehicles In
+                    </h1>
+                    <input type="text" id="searchInput" placeholder="Search" class="px-4 py-1 text-sm placeholder-gray-500 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 w-96"/>
+                </nav>
+                
+                <!-- Table Section -->
+                <div class="card-body">
+                    <h2 class="pt-4 pb-8 mb-10 ml-3 text-3xl font-semibold text-black">Parked Vehicles</h2>
+                    <div class="table-container">
+                        <table class="w-full shadow-lg table-modern" id="vehiclesTable">
+                            <thead class="font-thin text-[15px]">
+                                <tr>
+                                    <th>Transaction #</th>
+                                    <th>Plate Number</th>
+                                    <th>Vehicle Owner</th>
+                                    <th>Contact Number</th>
+                                    <th>User Type</th>
+                                    <th>Vehicle Type</th>
+                                    <th>Date</th>
+                                    <th>Time IN</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Driver data will be populated here -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="flex justify-between mt-4">
+                        <!-- Left-aligned page tracker -->
+                        <span id="pageTracker" class="self-center text-gray-600">Page 1 of 1</span>
+        
+                        <div class="flex space-x-1">
+                            <button id="prevPageBtn" class="rounded-md border border-slate-300 py-2 px-3 text-center text-sm transition-all shadow-sm hover:shadow-lg text-slate-600 hover:text-white hover:bg-[#49a5ff]     focus:text-white focus:bg-slate-800 focus:border-slate-800 active:border-slate-800 active:text-white active:bg-slate-800 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2">
+                                Prev
+                            </button>
+                            <span id="paginationText" class="self-center min-w-9 rounded-md bg-[#49a5ff] py-2 px-3 border border-transparent text-center text-sm text-white transition-all shadow-md focus:shadow-none active:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2">1</span>
+                            <button id="nextPageBtn" class="min-w-9 rounded-md border border-slate-300 py-2 px-3 text-center text-sm transition-all shadow-sm hover:shadow-lg text-slate-600 hover:text-white hover:bg-[#49a5ff] focus:text-white focus:bg-slate-800 focus:border-slate-800 active:border-slate-800 active:text-white active:bg-slate-800 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2">
+                                Next
+                            </button>
+                          </div>
+                    </div>
                 </div>
-                <div class="flex justify-between mt-4">
-                    <!-- Left-aligned page tracker -->
-                    <span id="pageTracker" class="text-gray-600 self-center">Page 1 of 1</span>
-    
-                    <div class="flex space-x-1">
-                        <button id="prevPageBtn" class="rounded-md border border-slate-300 py-2 px-3 text-center text-sm transition-all shadow-sm hover:shadow-lg text-slate-600 hover:text-white hover:bg-[#49a5ff]     focus:text-white focus:bg-slate-800 focus:border-slate-800 active:border-slate-800 active:text-white active:bg-slate-800 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2">
-                            Prev
-                        </button>
-                        <span id="paginationText" class="self-center min-w-9 rounded-md bg-[#49a5ff] py-2 px-3 border border-transparent text-center text-sm text-white transition-all shadow-md focus:shadow-none active:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2">1</span>
-                        <button id="nextPageBtn" class="min-w-9 rounded-md border border-slate-300 py-2 px-3 text-center text-sm transition-all shadow-sm hover:shadow-lg text-slate-600 hover:text-white hover:bg-[#49a5ff] focus:text-white focus:bg-slate-800 focus:border-slate-800 active:border-slate-800 active:text-white active:bg-slate-800 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2">
-                            Next
-                        </button>
-                      </div>
-                </div>
-            </div>
-            
+            </section>
         </div>
         
     </div>
- 
-    <div id="confirmationModal" class="popup">
-        <div class="popup-content">
-            <p>Are you sure you want to checkout this vehicle user?</p>
-            <div class="button-container">
-                <button id="confirmNo" class="popup-btn">Cancel</button>
-                <button id="confirmYes" class="popup-btn">Yes</button>
+    
+    <!-- Confirmation Modal -->
+    <div id="confirmationModal" class="fixed inset-0 flex items-center justify-center hidden transition-all duration-500 transform scale-75 bg-black opacity-0 popup bg-opacity-60">
+        <div class="popup-content bg-[#252b26] p-[120px] rounded-lg w-[500px] text-center text-white transition-all duration-500 opacity-0 transform scale-75">
+            <p class="text-white text-[20px] my-5">Are you sure you want to checkout this vehicle user?</p>
+            <div class="flex justify-between gap-5 mt-5 button-container">
+                <button id="confirmNo" class="popup-btn py-2 px-6 border-none rounded-md cursor-pointer text-[18px] font-bold text-center flex-1 bg-[#333333] text-white mt-7 hover:bg-[#555555]">
+                    Cancel
+                </button>
+                <button id="confirmYes" class="popup-btn py-2 px-6 border-none rounded-md cursor-pointer text-[18px] font-bold text-center flex-1 bg-[#28a745] text-white mt-7 hover:bg-[#218838]">
+                    Yes
+                </button>
             </div>
         </div>
     </div>
     
-
-<script type="module" src="/app.js"></script>
-<script type="module" src="/src/js/vehicles-in.js"></script>
-<script type="module" src="/src/scripts/auth/auth.js"></script>
-<script type="module" src="/src/js/animations.js"></script>
+    
+    
+    <!-- Example trigger button for opening the modal -->
+    <button id="showModalButton" class="px-4 py-2 text-white bg-blue-500 rounded-md">Open Modal</button>
+    
+    
+    
+    <!-- Scripts -->
+    <script type="module" src="/app.js"></script>
+    <script type="module" src="/src/js/vehicles-in.js"></script>
+    <script type="module" src="/src/scripts/auth/auth.js"></script>
+    <script type="module" src="/src/js/animations.js"></script>
 </body>
 </html>

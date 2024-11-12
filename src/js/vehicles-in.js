@@ -40,12 +40,11 @@ function displayVehicles(vehiclesData) {
         row.insertCell(3).innerText = vehicle.contactNumber || "N/A";
         row.insertCell(4).innerText = vehicle.userType || "N/A";
         row.insertCell(5).innerText = vehicle.vehicleType || "N/A";
-        row.insertCell(6).innerText = vehicle.vehicleColor || "N/A";
-        row.insertCell(7).innerText = vehicle.date || "N/A";
-        row.insertCell(8).innerText = vehicle.timeIn || "N/A";
+        row.insertCell(6).innerText = vehicle.date || "N/A";
+        row.insertCell(7).innerText = vehicle.timeIn || "N/A";
 
         // Add checkout button
-        const actionsCell = row.insertCell(9);
+        const actionsCell = row.insertCell(8);
         const exitButton = document.createElement('button');
         exitButton.innerText = 'End';
         exitButton.style.backgroundColor = '#4aa5ff';
@@ -61,21 +60,41 @@ function displayVehicles(vehiclesData) {
 }
 
 async function checkoutVehicle(vehicleId) {
-    // Display the confirmation modal
+    // Get the modal and modal content elements
     const confirmationModal = document.getElementById('confirmationModal');
-    confirmationModal.style.display = 'flex';
+    const popupContent = confirmationModal.querySelector('.popup-content');
+
+    // Show the modal with animation
+    confirmationModal.classList.remove('hidden'); // Show the modal
+    setTimeout(() => {
+        confirmationModal.classList.remove('opacity-0', 'scale-75'); // Trigger animation to fade in and scale up
+        confirmationModal.classList.add('opacity-100', 'scale-100');
+        popupContent.classList.remove('opacity-0', 'scale-75');
+        popupContent.classList.add('opacity-100', 'scale-100');
+    }, 10); // Delay for animation to trigger properly
 
     // Handle Yes and No button actions
     const confirmYes = document.getElementById('confirmYes');
     const confirmNo = document.getElementById('confirmNo');
 
+    // Function to close the modal with animation
     const closeModal = () => {
-        confirmationModal.style.display = 'none';
+        // Fade out and scale down the modal
+        confirmationModal.classList.add('opacity-0', 'scale-75');
+        popupContent.classList.add('opacity-0', 'scale-75');
+        
+        // Wait for the animation to complete before hiding the modal
+        setTimeout(() => {
+            confirmationModal.classList.add('hidden'); // Hide the modal after animation
+            // Reset animation classes after closing
+            confirmationModal.classList.remove('opacity-0', 'scale-75', 'opacity-100', 'scale-100');
+            popupContent.classList.remove('opacity-0', 'scale-75', 'opacity-100', 'scale-100');
+        }, 300); // Duration of the animation (matching the transition time)
     };
 
     // "Yes" button confirms checkout
     confirmYes.onclick = async () => {
-        closeModal(); // Hide the modal
+        closeModal(); // Hide the modal with animation
 
         try {
             const vehicleRef = doc(db, "vehiclesIn", vehicleId);
@@ -89,6 +108,7 @@ async function checkoutVehicle(vehicleId) {
             const timeOut = formatTime(new Date());
             const vehicleData = vehicleDoc.data();
 
+            // Add the vehicle to the "vehiclesOut" collection and remove it from "vehiclesIn"
             await addDoc(collection(db, "vehiclesOut"), { 
                 ...vehicleData, 
                 timeOut 
@@ -107,6 +127,8 @@ async function checkoutVehicle(vehicleId) {
     // "No" button cancels the action and closes the modal
     confirmNo.onclick = closeModal;
 }
+
+
 
 
 // Function to setup search functionality
