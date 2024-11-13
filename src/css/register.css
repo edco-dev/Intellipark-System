@@ -60,8 +60,16 @@ p, li, span {
     color: white; /* White number for active step */
   }
   
-  
+  .step-number.active{
+    background-color: #0076aa; /* Blue background for active step */
+    border-color: #0076aa; /* Blue border for active step */
+    color: white; /* White number for active step */
+  }
   .step-circle.active .step-label { /* Blue border for active step */
+    color: #0076aa; /* White number for active step */
+  }
+
+  .step-label.active { /* Blue border for active step */
     color: #0076aa; /* White number for active step */
   }
 
@@ -70,4 +78,38 @@ p, li, span {
   height: 250px;
   background-color: #fff;
   image-rendering: crisp-edges;
+}
+
+.genDetailsQr{
+  width: 220px;
+  margin-right: 10px;
+}
+
+.qrQr{
+  width: 110px;
+  margin-left: 20px;
+  margin-right: 20px;
+
+}
+
+.finishQr{
+  width: 190px;
+  margin-right: 20px;
+}
+
+.step-line-gen{
+  border-color: #0076aa;
+}
+
+.stepQr{
+  color: #0076aa;
+}
+
+.genDetailsFinished{
+  width: 130px;
+  margin-right: 10px;
+}
+
+.qrFinished{
+  width: 80px;
 }

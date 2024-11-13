@@ -90,15 +90,15 @@
                 <!-- Form container with floating effect -->
                 <div class="flex justify-center mt-10 min-h-[500px]">
                     <!-- Form Container -->
-                    <div class="w-full max-w-4xl p-8 bg-white rounded-xl" id="formSection">
+                    <div class="w-full max-w-4xl p-8 mt-10 bg-white rounded-xl" id="formSection">
                         <h2 class="text-4xl font-semibold text-center text-slate-900">Register</h2>
-                        <div class="flex justify-center p-4 mb-20">
+                        <div class="flex justify-center p-4 mb-10">
                             <div class="relative flex items-center justify-between w-full max-w-4xl">
                                 <div id="step1" class="relative text-center step-circle active">
                                     <span class="step-number">1</span>
                                     <div class="step-label">General Details</div>
                                     <!-- Line After Step 1 -->
-                                    <div class="step-line absolute top-1/2 mr-10 right-[-90%] w-[50%] border-t-2 border-gray-300"></div>
+                                    <div class="step-line-gen absolute top-1/2 mr-10 right-[-90%] w-[50%] border-t-2 border-[#0076aa]"></div>
                                 </div>
                                 <div id="step2" class="relative text-center step-circle">
                                     <span class="ml-5 step-number">2</span>
@@ -118,15 +118,15 @@
                             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                                 <div>
                                     <label for="firstName" class="block text-gray-700 font-medium">First Name</label>
-                                    <input type="text" id="firstName" name="firstName" placeholder="Enter first name" class="block w-full h-10 mt-2 px-4 py-2 border-2 border-gray-300 rounded-md placeholder-gray-400 text-sm placeholder:text-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
+                                    <input type="text" value="d" id="firstName" name="firstName" placeholder="Enter first name" class="block w-full h-10 mt-2 px-4 py-2 border-2 border-gray-300 rounded-md placeholder-gray-400 text-sm placeholder:text-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
                                 </div>
                                 <div>
                                     <label for="middleName" class="block text-gray-700 font-medium">Middle Name</label>
-                                    <input type="text" id="middleName" name="middleName" placeholder="Enter middle name" class="block w-full h-10 mt-2 px-4 py-2 border-2 border-gray-300 rounded-md placeholder-gray-400 text-sm placeholder:text-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                                    <input type="text" value="d" id="middleName" name="middleName" placeholder="Enter middle name" class="block w-full h-10 mt-2 px-4 py-2 border-2 border-gray-300 rounded-md placeholder-gray-400 text-sm placeholder:text-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
                                 </div>
                                 <div>
                                     <label for="lastName" class="block text-gray-700 font-medium">Last Name</label>
-                                    <input type="text" id="lastName" name="lastName" placeholder="Enter last name" class="block w-full h-10 mt-2 px-4 py-2 border-2 border-gray-300 rounded-md placeholder-gray-400 text-sm placeholder:text-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
+                                    <input type="text"  value="d" id="lastName" name="lastName" placeholder="Enter last name" class="block w-full h-10 mt-2 px-4 py-2 border-2 border-gray-300 rounded-md placeholder-gray-400 text-sm placeholder:text-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
                                 </div>
                             </div>
                             
@@ -135,7 +135,7 @@
                                 <div>
                                     <label for="gender" class="block text-gray-700 font-medium">Gender</label>
                                     <select id="gender" name="gender" class="block w-full h-10 mt-2 px-4 py-2 border-2 border-gray-300 rounded-md placeholder-gray-400 text-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
-                                        <option value="">Select</option>
+                                        <option value="male">Male</option>
                                         <option value="male">Male</option>
                                         <option value="female">Female</option>
                                         <option value="other">Other</option>
@@ -144,13 +144,13 @@
                         
                                 <div>
                                     <label for="age" class="block text-gray-700 font-medium">Age</label>
-                                    <input type="text" id="age" name="age" placeholder="Enter your age" class="block w-full h-10 mt-2 px-4 py-2 border-2 border-gray-300 rounded-md placeholder-gray-400 text-sm placeholder:text-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
+                                    <input type="text" id="age" value="d" name="age" placeholder="Enter your age" class="block w-full h-10 mt-2 px-4 py-2 border-2 border-gray-300 rounded-md placeholder-gray-400 text-sm placeholder:text-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
                                 </div>
                         
                                 <div>
                                     <label for="userType" class="block text-gray-700 font-medium">User Type</label>
                                     <select id="userType" name="userType" class="block w-full h-10 mt-2 px-4 py-2 border-2 border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm" required>
-                                        <option value="" disabled selected>Select</option>
+                                        <option value="driver" selected>Driver</option>
                                         <option value="driver">Driver</option>
                                         <option value="passenger">Passenger</option>
                                     </select>
@@ -161,75 +161,77 @@
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                 <div>
                                     <label for="contactNumber" class="block text-gray-700 font-medium">Contact Number</label>
-                                    <input type="text" id="contactNumber" name="contactNumber" placeholder="Enter contact number" class="block w-full h-10 mt-2 px-4 py-2 border-2 border-gray-300 rounded-md placeholder-gray-400 text-sm placeholder:text-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
+                                    <input type="text" value="d" id="contactNumber" name="contactNumber" placeholder="Enter contact number" class="block w-full h-10 mt-2 px-4 py-2 border-2 border-gray-300 rounded-md placeholder-gray-400 text-sm placeholder:text-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
                                 </div>
                                 <div>
                                     <label for="emailAddress" class="block text-gray-700 font-medium">Email Address</label>
-                                    <input type="email" id="emailAddress" name="emailAddress" placeholder="Enter email address" class="block w-full h-10 mt-2 px-4 py-2 border-2 border-gray-300 rounded-md placeholder-gray-400 text-sm placeholder:text-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
+                                    <input type="email" value="mangaligericoaron@gmail.com" id="emailAddress" name="emailAddress" placeholder="Enter email address" class="block w-full h-10 mt-2 px-4 py-2 border-2 border-gray-300 rounded-md placeholder-gray-400 text-sm placeholder:text-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
                                 </div>
                             </div>
                         
                             <!-- Address Field -->
                             <div>
                                 <label for="address" class="block text-gray-700 font-medium">Address</label>
-                                <input type="text" id="address" name="address" placeholder="Enter address" class="block w-full h-10 mt-2 px-4 py-2 border-2 border-gray-300 rounded-md placeholder-gray-400 text-sm placeholder:text-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
+                                <input type="text" id="address" value="d" name="address" placeholder="Enter address" class="block w-full h-10 mt-2 px-4 py-2 border-2 border-gray-300 rounded-md placeholder-gray-400 text-sm placeholder:text-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
                             </div>
                         
                             <!-- Vehicle Type and User Type Fields -->
                             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                                 <div>
                                     <label for="plateNumber" class="block text-gray-700 font-medium">Plate Number</label>
-                                    <input type="text" id="plateNumber" name="plateNumber" placeholder="Enter plate number" class="block w-full h-10 mt-2 px-4 py-2 border-2 border-gray-300 rounded-md placeholder-gray-400 text-sm placeholder:text-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
+                                    <input type="text" id="plateNumber" value="d" name="plateNumber" placeholder="Enter plate number" class="block w-full h-10 mt-2 px-4 py-2 border-2 border-gray-300 rounded-md placeholder-gray-400 text-sm placeholder:text-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
                                 </div>
                                 <div>
                                     <label for="vehicleType" class="block text-gray-700 font-medium">Vehicle Type</label>
-                                    <input type="text" id="vehicleType" name="vehicleType" placeholder="Enter vehicle type" class="block w-full h-10 mt-2 px-4 py-2 border-2 border-gray-300 rounded-md placeholder-gray-400 text-sm placeholder:text-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
+                                    <input type="text" id="vehicleType" value="d" name="vehicleType" placeholder="Enter vehicle type" class="block w-full h-10 mt-2 px-4 py-2 border-2 border-gray-300 rounded-md placeholder-gray-400 text-sm placeholder:text-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
                                 </div>
                                 <div>
                                     <label for="vehicleColor" class="block text-gray-700 font-medium">Vehicle Color</label>
-                                    <input type="text" id="vehicleColor" name="vehicleColor" placeholder="Enter vehicle color" class="block w-full h-10 mt-2 px-4 py-2 border-2 border-gray-300 rounded-md placeholder-gray-400 text-sm placeholder:text-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
+                                    <input type="text" id="vehicleColor" value="d" name="vehicleColor" placeholder="Enter vehicle color" class="block w-full h-10 mt-2 px-4 py-2 border-2 border-gray-300 rounded-md placeholder-gray-400 text-sm placeholder:text-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
                                 </div>
                             </div>
                         
                             <!-- Submit Button -->
                             <div class="text-center">
-                                <button type="submit" class="w-full sm:w-[180px] px-6 mt-12 py-3 bg-[#49a5ff] text-white rounded-3xl text-lg hover:bg-[#4980ff] focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50">
+                                <button type="submit" class="w-full sm:w-[180px] px-6 mt-8 py-3 bg-[#49a5ff] text-white rounded-3xl text-lg hover:bg-[#4980ff] focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50">
                                     Generate
                                 </button>
                             </div>
                         </form>
                     </div>
+                    
                     <div class="flex justify-center items-center mt-10 min-h-[500px] hidden" id="qrSection">
-                        <div class="w-full max-w-4xl p-8 text-center bg-white rounded-xl">
+                        <div class="w-full max-w-full text-center bg-white rounded-xl">
                             <h2 class="text-4xl font-semibold text-center text-slate-900 mb-6">Register</h2>
                     
                             <!-- Progress Tracker -->
                             <div class="flex justify-center items-center relative">
                                 <!-- Step 1 -->
-                                <div id="genDetails" class="relative text-center step-circle mr-10">
-                                    <span class="step-number">1</span>
-                                    <div class="step-label">General Details</div>
+                                 
+                                <div class="relative text-center step-circle genDetailsQr">
+                                    <span class="step-number active">1</span>
+                                    <div class="step-label active">General Details</div>
                                 </div>
                     
                                 <!-- Line between Step 1 and Step 2 -->
-                                <div class="w-1/4 h-0.5 bg-gray-300 mx-4"></div>
+                                <div class="w-[80px] h-0.5 bg-[#0076aa]"></div>
                     
                                 <!-- Step 2 -->
-                                <div id="step2" class="relative text-center step-circle active">
+                                <div id="step2" class="relative text-center step-circle qrQr active">
                                     <span class="step-number">2</span>
                                     <div class="step-label">QR Code</div>
                                 </div>
                     
                                 <!-- Line between Step 2 and Step 3 -->
-                                <div class="w-1/4 h-0.5 bg-gray-300 mx-4"></div>
+                                <div class="w-[80px] mr-10 h-0.5 bg-gray-300"></div>
                     
                                 <!-- Step 3 -->
-                                <div id="step3" class="relative text-center step-circle ">
-                                    <span class="step-number">3</span>
+                                <div id="step3" class="relative text-center step-circle finishQr">
+                                    <span class="step-number finishQrNumber3">3</span>
                                     <div class="step-label">Finish Registration</div>
                                 </div>
                             </div>
-                            <h1 class="text-3xl font-bold text-gray-800 mb-5">Generated QR Code</h1>
+                            <h1 class="text-3xl font-bold text-gray-800 mb-5 pt-20 pb-5">Generated QR Code</h1>
                             <!-- QR Code Section -->
                             <div class="flex justify-center items-center mb-8">
                                 <div class="w-[300px] h-[300px] flex justify-center items-center rounded-lg">
@@ -258,34 +260,34 @@
                             <h2 class="text-4xl font-semibold text-center text-slate-900 mb-6">Register</h2>
                     
                             <!-- Progress Tracker -->
-                            <div class="flex justify-center items-center p-4 mb-10 relative">
+                            <div class="flex justify-center items-center relative">
                                 <!-- Step 1 -->
-                                <div id="genDetails" class="relative text-center step-circle mr-10">
-                                    <span class="step-number">1</span>
-                                    <div class="step-label">General Details</div>
+                                <div class="relative text-center step-circle">
+                                    <span class="step-number active">1</span>
+                                    <div class="step-label active genDetailsFinished">General Details</div>
                                 </div>
                     
                                 <!-- Line between Step 1 and Step 2 -->
-                                <div class="w-1/4 h-0.5 bg-gray-300 mx-4"></div>
+                                <div class="w-[80px] h-0.5 mx-4 bg-[#0076aa]"></div>
                     
                                 <!-- Step 2 -->
-                                <div id="step2" class="relative text-center step-circle">
+                                <div id="step2" class="relative text-center step-circle active">
                                     <span class="step-number">2</span>
-                                    <div class="step-label">QR Code</div>
+                                    <div class="step-label qrFinished ">QR Code</div>
                                 </div>
                     
                                 <!-- Line between Step 2 and Step 3 -->
-                                <div class="w-1/4 h-0.5 bg-gray-300 mx-4"></div>
+                                <div class="w-[80px] h-0.5 bg-[#0076aa] mx-4"></div>
                     
                                 <!-- Step 3 -->
                                 <div id="step3" class="relative text-center step-circle active">
                                     <span class="step-number">3</span>
-                                    <div class="step-label">Finish Registration</div>
+                                    <div class="step-label finishFinished">Finish Registration</div>
                                 </div>
                             </div>
                     
                             <!-- "Finished Registration!" Text -->
-                            <h1 class="text-5xl font-bold text-gray-800 mb-36 py-28">Finished Registration!</h1>
+                            <h1 class="text-4xl font-semibold text-gray-800 mb-36 py-28">Finished Registration!</h1>
                     
                             <!-- Finish Button -->
                             <div class="flex justify-center">
