@@ -35,7 +35,7 @@ p, li, span {
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     box-shadow: rgba(1, 1, 1, 0.1) 100px 100px 80px;
-    height: 85vh;
+    height: 83vh;
     overflow-x: auto;
     display: flex;
     flex-direction: column;
