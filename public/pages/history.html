@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parking History</title>
+    <link rel="stylesheet" href="/src/css/history.css">
+    <link rel="stylesheet" href="/src/css/sidebar.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+</head>
+<body>
+    <div class="container">
+        <app-sidebar></app-sidebar>
+<div class="dropdown-container">
+    <div class="dropdown">
+        <button id="dropdownBtn">All</button>
+        <div id="dropdownContent" class="dropdown-content">
+            <div id="allOption">All</div>
+            <div id="calendarOption">Calendar</div>
+        </div>
+        <input type="text" id="datePicker" style="display: none;" />
+    </div>
+    
+</div>
+<input type="text" id="searchInput" placeholder="Search logs...">
+
+        <div id="tablesContainer">
+        </div>
+    </div>
+    <div id="paginationControls">
+        <button id="prevPage">Previous</button>
+        <span id="pageIndicator">Page 1</span>
+        <button id="nextPage">Next</button>
+    </div>
+    <script type="module" src="/app.js"></script> 
+    <script type="module" src="/src/scripts/auth/auth.js"></script>
+    <script type="module" src="/src/js/history.js"></script> 
+    <script type="module" src="/src/js/loadSidebar.js"></script> 
+</body>
+</html>

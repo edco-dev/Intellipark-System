@@ -1,0 +1,35 @@
+# Node modules
+node_modules/
+
+# Build output (if you're using Parcel, change as needed)
+dist/
+build/
+
+# Log files
+logs
+*.log
+
+# Environment variables
+.env
+.env.local
+
+# OS specific files
+.DS_Store        # macOS
+Thumbs.db        # Windows
+
+# Temporary files
+tmp/
+*.tmp
+
+# Coverage directory for testing
+coverage/
+
+# IDE specific files (add your own if using different IDEs)
+.idea/
+.vscode/
+# Parcel cache
+.parcel-cache/
+# Package lock files
+package-lock.json  # Uncomment if you want to keep it, needed for npm install
+yarn.lock          # Uncomment if you are using Yarn instead of npm
+serviceAccountKet.json

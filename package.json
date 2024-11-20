@@ -1,0 +1,24 @@
+{
+  "name": "intellipark",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "parcel serve index.html",
+    "build": "parcel build index.html --no-autoinstall --no-cache --no-scope-hoist --no-content-hash"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "firebase": "^11.0.1",
+    "jquery": "^3.7.1",
+    "punycode": "^2.3.1"
+  },
+  "devDependencies": {
+    "buffer": "^6.0.3",
+    "parcel": "^2.12.0",
+    "process": "^0.11.10"
+  }
+}

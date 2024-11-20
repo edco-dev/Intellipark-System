@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/src/css/register.css">
+    <link rel="stylesheet" href="/src/css/sidebar.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.0/qrious.min.js"></script>
+    <title>IntelliPark System</title>
+</head>
+<body>
+    <div class="register-page-container">
+        <app-sidebar class="app-sidebar"></app-sidebar>
+        <div class="main-content">
+            <div class="navbar">
+                <h2 class="reg-title">Register</h2>
+                <a href="/public/pages/registration/visitor.html" class="add-visitor-link">Add Visitor</a>
+            </div>
+            
+            <!-- Registration Form -->
+             <div class="card-body">
+                <h1>Register</h1>
+                <div class="stage-text">
+                    <p class="active-page">1 General Details </p>|
+                    <p>2 QR Code </p>|
+                    <p>3 Finish Registration</p>
+                </div>
+                
+                    
+                <form id="driverForm" class="registration-form">
+
+                    <div class="form-container">
+                        <div class="form-group">
+                            <div class="labelText">
+                                <label for="firstName">First Name</label>
+                            </div>
+                            <div class="inputLabel">
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+                        </div>
+                    
+                        <div class="form-group">
+                            <div class="labelText">
+                                <label for="middleInitials">Middle Initials</label>
+                            </div>
+                           <div class="inputLabel">
+                            <input type="text" id="middleInitials" name="middleInitials" maxlength="1">
+                           </div>
+                        </div>
+        
+                        <div class="form-group">
+                            <div class="labelText">
+                                <label for="lastName">Last Name</label>
+                            </div>
+                            <div class="inputLabel">
+                                <input type="text" id="lastName" name="lastName" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-container">
+                        <div class="form-group">
+                            <div class="labelText">
+                                <label for="gender">Gender</label>
+                            </div>
+                            <div class="inputLabel">
+                                <select id="gender" name="gender" required>
+                                    <option value="">Select</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                    
+                        <div class="form-group">
+                            <div class="labelText">
+                                <label for="age">Age</label>
+                            </div>
+                           <div class="inputLabel">
+                            <input type="number" id="age" name="age" required>
+                           </div>
+                        </div>
+        
+                        <div class="form-group">
+                            <div class="labelText">
+                                <label for="userType">User Type</label>
+                            </div>
+                            <div class="inputLabel">
+                                <select id="userType" name="userType" required>
+                                    <option value="">Select</option>
+                                    <option value="driver">Driver</option>
+                                    <option value="passenger">Passenger</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-container">
+                        <div class="form-group">
+                            <div class="labelText">
+                                <label for="contactNumber">Contact Number</label>
+                            </div>
+                            <div class="inputLabel">
+                                <input type="tel" id="contactNumber" name="contactNumber" required>
+                            </div>
+                        </div>
+                    
+                        <div class="form-group">
+                            <div class="labelText">
+                                <label for="emailAddress">Email Address</label>
+                            </div>
+                           <div class="inputLabel">
+                                <input type="email" id="emailAddress" name="emailAddress" required>
+                           </div>
+                        </div>
+        
+                        <div class="form-group">
+                            <div class="labelText">
+                                <label for="address">Address</label>
+                            </div>
+                            <div class="inputLabel">
+                                <input type="text" id="address" name="address" required>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="form-container">
+                        <div class="form-group">
+                            <div class="labelText">
+                                <label for="plateNumber">Plate Number</label>
+                            </div>
+                            <div class="inputLabel">
+                                <input type="text" id="plateNumber" name="plateNumber" required>
+                            </div>
+                        </div>
+                    
+                        <div class="form-group">
+                            <div class="labelText">
+                                <label for="vehicleType">Vehicle Type</label>
+                            </div>
+                           <div class="inputLabel">
+                                <input type="text" id="vehicleType" name="vehicleType" required>
+                           </div>
+                        </div>
+        
+                        <div class="form-group">
+                            <div class="labelText">
+                                <label for="vehicleColor">Vehicle Color</label>
+                            </div>
+                            <div class="inputLabel">
+                                <input type="text" id="vehicleColor" name="vehicleColor" required>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="button-case">
+                        <input type="hidden" name="status" value="0">
+                        <button type="submit" class="submit-btn">Submit</button>
+                    </div>
+                    
+                </form>
+             </div>
+
+             <div class="qr-section" id="qrSection">
+                <h1>Register</h1>
+                <h2>Generated QR Code</h2>
+                <canvas id="qrcode" width="128" height="128"></canvas>
+                <p id="message"></p>
+                <button id="downloadBtn">Download</button>
+                <button id="nextBtn">Next</button>
+            </div>
+        
+            <!-- Confirmation Section -->
+            <div class="confirmation-section" id="confirmationSection">
+                <h1>Register</h1>
+                <h2>Finished Registration!</h2>
+                <button id="finishBtn">Finish</button>
+            </div>
+        
+            
+        </div>
+    </div>
+
+    <script type="module" src="/app.js"></script>
+    <script type="module" src="/src/js/register.js"></script>
+    <script type="module" src="/src/js/loadSidebar.js"></script>
+    <script type="module" src="/src/scripts/auth/auth.js"></script>
+</body>
+</html>

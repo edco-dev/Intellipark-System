@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Intellipark System - Login</title>
+    <link rel="stylesheet" href="/src/css/login.css">
+    <link rel="prefetch" href="./public/pages/dashboard/dashboard.html">
+    <link rel="prefetch" href="./public/pages/registration/register.html">
+    <link rel="prefetch" href="./public/pages/registration/visitor.html">
+    <link rel="prefetch" href="./public/pages/drivers-info.html">
+    <link rel="prefetch" href="./public/pages/vehicles-in.html">
+    <link rel="prefetch" href="./public/pages/history.html">
+</head>
+<body>
+    <div class="login-container">
+        <div class="header">
+            <img src="/src/assets/img/carLogo.svg" class="logo" alt="">
+            <h1>INTELLIPARK </br> SYSTEM</h1>
+        </div>
+        <h2>Security Officer</h2>
+        <p class="subLogin-text">Log in with your Parking Officer credentials</p>
+        <form id="loginForm">
+            <div class="input-group">
+                <input type="text" id="email" placeholder=" Username" required>
+            </div>
+            <div class="input-group">
+                <input type="password" id="password" placeholder="Password" required>
+            </div>
+            <button id="loginBtn" type="submit">Log in</button>
+        </form>
+    </div>
+    <script type="module" src="/app.js"></script>
+    <script type="module" src="/src/scripts/auth/login.js"></script>
+</body>
+
+</html>

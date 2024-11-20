@@ -1,0 +1,252 @@
+/* General Styles for the page */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* General Styles for the page */
+.register-page-container {
+    display: flex; /* Flexbox layout for side-by-side alignment */
+    align-items: flex-start; /* Align both elements at the top */
+    height: 100vh; /* Full viewport height */
+    padding: 20px;
+    gap: 20px; /* Space between sidebar and form */
+}
+
+.registration-form {
+    margin-top: 40px;
+}
+
+.main-content {
+    flex: 1; /* The main content (form) takes the remaining space */
+    display: flex;
+    flex-direction: column; /* Stack the form inside the main content */
+    padding: 20px;
+    border-radius: 8px;
+    height: 100%; /* Full height to ensure the form is aligned properly */
+}
+
+.reg-title {
+    font-size: 24px;
+}
+
+.add-visitor-link {
+    text-decoration: none;
+    color: #007BFF;
+    font-weight: bold;
+}
+
+.submit-btn {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.submit-btn:hover {
+    background-color: #0056b3;
+}
+
+.navbar {
+    justify-content: space-between; /* space between them */
+    display: flex;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 20px;
+    border-radius: 9px;
+}
+
+.stage-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 0 auto;
+}
+
+.card-body {
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;  /* Ensures padding is inside the width */
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin: 0 auto;  /* Centers the element horizontally */
+    padding: 50px 100px;  /* Top/Bottom padding 50px, Left/Right padding 100px */
+    margin-top: 2px;
+    border-radius: 9px;
+}
+
+.button-case {
+    margin-top: 20px;
+}
+
+/* Form container (group of form fields) */
+.form-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px; /* Spacing between the form groups */
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+/* Individual Form Group */
+.form-group {
+    flex: 1 1 calc(33.33% - 20px); /* 3 items per row, with space between them */
+    min-width: 280px; /* Minimum width for form groups */
+}
+
+/* Styling for the Label */
+.labelText {
+    color: #353535;
+    margin-bottom: 5px;  /* Space between label and input */
+}
+
+/* Styling for Inputs and Select */
+.inputLabel input,
+.inputLabel select {
+    width: 100%;                /* Make inputs and selects full width */
+    padding: 0.375rem 0.75rem;  /* Padding inside inputs */
+    font-size: 1rem;            /* Font size */
+    border: 1px solid #ced4da;  /* Border similar to Bootstrap */
+    border-radius: 0.25rem;     /* Rounded corners */
+    box-sizing: border-box;     /* Includes padding in element width */
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; /* Smooth transition */
+}
+
+/* Input focus state */
+.inputLabel input:focus,
+.inputLabel select:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.25rem rgba(38, 143, 255, 0.25); /* Focus shadow */
+    outline: none;
+}
+
+/* Submit Button Styling */
+.submit-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #0056b3;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="number"]:focus,
+select:focus {
+    border-color: #007bff;
+    box-shadow: 0px 2px 6px rgba(0, 123, 255, 0.3);
+}
+
+.active-page {
+    color: #007bff;
+}
+
+/* QR Section */
+.qr-section {
+    display: none;
+    text-align: center;
+    background-color: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+#qrcode {
+    margin: 20px 0;
+}
+
+/* QR Button Styles */
+#downloadBtn,
+#nextBtn {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 10px;
+}
+
+#downloadBtn:hover,
+#nextBtn:hover {
+    background-color: #218838;
+}
+
+/* Confirmation Section */
+.confirmation-section {
+    display: none;
+    text-align: center;
+    background-color: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+#finishBtn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#finishBtn:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .register-page-container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .app-sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+
+    .card-body {
+        padding: 20px;
+    }
+
+    .qr-section,
+    .confirmation-section {
+        padding: 20px;
+    }
+}

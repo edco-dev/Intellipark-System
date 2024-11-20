@@ -1,0 +1,225 @@
+body {
+    font-family: 'Arial', sans-serif; /* Modern font for better readability */
+    background-color: #f5f5f5; /* Light background for contrast */
+    margin: 0;
+}
+
+
+.drivers-info-container {
+    display: flex; /* Use flexbox for sidebar and main content */
+    height: 100vh; /* Full height of the viewport */
+    background-color: #f0f0f0; /* Background color for the entire page */
+}
+
+
+.navbar {
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding: 20px; /* Increased padding for a more spacious feel */
+    border-radius: 10px;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-between; /* Space between title and search */
+    align-items: center; /* Center items vertically */
+}
+
+.navbar h1 {
+    margin: 0;
+    font-size: 24px;
+    color: #333; /* Darker text for better visibility */
+}
+
+#searchInput {
+    padding: 10px;
+    border-radius: 15px;
+    border: 1px solid #808080;
+    width: 300px; /* Fixed width for better layout */
+    transition: border-color 0.3s;
+}
+
+#searchInput:focus {
+    border-color: #4AA5FF; /* Highlighted border on focus */
+    outline: none; /* Remove default outline */
+}
+
+/* Id style configurations modal*/
+#userType{
+    color: #4AA5FF;
+    font-size: 35px;
+}
+
+#driverName {
+    font-size: 25px;
+    font-weight: 600;
+}
+
+#plateNumber {
+    margin-top: -20px;
+    font-size: 15px ;
+}
+
+#qrCodeCanvas {
+    width: 128px;
+    height: 128px;
+}
+
+.qrStyle {
+    margin-top: -20px;
+    
+}
+
+#downloadQRBtn {
+    background-color: #353535;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 20px;
+    color: #ffffff;
+}
+
+#closePopupBtn {
+    background-color: #4AA5FF;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 20px;
+    color: #ffffff;
+}
+
+
+h2 {
+    margin: 0 0 20px; /* Space below the title */
+    font-size: 20px; /* Title font size */
+    color: #333; /* Consistent color */
+}
+
+.card-body {
+    background-color: white; /* White background for the card */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px; /* Subtle shadow for depth */
+    margin-top: 20px;
+    height: 70vh;
+    overflow-x: auto; /* Allows horizontal scrolling if needed */
+}
+
+table {
+    border-collapse: collapse; /* Merges cell borders */
+    width: 100% !important; /* Set the table width to 80% */
+    margin-left: 0; /* Align the table to the left */
+    margin-top: 20px; /* Space between header and table */
+    font-size: 12px;
+    height: 100vh;
+}
+
+.table-container {
+    height: 400px;  /* Adjust the height to fit your needs */
+    overflow-y: auto;  /* Adds vertical scroll */
+}
+
+thead th {
+    background-color: #4AA5FF; /* Set the background color for the header */
+    padding: 10px; 
+    color: white;
+    font-size: 10px; /* Slightly larger font for better readability */
+    text-align: left;
+    border-bottom: 2px solid #e1e1e1; /* Underline for headers */
+}
+
+tbody td {
+    padding: 12px;
+    border-bottom: 1px solid #e1e1e1; /* Underline for rows */
+    transition: background-color 0.3s; /* Transition effect for hover */
+}
+
+tbody tr:hover {
+    background-color: #f0f8ff; /* Light blue background on hover */
+}
+
+
+.pagination {
+    display: flex;
+    align-items: center; /* Vertically centers items */
+    justify-content: flex-end; /* Align to the right */
+    margin-top: 20px;
+    padding: 10px 0;
+}
+
+.pageButton {
+    background-color: transparent;
+    padding: 10px 15px; /* Added horizontal padding */
+    border: 1px solid #4AA5FF;
+    border-radius: 5px;
+    color: #4AA5FF;
+    cursor: pointer; /* Change cursor to pointer */
+    transition: background-color 0.3s, color 0.3s; /* Transition effects */
+}
+
+.pageButton:hover {
+    background-color: #4AA5FF; /* Highlight button on hover */
+    color: #ffffff; /* Change text color on hover */
+}
+
+.pageButton.active {
+    background-color: #4AA5FF;
+    color: #ffffff;
+}
+
+.paginationText{
+    margin-right: 900px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #searchInput {
+        width: 100%; /* Full width on smaller screens */
+        margin-top: 10px; /* Space above the input */
+    }
+    
+    .pagination {
+        flex-direction: column; /* Stack pagination controls */
+        align-items: flex-start; /* Align to the start */
+    }
+
+    .pagination p {
+        margin-bottom: 10px; /* Space below the page indicator */
+    }
+}
+       /* Popup styles */
+    #qrPopup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+#popupContent {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    text-align: center;
+    position: relative;
+}
+#closePopup {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 18px;
+}
+#qrCodeCanvas {
+    margin: 15px 0;
+}
+
+#qrPopup {
+    display: none;
+}
+
+#currentPage {
+    border: 1px solid #4AA5FF;
+    padding: 9px 15px;
+}
