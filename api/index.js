@@ -11,7 +11,7 @@ const app = express();
 
 // Middleware for CORS
 app.use(cors());
-arduino()
+arduino();
 
 dotenv.config();
 // Firebase setup using environment variables
@@ -114,7 +114,6 @@ app.get('/api/open', async (req, res) => {
 app.get('/api/close', async (req, res) => {
    res.status(200).json(await closeSlot())
 })
-
 // Set up the server to listen on the configured port
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
