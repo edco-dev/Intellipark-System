@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 contactNumber: document.getElementById("contactNumber").value,
                 plateNumber: document.getElementById("plateNumber").value,
                 vehicleType: document.getElementById("vehicleType").value,
-                userType: "Visitor", // Set userType to "Visitor"
+                userType: document.getElementById("userType").value, // Set userType to "Visitor"
                 timestamp: new Date(),
             };
 

@@ -1,5 +1,5 @@
 import { db } from '/app.js';
-import { collection, getDocs, doc, getDoc, addDoc, deleteDoc, updateDoc } from "firebase/firestore";
+import { query, where, collection, doc, getDoc, addDoc, deleteDoc, updateDoc, getDocs } from "firebase/firestore";
 
 let allVehiclesData = [];
 
