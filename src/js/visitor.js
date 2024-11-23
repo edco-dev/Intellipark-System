@@ -1,4 +1,4 @@
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, getDocs, query, where } from "firebase/firestore";
 import { db } from '/app.js';
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -41,13 +41,19 @@ document.addEventListener("DOMContentLoaded", () => {
             };
 
             try {
-                // Add the visitor to the 'drivers' collection
+                // Check the current count of vehicles in the 'vehiclesIn' collection
+                const vehiclesInCollection = collection(db, "vehiclesIn");
+                const vehiclesQuery = query(vehiclesInCollection);
+                const querySnapshot = await getDocs(vehiclesQuery);
+
+                if (querySnapshot.size >= 5) {
+                    alert("Maximum vehicle capacity reached. Cannot add more vehicles.");
+                    return;
+                }
+
+                // Proceed to add the visitor and their vehicle data
                 await addDoc(collection(db, "drivers"), visitorData);
-
-                // Add the visitor's vehicle data (with timeIn and transactionId) to the 'vehiclesIn' collection
-                await addDoc(collection(db, "vehiclesIn"), vehicleInData);
-
-                // Log the vehicle entry to the 'parkingLog' collection
+                await addDoc(vehiclesInCollection, vehicleInData);
                 await addDoc(collection(db, "parkingLog"), parkingLogData);
 
                 alert("Visitor information added successfully to all collections!");
