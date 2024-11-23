@@ -9,10 +9,16 @@ document.addEventListener("DOMContentLoaded", () => {
             e.preventDefault();
 
             // Collecting visitor data from the form
+            const firstName = document.getElementById("firstName").value;
+            const middleName = document.getElementById("middleName").value || "";
+            const lastName = document.getElementById("lastName").value;
+
+            const vehicleOwner = `${firstName} ${middleName} ${lastName}`.trim(); // Combine names into one field
+
             const visitorData = {
-                firstName: document.getElementById("firstName").value,
-                middleName: document.getElementById("middleName").value || "",
-                lastName: document.getElementById("lastName").value,
+                firstName,
+                middleName,
+                lastName,
                 contactNumber: document.getElementById("contactNumber").value,
                 plateNumber: document.getElementById("plateNumber").value,
                 vehicleType: document.getElementById("vehicleType").value,
@@ -29,6 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // Add a timeIn field to the vehicle data when entering
             const vehicleInData = {
                 ...visitorData,
+                vehicleOwner, // Include the combined name as vehicleOwner
                 transactionId,
                 timeIn,
                 date: formattedDate
@@ -53,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 // Proceed to add the visitor and their vehicle data
                 await addDoc(collection(db, "drivers"), visitorData);
-                await addDoc(vehiclesInCollection, vehicleInData);
+                await addDoc(vehiclesInCollection, vehicleInData); // Add to vehiclesIn
                 await addDoc(collection(db, "parkingLog"), parkingLogData);
 
                 alert("Visitor information added successfully to all collections!");
