@@ -174,10 +174,15 @@ function setupSearch() {
 }
 
 function formatTime(date) {
-    const options = { hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true };
-    return date.toLocaleTimeString('en-US', options);
+    const options = { 
+        timeZone: 'Asia/Manila', // Ensure the time is in Philippine Standard Time
+        hour: 'numeric', 
+        minute: 'numeric', 
+        second: 'numeric', 
+        hour12: true 
+    };
+    return date.toLocaleTimeString('en-US', options); // Use 'en-US' for AM/PM style
 }
-
 
 document.getElementById("paginationText").innerText = currentPage;
 document.getElementById("pageTracker").innerText = `Page ${currentPage} of ${Math.ceil(driversData.length / itemsPerPage)}`;
