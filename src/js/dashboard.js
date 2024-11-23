@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-const TOTAL_SLOTS = 50;
+const TOTAL_SLOTS = 5;
 
 function updateDashboard(totalVehicles, availableSlots, vehiclesIn, vehiclesOut) {
     const totalVehiclesElement = document.querySelector('#totalVehicles i');
