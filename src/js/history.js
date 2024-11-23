@@ -78,12 +78,9 @@ function displayLogsByDate(filterDate = null, filteredLogs = null) {
             const row = tbody.insertRow();
             const formattedTransactionId = (index + 1).toString().padStart(3, '0');
 
-            // Combine firstName, middleName, and lastName to form the vehicleOwner
-            const vehicleOwner = `${log.firstName || ''} ${log.middleName || ''} ${log.lastName || ''}`.trim();
-
             row.insertCell(0).innerText = formattedTransactionId;
             row.insertCell(1).innerText = log.plateNumber || "N/A";
-            row.insertCell(2).innerText = vehicleOwner || "N/A"; // Display the combined vehicleOwner
+            row.insertCell(2).innerText = log.vehicleOwner || "N/A"; // Display the combined vehicleOwner
             row.insertCell(3).innerText = log.userType || "N/A";
             row.insertCell(4).innerText = log.vehicleType || "N/A";
             row.insertCell(5).innerText = log.timeIn || "N/A";

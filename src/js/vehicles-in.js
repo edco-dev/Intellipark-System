@@ -30,13 +30,10 @@ function displayVehicles(vehiclesData) {
         // Generate incrementing transaction ID (001, 002, 003, ...)
         const incrementingId = (index + 1).toString().padStart(3, '0');
 
-        // Handle the combination of firstName, middleName, and lastName for vehicle owner
-        const vehicleOwner = `${vehicle.firstName || ''} ${vehicle.middleName || ''} ${vehicle.lastName || ''}`.trim() || "N/A";
-
         // Insert the generated incrementing transaction ID and vehicle data into the row
         row.insertCell(0).innerText = incrementingId;
         row.insertCell(1).innerText = vehicle.plateNumber || "N/A";
-        row.insertCell(2).innerText = vehicleOwner;
+        row.insertCell(2).innerText = vehicle.vehicleOwner;
         row.insertCell(3).innerText = vehicle.contactNumber || "N/A";
         row.insertCell(4).innerText = vehicle.userType || "N/A";
         row.insertCell(5).innerText = vehicle.vehicleType || "N/A";
