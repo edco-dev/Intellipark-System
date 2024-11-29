@@ -2,6 +2,9 @@ import { collection, onSnapshot } from "firebase/firestore";
 import { db, auth } from '/app.js';
 import { onAuthStateChanged } from 'firebase/auth';
 
+const TOTAL_SLOTS_TWO_WHEEL = 5;
+const TOTAL_SLOTS_FOUR_WHEEL = 5;
+
 document.addEventListener('DOMContentLoaded', () => {
     onAuthStateChanged(auth, (user) => {
         if (user) {
@@ -13,47 +16,65 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-const TOTAL_SLOTS = 5;
+function updateDashboard(twoWheelsCount, fourWheelsCount, vehiclesInCount, vehiclesOutCount) {
+    const twoWheelsElement = document.querySelector('#twoWheels h3 i');
+    const fourWheelsElement = document.querySelector('#fourWheels h3 i');
+    const vehiclesInElement = document.querySelector('#vehiclesIn h3 i');
+    const vehiclesOutElement = document.querySelector('#vehiclesOut h3 i');
 
-function updateDashboard(totalVehicles, availableSlots, vehiclesIn, vehiclesOut) {
-    const totalVehiclesElement = document.querySelector('#totalVehicles i');
-    const slotsAvailableElement = document.querySelector('#slotsAvailable i');
-    const vehiclesInElement = document.querySelector('#vehiclesIn i');
-    const vehiclesOutElement = document.querySelector('#vehiclesOut i');
+    if (twoWheelsElement && fourWheelsElement && vehiclesInElement && vehiclesOutElement) {
+        // Update two-wheeled and four-wheeled vehicles with /10 format
+        twoWheelsElement.textContent = `${twoWheelsCount}/${TOTAL_SLOTS_TWO_WHEEL}`;
+        fourWheelsElement.textContent = `${fourWheelsCount}/${TOTAL_SLOTS_FOUR_WHEEL}`;
 
-    if (totalVehiclesElement && slotsAvailableElement && vehiclesInElement && vehiclesOutElement) {
-        totalVehiclesElement.textContent = totalVehicles;
-        slotsAvailableElement.textContent = `${totalVehicles}/${TOTAL_SLOTS}`;
-        vehiclesInElement.textContent = vehiclesIn;
-        vehiclesOutElement.textContent = vehiclesOut;
+        // Calculate total vehicles and display in the vehiclesIn card with /10
+        const totalVehicles = twoWheelsCount + fourWheelsCount;
+        vehiclesInElement.textContent = `${totalVehicles}/10`;  // Combined total with /10 format
+
+        // Update vehicles out count
+        vehiclesOutElement.textContent = vehiclesOutCount;
     } else {
-        console.error('One or more elements were not found in the DOM. Check if #vehiclesOut and others are correctly defined.');
+        console.error('One or more elements were not found in the DOM.');
     }
 }
 
 
-const vehiclesInRef = collection(db, 'vehiclesIn');
-onSnapshot(vehiclesInRef, (snapshot) => {
-    const vehiclesIn = snapshot.size;
-    const totalVehicles = vehiclesIn;
-    const availableSlots = TOTAL_SLOTS - totalVehicles;
-    updateDashboard(totalVehicles, availableSlots, vehiclesIn, 0);
+// Listen for changes in the 'vehicleTwo' collection (2-wheeled vehicles)
+const twoWheelRef = collection(db, 'vehicleTwo');
+onSnapshot(twoWheelRef, (snapshot) => {
+    const twoWheelsCount = snapshot.size;
+
+    // Fetch data for 4-wheeled vehicles and update the dashboard
+    fetchAndUpdateDashboard(twoWheelsCount);
 });
 
-const vehiclesOutRef = collection(db, 'vehiclesOut');
-onSnapshot(vehiclesOutRef, (snapshot) => {
-    const vehiclesOut = snapshot.size;
-    const totalVehicles = document.querySelector('#vehiclesIn i')?.textContent || 0;
-    const availableSlots = TOTAL_SLOTS - totalVehicles;
+// Listen for changes in the 'vehicleFour' collection (4-wheeled vehicles)
+function fetchAndUpdateDashboard(twoWheelsCount) {
+    const fourWheelRef = collection(db, 'vehicleFour');
+    onSnapshot(fourWheelRef, (snapshot) => {
+        const fourWheelsCount = snapshot.size;
 
-    console.log('Vehicles Out Snapshot:', snapshot);
-    console.log('Vehicles Out:', vehiclesOut);
-    console.log('Total Vehicles:', totalVehicles);
-    console.log('Available Slots:', availableSlots);
+        // Fetch data for general vehicles in and out
+        fetchVehiclesInOut(twoWheelsCount, fourWheelsCount);
+    });
+}
 
-    updateDashboard(totalVehicles, availableSlots, totalVehicles, vehiclesOut);
-});
+// Listen for changes in the 'vehiclesIn' and 'vehiclesOut' collections
+function fetchVehiclesInOut(twoWheelsCount, fourWheelsCount) {
+    const vehiclesInRef = collection(db, 'vehiclesIn');
+    const vehiclesOutRef = collection(db, 'vehiclesOut');
 
+    onSnapshot(vehiclesInRef, (snapshot) => {
+        const vehiclesInCount = snapshot.size;
+
+        onSnapshot(vehiclesOutRef, (snapshot) => {
+            const vehiclesOutCount = snapshot.size;
+
+            // Update the dashboard with all data
+            updateDashboard(twoWheelsCount, fourWheelsCount, vehiclesInCount, vehiclesOutCount);
+        });
+    });
+}
 
 document.addEventListener('DOMContentLoaded', () => {
     const sidebarLinks = document.querySelectorAll('.sidebar a[data-section]');

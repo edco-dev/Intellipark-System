@@ -121,8 +121,8 @@
                                     <input type="text" id="firstName" name="firstName" placeholder="Enter first name" class="block w-full h-10 mt-2 px-4 py-2 border-2 border-gray-300 rounded-md placeholder-gray-400 text-sm placeholder:text-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
                                 </div>
                                 <div>
-                                    <label for="middleName" class="block text-gray-700 font-medium">Middle Name</label>
-                                    <input type="text" id="middleName" name="middleName" placeholder="Enter middle name" class="block w-full h-10 mt-2 px-4 py-2 border-2 border-gray-300 rounded-md placeholder-gray-400 text-sm placeholder:text-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                                    <label for="middleName" class="block text-gray-700 font-medium">Middle Initials</label>
+                                    <input type="text" id="middleName" name="middleName" placeholder="Enter initial" maxlength="1" class="block w-full h-10 mt-2 px-4 py-2 border-2 border-gray-300 rounded-md placeholder-gray-400 text-sm placeholder:text-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" oninput="this.value=this.value.toUpperCase().replace(/[^A-Z]/g,'');">                                    
                                 </div>
                                 <div>
                                     <label for="lastName" class="block text-gray-700 font-medium">Last Name</label>
@@ -182,8 +182,11 @@
                                 </div>
                                 <div>
                                     <label for="vehicleType" class="block text-gray-700 font-medium">Vehicle Type</label>
-                                    <input type="text" id="vehicleType" name="vehicleType" placeholder="Enter vehicle type" class="block w-full h-10 mt-2 px-4 py-2 border-2 border-gray-300 rounded-md placeholder-gray-400 text-sm placeholder:text-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
-                                </div>
+                                    <select id="vehicleType" name="vehicleType" class="block w-full h-10 mt-2 px-4 py-2 border-2 border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm" required>
+                                      <option>4 Wheels</option>
+                                      <option>2 Wheels</option>
+                                    </select>                                    
+                                  </div>                                  
                                 <div>
                                     <label for="vehicleColor" class="block text-gray-700 font-medium">Vehicle Color</label>
                                     <input type="text" id="vehicleColor" name="vehicleColor" placeholder="Enter vehicle color" class="block w-full h-10 mt-2 px-4 py-2 border-2 border-gray-300 rounded-md placeholder-gray-400 text-sm placeholder:text-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>

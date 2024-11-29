@@ -23,7 +23,7 @@ async function loadVehiclesOut(filterDate = null) {
 
     // Query vehiclesOut collection, ordered by date in descending order
     let logsQuery = query(
-        collection(db, "vehiclesOut"),
+        collection(db, "parkingLog"),
         orderBy("date", "desc")  // Change to descending order to get the newest logs first
     );
 
@@ -197,7 +197,8 @@ function setupSearchFilter() {
         const filteredLogs = allVehiclesOut.filter(log =>
             (log.plateNumber && log.plateNumber.toLowerCase().includes(query)) || 
             (log.vehicleOwner && log.vehicleOwner.toLowerCase().includes(query)) ||
-            (log.userType && log.userType.toLowerCase().includes(query))
+            (log.userType && log.userType.toLowerCase().includes(query)) ||
+            (log.vehicleType && log.vehicleType.toLowerCase().includes(query))
         );
         displayLogsByDate(null, filteredLogs);
     });

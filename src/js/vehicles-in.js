@@ -57,11 +57,9 @@ function displayVehicles(vehiclesData) {
 }
 
 async function checkoutVehicle(vehicleId) {
-    // Get the modal and modal content elements
     const confirmationModal = document.getElementById('confirmationModal');
     const popupContent = confirmationModal.querySelector('.popup-content');
 
-    // Show the modal with animation
     confirmationModal.classList.remove('hidden');
     setTimeout(() => {
         confirmationModal.classList.remove('opacity-0', 'scale-75');
@@ -70,11 +68,9 @@ async function checkoutVehicle(vehicleId) {
         popupContent.classList.add('opacity-100', 'scale-100');
     }, 10);
 
-    // Handle Yes and No button actions
     const confirmYes = document.getElementById('confirmYes');
     const confirmNo = document.getElementById('confirmNo');
 
-    // Function to close the modal with animation
     const closeModal = () => {
         confirmationModal.classList.add('opacity-0', 'scale-75');
         popupContent.classList.add('opacity-0', 'scale-75');
@@ -85,11 +81,11 @@ async function checkoutVehicle(vehicleId) {
         }, 300);
     };
 
-    // "Yes" button confirms checkout
     confirmYes.onclick = async () => {
-        closeModal(); // Hide the modal with animation
+        closeModal();  // Hide the modal with animation
 
         try {
+            // Get the vehicle data from the vehiclesIn collection
             const vehicleRef = doc(db, "vehiclesIn", vehicleId);
             const vehicleDoc = await getDoc(vehicleRef);
 
@@ -98,31 +94,59 @@ async function checkoutVehicle(vehicleId) {
                 return;
             }
 
-            const timeOut = formatTime(new Date()); // Get the current time for checkout
             const vehicleData = vehicleDoc.data();
             const plateNumber = vehicleData.plateNumber;
+            const vehicleType = vehicleData.vehicleType; // Check the vehicle type
 
-            // Add the vehicle to the "vehiclesOut" collection and remove it from "vehiclesIn"
+            // Get the current time for checkout
+            const timeOut = formatTime(new Date());
+
+            // Add the vehicle to the "vehiclesOut" collection
             await addDoc(collection(db, "vehiclesOut"), { 
                 ...vehicleData, 
                 timeOut 
             });
+
+            // Remove the vehicle from the respective collection (2 Wheels or 4 Wheels)
+            if (vehicleType === "2 Wheels") {
+                // Query the vehicleTwo collection using plateNumber
+                const vehicleTwoQuery = query(collection(db, "vehicleTwo"), where("plateNumber", "==", plateNumber));
+                const vehicleTwoSnapshot = await getDocs(vehicleTwoQuery);
+
+                if (!vehicleTwoSnapshot.empty) {
+                    const vehicleTwoDoc = vehicleTwoSnapshot.docs[0];
+                    await deleteDoc(vehicleTwoDoc.ref);
+                    console.log("Removed vehicle from vehicleTwo collection");
+                } else {
+                    console.log("No matching vehicle found in vehicleTwo collection.");
+                }
+            } else if (vehicleType === "4 Wheels") {
+                // Query the vehicleFour collection using plateNumber
+                const vehicleFourQuery = query(collection(db, "vehicleFour"), where("plateNumber", "==", plateNumber));
+                const vehicleFourSnapshot = await getDocs(vehicleFourQuery);
+
+                if (!vehicleFourSnapshot.empty) {
+                    const vehicleFourDoc = vehicleFourSnapshot.docs[0];
+                    await deleteDoc(vehicleFourDoc.ref);
+                    console.log("Removed vehicle from vehicleFour collection");
+                } else {
+                    console.log("No matching vehicle found in vehicleFour collection.");
+                }
+            }
+
+            // Remove the vehicle from the "vehiclesIn" collection
             await deleteDoc(vehicleRef);
 
             // Log the timeOut in the parkingLog collection
             const parkingLogRef = collection(db, "parkingLog");
             const parkingLogQuery = query(parkingLogRef, where("plateNumber", "==", plateNumber));
 
-            console.log("Searching for parking log with plate number:", plateNumber);
-
             const parkingLogSnapshot = await getDocs(parkingLogQuery);
 
             if (!parkingLogSnapshot.empty) {
                 const parkingLogDoc = parkingLogSnapshot.docs[0]; // Get the first matching document
-                console.log("Parking log found. Updating timeOut...");
 
-                // Update the parkingLog with the timeOut
-                await updateDoc(parkingLogDoc.ref, {
+                await updateDoc(parkingLogDoc.ref, { 
                     timeOut // Set the actual timeOut when the vehicle checks out
                 });
 
@@ -139,9 +163,9 @@ async function checkoutVehicle(vehicleId) {
         }
     };
 
-    // "No" button cancels the action and closes the modal
     confirmNo.onclick = closeModal;
 }
+
 
 
 

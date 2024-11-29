@@ -92,8 +92,8 @@
                                     <input type="text" id="firstName" placeholder="Enter first name" class="block w-full h-10 px-3 mt-1 border-2 border-gray-200 rounded-md placeholder-gray-400 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
                                 </div>
                                 <div>
-                                    <label for="middleName" class="block font-medium text-gray-700 text-md">Middle Name</label>
-                                    <input type="text" id="middleName" placeholder="Enter middle name" class="block w-full h-10 px-3 mt-1 border-2 border-gray-200 rounded-md placeholder-gray-400 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                                    <label for="middleName" class="block font-medium text-gray-700 text-md">Middle Initials</label>
+                                    <input type="text" id="middleName" name="middleName" placeholder="Enter initial" maxlength="1" class="block w-full h-10 mt-1 px-4 py-2 border-2 border-gray-200 rounded-md placeholder-gray-400 text-sm placeholder:text-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" oninput="this.value=this.value.toUpperCase().replace(/[^A-Z]/g,'');">                                    
                                 </div>
                                 <div>
                                     <label for="lastName" class="block font-medium text-gray-700 text-md">Last Name</label>
@@ -116,15 +116,16 @@
                             <!-- Vehicle Type and User Type Fields -->
                             <div class="grid grid-cols-2 gap-4">
                                 <div>
-                                    <label for="vehicleType" class="block font-medium text-gray-700 text-md">Vehicle Type</label>
-                                    <input type="text" id="vehicleType" placeholder="Enter vehicle type" class="block w-full h-10 px-3 mt-1 border-2 border-gray-200 rounded-md placeholder-gray-400 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
+                                    <label for="vehicleType" class="block text-gray-700 font-medium">Vehicle Type</label>
+                                    <select id="vehicleType" name="vehicleType" class="block w-full h-10 mt-1 px-4 py-2 border-2 border-gray-200 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm" required>
+                                      <option>4 Wheels</option>
+                                      <option>2 Wheels</option>
+                                    </select> 
                                 </div>
                                 <div>
                                     <label for="userType" class="block font-medium text-gray-700 text-md">User Type</label>
                                     <select id="userType" name="userType" class="block w-full h-10 px-3 mt-1 border-2 border-gray-200 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
-                                        <option selected>Professor</option>
-                                        <option selected>Employee</option>
-                                        <option selected>Student</option>
+                                      <option value="Visitor" selected readonly>Visitor</option>
                                     </select>
                                 </div>
                             </div>

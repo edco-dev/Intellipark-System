@@ -21,8 +21,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 lastName,
                 contactNumber: document.getElementById("contactNumber").value,
                 plateNumber: document.getElementById("plateNumber").value,
-                vehicleType: document.getElementById("vehicleType").value,
-                userType: document.getElementById("userType").value, // Set userType to "Visitor"
+                vehicleType: document.getElementById("vehicleType").value,  // '2 Wheels' or '4 Wheels'
+                userType: document.getElementById("userType").value,  // Set userType to "Visitor"
                 timestamp: new Date(),
             };
 
@@ -53,12 +53,39 @@ document.addEventListener("DOMContentLoaded", () => {
                 const vehiclesQuery = query(vehiclesInCollection);
                 const querySnapshot = await getDocs(vehiclesQuery);
 
-                if (querySnapshot.size >= 5) {
+                if (querySnapshot.size >= 10) {
                     alert("Maximum vehicle capacity reached. Cannot add more vehicles.");
                     return;
                 }
 
-                // Proceed to add the visitor and their vehicle data
+                // Check if the selected vehicle is two-wheeled or four-wheeled and limit slots accordingly
+                if (visitorData.vehicleType === "2 Wheels") {
+                    const twoWheelsCollection = collection(db, "vehicleTwo");
+                    const twoWheelsQuery = query(twoWheelsCollection);
+                    const twoWheelsSnapshot = await getDocs(twoWheelsQuery);
+
+                    if (twoWheelsSnapshot.size >= 5) {
+                        alert("Maximum capacity for 2-wheeled vehicles reached.");
+                        return;
+                    }
+
+                    // Add to the 'vehicleTwo' collection if there is space
+                    await addDoc(twoWheelsCollection, vehicleInData);
+                } else if (visitorData.vehicleType === "4 Wheels") {
+                    const fourWheelsCollection = collection(db, "vehicleFour");
+                    const fourWheelsQuery = query(fourWheelsCollection);
+                    const fourWheelsSnapshot = await getDocs(fourWheelsQuery);
+
+                    if (fourWheelsSnapshot.size >= 5) {
+                        alert("Maximum capacity for 4-wheeled vehicles reached.");
+                        return;
+                    }
+
+                    // Add to the 'vehicleFour' collection if there is space
+                    await addDoc(fourWheelsCollection, vehicleInData);
+                }
+
+                // Proceed to add the visitor and their vehicle data to common collections
                 await addDoc(collection(db, "drivers"), visitorData);
                 await addDoc(vehiclesInCollection, vehicleInData); // Add to vehiclesIn
                 await addDoc(collection(db, "parkingLog"), parkingLogData);
