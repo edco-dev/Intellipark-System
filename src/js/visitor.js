@@ -3,17 +3,24 @@ import { db } from '/app.js';
 
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("visitorForm");
+    let isSubmitting = false; // Flag to prevent multiple submissions
 
     if (form) {
         form.addEventListener("submit", async (e) => {
             e.preventDefault();
+
+            if (isSubmitting) return; // Block if a submission is already in progress
+            isSubmitting = true; // Set flag to block further submissions
+
+            const submitButton = form.querySelector('button[type="submit"]');
+            submitButton.disabled = true; // Disable the submit button to prevent spam
 
             // Collecting visitor data from the form
             const firstName = document.getElementById("firstName").value;
             const middleName = document.getElementById("middleName").value || "";
             const lastName = document.getElementById("lastName").value;
 
-            const vehicleOwner = `${firstName} ${middleName} ${lastName}`.trim(); // Combine names into one field
+            const vehicleOwner = `${firstName} ${middleName} ${lastName}`.trim();
 
             const visitorData = {
                 firstName,
@@ -21,34 +28,30 @@ document.addEventListener("DOMContentLoaded", () => {
                 lastName,
                 contactNumber: document.getElementById("contactNumber").value,
                 plateNumber: document.getElementById("plateNumber").value,
-                vehicleType: document.getElementById("vehicleType").value,  // '2 Wheels' or '4 Wheels'
-                userType: document.getElementById("userType").value,  // Set userType to "Visitor"
+                vehicleType: document.getElementById("vehicleType").value,
+                userType: document.getElementById("userType").value,
                 timestamp: new Date(),
             };
 
-            // Generate a unique transactionId based on the current timestamp and plateNumber
             const date = new Date();
             const transactionId = `${date.getTime()}-${visitorData.plateNumber}`;
             const formattedDate = date.toISOString().split('T')[0];
             const timeIn = date.toLocaleTimeString();
 
-            // Add a timeIn field to the vehicle data when entering
             const vehicleInData = {
                 ...visitorData,
-                vehicleOwner, // Include the combined name as vehicleOwner
+                vehicleOwner,
                 transactionId,
                 timeIn,
-                date: formattedDate
+                date: formattedDate,
             };
 
-            // Add the same data to the parkingLog collection for logging
             const parkingLogData = {
                 ...vehicleInData,
                 timeOut: null,
             };
 
             try {
-                // Check the current count of vehicles in the 'vehiclesIn' collection
                 const vehiclesInCollection = collection(db, "vehiclesIn");
                 const vehiclesQuery = query(vehiclesInCollection);
                 const querySnapshot = await getDocs(vehiclesQuery);
@@ -58,7 +61,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     return;
                 }
 
-                // Check if the selected vehicle is two-wheeled or four-wheeled and limit slots accordingly
                 if (visitorData.vehicleType === "2 Wheels") {
                     const twoWheelsCollection = collection(db, "vehicleTwo");
                     const twoWheelsQuery = query(twoWheelsCollection);
@@ -69,7 +71,6 @@ document.addEventListener("DOMContentLoaded", () => {
                         return;
                     }
 
-                    // Add to the 'vehicleTwo' collection if there is space
                     await addDoc(twoWheelsCollection, vehicleInData);
                 } else if (visitorData.vehicleType === "4 Wheels") {
                     const fourWheelsCollection = collection(db, "vehicleFour");
@@ -81,20 +82,21 @@ document.addEventListener("DOMContentLoaded", () => {
                         return;
                     }
 
-                    // Add to the 'vehicleFour' collection if there is space
                     await addDoc(fourWheelsCollection, vehicleInData);
                 }
 
-                // Proceed to add the visitor and their vehicle data to common collections
                 await addDoc(collection(db, "drivers"), visitorData);
-                await addDoc(vehiclesInCollection, vehicleInData); // Add to vehiclesIn
+                await addDoc(vehiclesInCollection, vehicleInData);
                 await addDoc(collection(db, "parkingLog"), parkingLogData);
 
                 alert("Visitor information added successfully to all collections!");
-                form.reset(); // Reset the form after successful submission
+                form.reset(); // Reset the form
             } catch (error) {
                 console.error("Error adding visitor information:", error);
                 alert("There was an error. Please try again.");
+            } finally {
+                isSubmitting = false; // Reset flag
+                submitButton.disabled = false; // Re-enable the submit button
             }
         });
     } else {
